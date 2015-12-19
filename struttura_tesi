@@ -61,7 +61,25 @@
 				e mantenimento di un blog nel quale vengono inseriti sia suggerimenti su come usare gli strumenti messi a
 				disposizione dall'azienda sia fatti, eventi e curiosità che possono stuzzicare la mente del lettore. L'azienda
 				prevede del personale dedicato esclusivamente a ciascuna di queste due aree.
-			1.3.3.6 COMUNICAZIONE
+			1.3.3.6 COMUNICAZIONE NELL'AZIENDA
 				Qui descrivo sia il modo in cui si comunica in azienda (prevalentemente contatti informali, fortemente basati sulle
 				relazioni, senza la presenza di una struttura gerarchica o di un forte grado di controllo) sia gli strumenti e/o le
 				tecnologie utilizzati per fare ciò
+	1.4 SVILUPPO SOFTWARE
+		1.4.1 METODOLOGIA DI LAVORO
+			1.4.1.1 DALL'IDEA AL PRODOTTO
+				Descrizione generale di come nell'azienda un'idea nasca, cresca e venga infine sviluppata. In particolare sottolineo
+				come un'idea derivi solitamente da uno dei meeting mensili fatti tutti insieme. Proseguo dicendo come l'idea viene
+				sviluppata e come si crei eventualmente un piccolo gruppo che prosegue nella definizione e nello sviluppo dei
+				concetti elaborati dall'intero team. Dico infine che in base alla tipologia di prodotto questo venga testato solo
+				internamente o anche con l'aiuto di beta tester esterni all'azienda
+			1.4.1.2 ANALISI DEI REQUISITI
+				Descrivo come si svolge l'analisi dei requisiti. Essa è molto informale ed è aperta non solo agli sviluppatori, ma
+				anche ad altri ruoli aziendali. Descrivo inoltre come l'informale "documentazione" (immagini, diagrammi, appunti)
+				viene prodotta e poi memorizzata
+			1.4.1.3 PROGETTAZIONE E CODIFICA
+			1.4.1.4 BETA TESTING
+		1.4.2 TECNOLOGIE E STRUMENTI UTILIZZATI
+			1.4.2.1 AMBIENTI DI LAVORO: DEVELOPMENT, TEST E PRODUCTION
+				1.4.2.1.1 VAGRANT
+	1.5 PROPENSIONE ALL'INNOVAZIONE
