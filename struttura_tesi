@@ -121,14 +121,29 @@
 				Descrivo l'SDK che devo realizzare utilizzando le API e i services messi a disposizione da pastbook. Descrivo le
 				funzionalità minime (e massime) che tale prodotto deve avere. Inquadro tale prodotto all'interno degli obiettivi
 				aziendali futuri.
-			2.2.1.2 MYYEAR APP
+			2.2.1.2 MY YEAR PHOTO BOOK
 				Descrivo il prodotto principale che deve essere realizzato durante lo stage, un'applicazione per iphone e android
 				che replichi le funzionalità offerte dall'azienda nel sito web. Descrivo come tale prodotto faccia uso dell'SDK
 				di cui ho parlato in precedenza. Descrivo come tale prodotto sia fondamentale per la strategia aziendale e in
 				generale per perseguire gli obietivi di cui ho parlato in precedenza.
 		2.2.2 TECNOLOGIE
-			2.2.2.1 APPCELERATOR TITANIUM
-			2.2.2.2
+			2.2.2.1 APPCELERATOR PLATFORM
+				Descrivo tutti i prodotti appartenenti alla piattaforma Appcelerator che mi è stato richiesto di utilizzare
+				(Titanium SDK e Appcelerator CLI) e che ho scelto personalmente di utilizzare (Titanium Studio e Alloy Framework).
+				Per ognuno di essi indico lo scopo e l'ambito in cui sono utilizzati. Descrivo infine i pregi di tali tecnologie
+				rispetto ad altre simili.
+			2.2.2.2 STRIPE
+				Descrivo brevemente la suite di API che l'azienda ha deciso di utilizzare per implementare un form di checkout
+				all'interno dell' applicazioni mobile. Descrivo i vantaggi che tale tecnologia ha rispetto ad altre simili.
+			2.2.2.2 HOCKEYAPP
+				Descrivo la piattaforma che l'azienda ha deciso di utilizzare per la distribuzione dell'applicazione durante il
+				beta testing e per il report dei crash dell'applicazione stessa. Descrivo l'utilità che essa ha durante l'analisi
+				dei dati e del bug fixing.
+			2.2.2.3 GOOGLE ANALYTICS E GOOGLE TAG MANAGER
+				Descrivo la tecnologia utilizzata dall'azienda all'interno di altri prodotti (google analytics) e quella che mi è
+				stato richiesto di utilizzare (google tag manager) all'interno dell'applicazione per poter inviare dati utili
+				riguardanti l'uso che gli utenti fanno di essa. Descrivo come i dati inviati tramite il tag manager possano essere
+				elaborati, utilizzati e visualizzati utilizzando google analytics.
 		2.2.3 SCADENZE
 			Descrivo i vincoli temporali che l'azienda si aspetta che io segua. Faccio riferimento al fatto che tali vincoli sono molto
 			importanti per l'azienda in quanto essa si aspetta di utilizzare i prodotti da me realizzati fin da subito, durante il
@@ -137,4 +152,23 @@
 			Descrivo i vincoli metodologici, ovvero la metodologia di lavoro che sono tenuto a seguire in azienda per poter collaborare
 			al meglio con gli altri membri del team. Descrivo come ci si aspetta che io lavori per poter controllare che gli obiettivi
 			vengano raggiunti e le scadenze (di cui ho parlato in precedenza) siano rispettate.
-	2.3 MOTIVAZIONI PER CUI HO INTRAPRESO LO STAGE
+	2.3 SCELTA DELLO STAGE
+		2.3.1 MOTIVAZIONI PER CUI HO INTRAPRESO LO STAGE
+			2.3.1.1 AMBIENTE INTERNAZIONALE
+				Descrivo come sia stato decisivo il fatto che l'ambiente fosse internazionale e composto da persone con competenze,
+				obiettivi, passioni e anche culture completamente differenti. Descrivo come mi abbia attirato poter intraprendere
+				un'esperienza più vasta e che non comprendesse solo l'inserimento nel mondo del lavoro ma anche l'entrare a contatto
+				con idee, pensieri e opinioni di un immenso ecosistema di startup quale è Amsterdam.
+			2.3.1.2 UTILIZZO DI TITANIUM
+				Descrivo come mi abbia attratto molto il framework Titanium. Aggiungo come in particolare mi abbia attratto il
+				progetto di poter sviluppare in un solo linguaggio (peraltro già largamente usato in molti ambiti) la stessa
+				applicazione per sistemi operativi diversi.
+			2.3.1.3 DIMENSIONE RIDOTTA DELL'AZIENDA E INFORMALITA' NEI RAPPORTI
+				Descrivo come mi abbia spaventato essere subito inserito all'interno di un'azienda medio/grande per paura di non
+				essere sufficientemente seguito nei momenti di difficoltà. Temevo inoltre di non poter avere una visione d'insieme
+				dell'ambiente in cui ero inserito e quindi di essere in qualche modo isolato al solo "reparto sviluppo" senza avere
+				la possibilità di imparare come competenze e compiti diversi coesistono e collaborano. Descrivo come il fatto che
+				l'azienda fosse di dimensioni ridotte e i rapporti tra colleghi informali mi abbiano convinto da questo punto di
+				vista.
+		2.3.2 ASPETTATIVE
+			2.3.2.1 
