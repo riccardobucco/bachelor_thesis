@@ -200,10 +200,34 @@
 3 SINTESI DELLE ATTIVITA' SVOLTE DURANTE LO STAGE
 	3.1 METODOLOGIA AGILE
 		3.1.1 PIANIFICAZIONE DI ITERAZIONI IN MODO ADATTATIVO
+			Descrivo come mi sia adattato al modo di lavorare dell'azienda. Infatti essa raramente ha presente fin dall'inizio tutti i
+			requisiti che devono essere soddisfatti. Preferiscono piuttosto un metodo di lavoro che preveda una pianificazione molto
+			generica iniziale (che fissa i momenti nei quali si deve consegnare qualcosa o la durata delle varie iterazioni piuttosto
+			che lo scopo da raggiungere in ogni periodo) e si adatti poi agli sviluppi che avvengono a lavoro in corso.
 		3.1.2 COINVOLGIMENTO DIRETTO E CONTINUO DEL CLIENTE
 		3.1.3 CONSEGNE FREQUENTI
-		3.1.4 PAIR PROGRAMMING
-	3.2 
+	3.2 CONFIGURAZIONE DELL'AMBIENTE DI LAVORO
+		3.2.1 CONFIGURAZIONE DELLE MACCHINE VIRTUALI
+		3.2.2 INSTALLAZIONE DI TITANIUM E DELLE RELATIVE DIPENDENZE
+		3.2.3 SCELTA E CONFIGURAZIONE DEGLI EMULATORI DI DISPOSITIVI MOBILE
+	3.3 FORMAZIONE
+		3.3.1 STUDIO E PREPARAZIONE PERSONALE
+		3.3.2 PAIR PROGRAMMING
+	ESAMINAZIONE DEI PRINCIPALI PROBLEMI
+		CRITICITA' RISCONTRATE USANDO TITANIUM
+			DOCUMENTAZIONE SCADENTE E COMMUNITY LIMITATA
+				Racconto come un forte limite di tale prodotto sia la presenza di una documentazione scritta male, molto variabile
+				e talvolta anche errata. A questo si aggiunge il fatto che la community online sia di dimensioni molto ridotte.
+				Tutto ciò comporta che spesso lo sviluppatore si trovi a dover risolvere i problemi che sorgono senza poter contare
+				sull'aiuto di questi due importanti strumenti.
+			SVILUPPO CROSS-PLATFORM IMPOSSIBILE
+				Descrivo come quello che dovrebbe essere un punto di forza di tale tecnologia (poter sviluppare in modo
+				cross-platform) non sia in realtà del tutto verificato. Porto la mia esperienza dicendo come dopo le difficoltà
+				iniziali l'azienda abbia deciso di dividere in due parti lo sviluppo dell'applicazione Android e di quella iOS.
+			PRESENZA DI BUG
+				Descrivo come durante la mia esperienza mi sia capitato di trovare bug abbastanza seri e che rendevano quasi del
+				tutto inutilizzabili alcune API messe a disposizione dall'SDK.
+		DIFFICOLTA' DOVUTE AL METODO DI LAVORO
 4 RESOCONTO RETROSPETTIVO
 	4.1 RESOCONTO DEL RAGGIUNGIMENTO DEGLI OBIETTIVI AZIENDALI
 		4.1.1 FUNZIONALITA' DEL PRODOTTO
@@ -235,19 +259,6 @@
 				aiuto o semplicemente discutere su alcune nostre opinioni. Aggiungo come questa cosa mi abbia permesso di ottenere
 				numerosi spunti sia per il prodotto che stavo realizzando che per aiutarmi a vedere molte cose sotto punti di vista
 				differenti (non solo il punto di vista strettamente informatico, ma anche economico, sociale, comunicativo).
-		4.2.4 CRITICITA' RISCONTRATE USANDO TITANIUM
-			4.2.4.1 DOCUMENTAZIONE SCADENTE E COMMUNITY LIMITATA
-				Racconto come un forte limite di tale prodotto sia la presenza di una documentazione scritta male, molto variabile
-				e talvolta anche errata. A questo si aggiunge il fatto che la community online sia di dimensioni molto ridotte.
-				Tutto ciò comporta che spesso lo sviluppatore si trovi a dover risolvere i problemi che sorgono senza poter contare
-				sull'aiuto di questi due importanti strumenti.
-			4.2.4.2 SVILUPPO CROSS-PLATFORM IMPOSSIBILE
-				Descrivo come quello che dovrebbe essere un punto di forza di tale tecnologia (poter sviluppare in modo
-				cross-platform) non sia in realtà del tutto verificato. Porto la mia esperienza dicendo come dopo le difficoltà
-				iniziali l'azienda abbia deciso di dividere in due parti lo sviluppo dell'applicazione Android e di quella iOS.
-			4.2.4.3 PRESENZA DI BUG
-				Descrivo come durante la mia esperienza mi sia capitato di trovare bug abbastanza seri e che rendevano quasi del
-				tutto inutilizzabili alcune API messe a disposizione dall'SDK.
 	4.3 CONSIDERAZIONI PERSONALI SUL CORSO DI STUDI E IL MONDO DEL LAVORO
 		Espongo le mie considerazioni riguardanti quanto il corso di studi che ho frequentato sia appropriato in vista dell'inserimento
 		nel mondo del lavoro. Descrivo i suoi pregi e i suoi difetti, includendo dove necessario dei consigli che mi sento di dare per
