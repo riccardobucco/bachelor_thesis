@@ -300,8 +300,11 @@
 				il design che l'applicazione avrebbe dovuto avere. Descrivo come ho collaborato con un esperto per poter capire
 				cosa fosse possibile e sensato aggiungere. Descrivo inoltre come durante l'analisi molti dei particolari aggiunti
 				riguardassero puro marketing, e come abbia dovuto scendere a compromessi con principi di usabilità e accessibilità.
+				Descrivo come si desiderasse che l'utente non si accorgesse dei tempi di attesa (quindi lo si voleva distrarre) e
+				allo stesso tempo arrivasse con un singolo click alla creazione e visualizzazione del photo book, in linea con
+				gli obiettivi aziendali. Descrivo tutte le opzioni che sono state considerate a tal proposito.
 		3.4.2 PROGETTAZIONE
-			3.4.2.1 MODULARIZZAZIONE DELL'APPLICAZIONE
+			3.4.2.1 MODULARIZZAZIONE DELLA STRUTTURA DELL'APPLICAZIONE
 				Descrivo come si è svolta l'attività di progettazione e in particolare riporto alcuni dei risultati. Descrivo come
 				l'applicazione sia stata suddivisa in moduli riutilizzabili in più schermate e anche in applicazioni simili. 
 				Descrivo come siano stati sfruttati alcuni pattern per semplificare la struttura, la comprensibilità e l'utilizzo
@@ -317,12 +320,35 @@
 			3.4.3.1 CREAZIONE DI UN PHOTO BOOK
 				Descrivo la schermata iniziale dell'applicazione. Descrivo come essa è stata implementata e quali sono i principali
 				elementi presenti in essa. Descrivo come molti di essi siano riutilizzabili altrove (in altre schermate o anche
-				altre applicazioni). Descrivo le principali animazioni che sono state implementate in seguito 
+				altre applicazioni). Descrivo le principali animazioni che sono state implementate in seguito all'analisi dei
+				requisiti dedicata.
 			3.4.3.2 INTRATTENIMENTO DELL'UTENTE
+				Descrivo la schermata dedicata all'intrattenimento dell'utente durante la creazione di un photo book. Descrivo come
+				le finalità di tale schermata avessero scopi di puro marketing (si vuole distrarre l'utente durante l'attesa).
+				Descrivo come l'impossibilità di implementare alcuni particolari (a causa di bug del framework) abbiano comportato
+				dei cambiamenti nell'analisi dei requisiti. Descrivo il risultato al quale si è arrivati alla fine. Descrivo i
+				problemi che esso ha causato sia in termini di prestazioni su dispositivi lenti che in termini di memoria utilizzata.
+				Descrivo come tale schermata sia stata ottimizzata.
 			3.4.3.3 VISUALIZZAZIONE DEL PHOTO BOOK
+				Descrivo la schermata dedicata alla visualizzazione del photo book. Descrivo come sia stato implementato il libro
+				3d sfogliabile dall'utente. Descrivo i problemi che l'implementazione di tale schermata ha comportato (dovuti
+				soprattutto all'orientamento del telefono). Descrivo come tali problemi sono stati affrontati e risolti. Descrivo
+				infine la possibilità per l'utente di condividere il photo book creato e di votare l'applicazione sullo store
+				(solo in determinate situazioni, ovvero quando si presume che all'utente l'applicazione sia piaciuta).
 			3.4.3.4 MODIFICA DEL PHOTO BOOK
+				Descrivo le schermate grazie alle quali un utente può modificare i propri photo book. Descrivo come la sua
+				implementazione sia stata semplice grazie all'uso dell'SDK. Descrivo come gestisce e corregge eventuali errori senza
+				che l'utente se ne accorga. Descrivo come sia stato possibile riutilizzare molti degli elementi presenti nella
+				schermata di intrattenimento.
 			3.4.3.5 CHECKOUT
+				Descrivo la schermata nella quale l'utente può comprare il photo book creato. Descrivo perchè ho deciso assieme
+				all'azienda di implementarla facendo largo uso di una webview invece che di elementi nativi.
 		3.4.7 VERIFICA DEI RISULTATI OTTENUTI
+			Descrivo come sia stata effettuata l'attività di verifica sull'applicazione. Spiego che la parte principale è stata
+			svolta mediante l'utilizzo di emulatori e grazie a una serie di test decisi a priori e documentati (seppur non
+			automatizzati). Spiego inoltre come consegnassi quasi giornalmente un prototipo a 5-6 persone che si preoccupavano
+			di provare l'applicazione e di segnalare malfunzionamenti o rallentamenti. Spiego come ho implementato un sistema
+			che permetteva ai tester di essere più precisi possibile riguardo gli errori che erano riportati.
 	3.5 MANTENIMENTO DI MY YEAR PHOTO BOOK
 		3.5.1 RILASCIO DELL'APPLICAZIONE
 			Descrivo in che modo l'applicazione è stata resa disponibile al pubblico per il beta testing. Descrivo gli strumenti
