@@ -250,13 +250,42 @@
 				della documentazione prodotta e delle energie utilizzate inizialmente. Racconto poi come ad un certo punto ci si sia
 				resi conto che quanto era stato pensato non andava più bene e si siano dovute utilizzare molte forze per progettare
 				seriamente l'architettura dell'SDK (seppur sempre senza documentazione formale o informale consultabile). Descrivo
-				inoltre l'architettura finale alla quale si è giunti.
+				inoltre l'architettura finale alla quale si è giunti, con i design pattern utilizzati.
 			3.2.3.3 IMPLEMENTAZIONE
+			3.2.3.4 VERIFICA
+				Descrivo i principi secondo i quali sono stati preparati i test. Descrivo la tipologia di test effettuati e i loro
+				limiti. Descrivo come si sia rivelata molto più utile l'anaisi statica, in quanto i malfunzionamenti erano tutti
+				casi troppo particolari per essere testati in modo dinamico (principalmente dovuti a usi errati della concorrenza).
 		3.2.4 SVILUPPO E MANTENIMENTO DELL'APPLICAZIONE
 			3.2.4.1 ANALISI DEI REQUISITI
+				Descrivo le modalità con le quali è stata condotta l'analisi dei requisiti dell'applicazione che è stata fatta
+				inizialmente. Descrivo i risultati raggiunti e gli strumenti che sono stati utilizzati per produrre la
+				documentazione. Descrivo come una parte fondamentale di tale analisi sia stata ricoperta da questioni di design
+				finale e marketing.
 			3.2.4.2 PROGETTAZIONE
+				Descrivo come si è svolta l'attività di progettazione e in particolare riporto alcuni dei risultati. Descrivo come
+				l'applicazione sia stata suddivisa in moduli riutilizzabili in più schermate e in applicazioni simili. Descrivo come
+				siano stati sfruttati alcuni pattern per semplificare la struttura, la comprensibilità e l'utilizzo delle varie
+				classi.
+			3.2.4.3 IMPLEMENTAZIONE
+			3.2.4.4 VERIFICA
+				Descrivo come sia stata effettuata l'attività di verifica sull'applicazione. Spiego che la parte principale è stata
+				svolta mediante l'utilizzo di emulatori e grazie a una serie di test decisi a priori e documentati (seppur non
+				automatizzati). Spiego inoltre come consegnassi quasi giornalmente un prototipo a 5-6 persone che si preoccupavano
+				di provare l'applicazione e di segnalare malfunzionamenti o rallentamenti. Spiego come ho implementato un sistema
+				che permetteva ai testers di essere più precisi possibile riguardo gli errori che erano riportati.
+			3.2.4.5 RACCOLTA ED ANALISI DEI DATI
+				Descrivo in che modo l'applicazione è stata resa accessibile al pubblico per il beta testing. Descrivo come abbia
+				raccolto i feedback degli utenti e le statistiche di utilizzo per individuare e correggere errori. Racconto come
+				i dati raccolti siano stati fondamentali per capire l'uso che gli utenti fanno dell'applicazione e per decidere su
+				cosa puntare per poter ottenere un più alto indice di compratori.
 	3.3 RISULTATI OTTENUTI
-	
+		3.3.1 PASTBOOK MOBILE SDK
+			3.3.1.1 INTERFACCIA PER API E SERVICES AZIENDALI
+			3.3.1.2 AUTENTICAZIONE A FACEBOOK E INSTAGRAM
+			3.3.1.2 LAUNCHER CONFIGURABILE
+		3.3.2 MY YEAR PHOTO BOOK PER ANDROID E IOS
+			3.3.2.1 
 	3.4 ANALISI DEI PRINCIPALI PROBLEMI
 		3.4.1 CRITICITA' RISCONTRATE USANDO TITANIUM
 			3.4.1.1 DOCUMENTAZIONE SCADENTE E COMMUNITY LIMITATA
