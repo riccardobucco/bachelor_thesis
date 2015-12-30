@@ -197,7 +197,7 @@
 				Descrivo come mi aspettassi di entrare in contatto con molte persone e aziende (essendo la mia azienda inserita in
 				un contesto molto dinamico di startup e realtà consolidate). A partire da questi rapporti mi aspettavo di poter
 				costruire collaborazioni ed eventualmente possibilità di lavoro concreto.
-3 SVOLGIMENTO DELLO STAGE
+3 SINTESI DELLE ATTIVITA' SVOLTE DURANTE LO STAGE
 	3.1 METODOLOGIA AGILE
 		3.1.1 PIANIFICAZIONE DI ITERAZIONI IN MODO ADATTATIVO
 			Descrivo come mi sia adattato al modo di lavorare dell'azienda. Infatti essa raramente ha presente fin dall'inizio
@@ -217,7 +217,7 @@
 			Descrivo come un metodo molto utilizzato in azienda fosse il pair programming. Descrivo come questa pratica mi sia servita
 			sia come strumento formativo che come mezzo per lo scambio di idee. Aggiungo come fosse molto utile per la progettazione
 			del software che si doveva sviluppare (in quanto un'attività di progettazione vera e propria non era prevista).
-	3.2 SINTESI DELLE ATTIVITA' SVOLTE
+	3.2 ATTIVITA' PREPARATORIE E DI ACCOMPAGNAMENTO
 		3.2.1 CONFIGURAZIONE DELL'AMBIENTE DI LAVORO
 			3.2.1.1 CONFIGURAZIONE DELLE MACCHINE VIRTUALI
 				Racconto come ho proceduto nella configurazione delle macchine virtuali messe a disposizione dall'azienda. Descrivo
@@ -236,8 +236,73 @@
 		3.2.2 STUDIO E PREPARAZIONE PERSONALE
 			Descrivo come inizialmente abbia imparato ad utilizzare gli strumenti messi a disposizione dall'azienda e come abbia studiato
 			il framework titanium e tutti i suoi vari elementi. Descrivo come la parte principale di tutto ciò sia stata dedicata alla
-			comprensione dei moduli Facebook e Alloy (MVC con Titanium). Racconto come la formazione comprendesse anche l'uso di tali
+			comprensione del modulo Alloy (MVC con Titanium). Racconto come la formazione comprendesse anche l'uso di tali
 			strumenti per la produzione di piccoli esempi.
+	3.3 SVILUPPO DI PASTBOOK MOBILE SDK
+		3.3.1 AUTENTICAZIONE A FACEBOOK E INSTAGRAM
+			3.3.1.1 STUDIO DEL DOMINIO E ANALISI DEI REQUISITI
+				Descrivo come abbia cominciato preoccupandomi innanzitutto di ottenere l'autenticazione a facebook e instagram prima
+				di svolgere qualsiasi altro compito. Descrivo quali sono stati i requisiti che ho individuato (riguardanti tutti i
+				possibili scenari dell'autenticazione e i modi in cui gestirli). Racconto poi del seguente studio dell API messe a
+				disposizione daai due social network.
+			3.3.1.2 USO DEL MODULO TI.FACEBOOK
+				Racconto di come ho deciso di utilizzare il modulo per Facebook messo a disposizione da Appcelerator. Descrivo i
+				problemi riscontrati nel suo utilizzo (presenza di bug che mi impedivano lo sviluppo cross-platform e il
+				raggiungimento di tutti i requisiti individuati in precedenza). Descrivo i modi in cui ho testato tale autenticazione
+				e i compromessi ai quali sono giunto in accordo con l'azienda.
+			3.3.1.3 IMPLEMENTAZIONE DELL'AUTENTICAZIONE A INSTAGRAM
+				Racconto di come non esistano moduli degni per l'autenticazione tramite Instagram e di come abbia dunque deciso di
+				implementare tale cosa facendo uso direttamente delle API messe a disposizione dal social network. Descrivo come la
+				mancanza di un'autenticazione SSO mi abbia indotto a scegliere un approccio diverso rispetto a quanto fatto in
+				precedenza (uso di una pagina webview invece che di una schermata nativa)
+		3.3.2 INTERFACCIA PER API E SERVICES AZIENDALI
+			3.3.2.1 STUDIO DEL DOMINIO E ANALISI DEI REQUISITI
+				Descrivo come in prima istanza mi sia dedicato allo studio delle API (ben documentate) e dei services (documentazione
+				non presente) messi a disposizione dall'azienda. Descrivo come abbia poi cominciato l'analisi dei requisiti,
+				concentrandomi in particolare su quali di questi servizi sarebbero potuti servire durante lo sviluppo di applicazioni
+				(e se eventualmente fosse il caso di aggregare le loro funzionalità). Descrivo i risultati ai quali sono pervenuto.
+			3.3.2.2 PROGETTAZIONE, IMPLEMENTAZIONE E RELATIVI PROBLEMI
+				Descrivo come inizialmente la progettazione sia stata quasi nulla a causa della fretta da parte dell'azienda di avere
+				un prototipo funzionante e di come abbia cominciato subito con l'implementazione. Descrivo come, facendo ciò, si sia
+				arrivati ad avere un modulo funzionante ma con un sacco di codice ripetuto e difficilmente verificabile. Descrivo
+				come abbia in seguito speso varie energie per ripensare all'architettura dell'SDK. Descrivo i risultati ai quali sono
+				pervenuto e porto un esempio di come abbia eliminato molto del codice doppio o superfluo.
+			3.3.2.3 GESTIONE DEGLI ERRORI
+				Descrivo in che modo vengono gestiti tutti i possibili errori che possono avvenire durante l'uso dei servizi e delle
+				API messe a disposizione dall'azienda. Racconto di come alcuni di essi siano gestiti direttamente dall'SDK e di come
+				la gestione di alcuni sia invece assegnata a chi utilizza le API. Descrivo infine i test ai quali ho sottoposto
+				l'SDK per controllare che le chiamate fossero corrette.
+		3.3.3 LAUNCHER CONFIGURABILE
+			3.3.3.1 ANALISI DEL LAUNCHER PREESISTENTE
+				Descrivo cos'è un launcher per l'azienda (serie di chiamate ai services aziendali con il fine comune di creare un
+				photo book, con ogni chiamata che restituisce un risultato a partire dai dati provenienti dalle chiamate precedenti).
+				Descrivo i limiti di quello già posseduto e implementato dall'azienda (principalmente esso non funziona se vengono
+				cambiati i servizi chimati, ovvero non è configurabile ed è troppo specifico).
+			3.3.3.2 PROGETTAZIONE E IMPLEMENTAZIONE DI UN NUOVO LAUNCHER
+				Descrivo l'algoritmo di maggior rilevanza sviluppato durante lo stage. Esso rappresenta un launcher per qualsiasi
+				futura applicazione sviluppata dall'azienda. Il grande pregio è di essere completamente configurabile: entro certi
+				vincoli, l'azienda può decidere in qualsiasi momento di cambiare il modo in cui un photo book viene creato senza
+				dover per forza modificare l'applicazione. Descrivo cosa esso può fare ed entro quali vincoli opera. Mi concentro
+				in particolare sulla nuova funzionalità aggiunta rispetto al suo predecessore: il fatto di poter essere messo in
+				pausa in qualsiasi momento
+			3.3.3.3 VERIFICA E CORREZIONE DEGLI ERRORI
+				Descrivo i principi secondo i quali sono stati preparati i test. Descrivo la tipologia di test effettuati e i loro
+				limiti. Descrivo come si sia rivelata molto più utile l'anaisi statica, in quanto i malfunzionamenti erano tutti
+				casi troppo particolari per essere testati in modo dinamico (principalmente dovuti a usi errati della concorrenza).
+	3.4 SVILUPPO DI MY YEAR PHOTO BOOK
+		3.4.1 CREAZIONE DI UN PHOTO BOOK
+		3.4.2 INTRATTENIMENTO DELL'UTENTE
+		3.4.3 VISUALIZZAZIONE DEL PHOTO BOOK
+		3.4.4 MODIFICA DEL PHOTO BOOK
+		3.4.5 CHECKOUT
+		3.4.6 VERIFICA DEI RISULTATI OTTENUTI
+	3.5 MANTENIMENTO DI MY YEAR PHOTO BOOK
+		3.5.1 RILASCIO DELL'APPLICAZIONE
+		3.5.2 RACCOLTA DEI DATI
+		3.5.3 ANALISI DEI DATI
+
+
+			
 		3.2.3 SVILUPPO DELL'SDK
 			3.2.3.1 ANALISI DEI REQUISITI
 				Descrivo come inizialmente sia stata fatta un'analisi dei requisiti. Racconto come questo sia avvenuto a stretto
@@ -268,6 +333,10 @@
 				siano stati sfruttati alcuni pattern per semplificare la struttura, la comprensibilità e l'utilizzo delle varie
 				classi.
 			3.2.4.3 IMPLEMENTAZIONE
+				Descrivo in che modo ho codificato. Racconto come versionavo i file in modo tale da poter sempre risalire a vecchie
+				versioni. Racconto come i commenti al codice fossero di enorme importanza e di come ci fossero norme esplicite in
+				azienda che regolassero questa cosa (importante soprattutto per la mancanza di documentazione e per i momenti in cui
+				si faceva pair programming).
 			3.2.4.4 VERIFICA
 				Descrivo come sia stata effettuata l'attività di verifica sull'applicazione. Spiego che la parte principale è stata
 				svolta mediante l'utilizzo di emulatori e grazie a una serie di test decisi a priori e documentati (seppur non
