@@ -1,0 +1,5 @@
+#!/bin/bash
+cd TeX
+pdflatex -output-directory ../ relazione.tex
+cd ..
+rm *.toc *.aux *.log
