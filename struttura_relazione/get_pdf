@@ -2,4 +2,3 @@
 cd TeX
 pdflatex -output-directory ../ struttura_relazione.tex
 cd ..
-rm *.toc *.log *.aux
