@@ -192,7 +192,7 @@
 				posizioni delle card a lui assegnate all'interno della board. In questo modo il dirigente o il responsabile di un
 				progetto è sempre in grado di capire quanto manchi al raggiungimento degli obiettivi prefissati.\\
 				Per permettere un coordinamento più generale, oltre ai brevi incontri giornalieri in azienda sono previste riunioni
-				con cadenza mensile alle quali tutti i membri del team sono invitati a partecipare tramite il proprio cntributo.
+				con cadenza mensile alle quali tutti i membri del team sono invitati a partecipare tramite il proprio contributo.
 				Questi meeting sono più impegnativi rispetto ai daily standup (durano fino a quattro ore) e includono i seguenti
 				elementi:
 				\begin{itemize}
@@ -271,19 +271,65 @@
 	\section{Sviluppo software}
 		\subsection{Metodologia di lavoro}
 			\subsubsection{Tipico ciclo di vita del software}
-				Descrizione generale di come nell'azienda un'idea nasca, cresca e venga infine sviluppata. In particolare sottolineo
-				come un'idea derivi solitamente da uno dei meeting mensili fatti tutti insieme. Proseguo dicendo come l'idea viene
-				sviluppata e come si crei eventualmente un piccolo gruppo che prosegue nella definizione e nello sviluppo dei
-				concetti elaborati dall'intero team. Dico infine che in base alla tipologia di prodotto questo venga testato solo
-				internamente o anche con l'aiuto di beta tester esterni all'azienda.
+				L'idea alla base di un prodotto software sviluppato da PastBook deriva molto spesso dal contributo portato
+				dall'intero team durante i meeting mensili. Queste occasioni, infatti, danno l'opportunità ai dipendenti di esprimere
+				la propra opinione con lo scopo di migliorare la qualità dei servizi e dei prodotti offerti dall'azienda. Quando il
+				concetto proposto dimostra di poter essere di effettivo valore, il dirigente sceglie alcuni membri del team e li
+				assegna a un gruppo di progetto dedicato.\\
+				Il passo successivo nello sviluppo dell'idea consiste solitamente in una breve analisi dei requisiti, durante la
+				quale il gruppo cerca di delineare le caratteristiche e i requisiti che il prodotto dovrà avere. Ogni membro del
+				gruppo individua contemporaneamente quale sia la propria parte di lavoro e come questa possa successivamente
+				integrarsi con le attività svolte dai colleghi.\\
+				A questo punto, a seconda delle abilità e delle capacità presenti nel gruppo di lavoro, lo sviluppo del prodotto
+				si divide parti in distinte:
+				\begin{itemize}
+					\item Gli sviluppatori sono sempre presenti. Essi sono eventualmente coordinati dal CTO. Il loro compito è
+					di progettare e codificare in modo appropriato le varie funzionalità individuate durante l'attività di
+					analisi.
+					\item Se il prodotto è destinato al pubblico allora quasi sempre il grafico comincia a delineare
+					l'interfaccia. Egli sta in stretto contatto con gli sviluppatori, aggiornandoli su eventuali requisiti
+					che essi devono soddisfare.
+					\item Molto spesso nella realizzazione del prodotto sono coinvolti dipendenti che hanno capacità commerciali.
+					Essi svolgono prevalentemente funzioni di supporto a chi si occupa della grafica. Infatti, danno indicazioni
+					sui metodi migliori per interagire con la clientela e per intrattenerla e coinvolgerla allo stesso tempo.
+				\end{itemize}
+				Obiettivo primario di qualsiasi gruppo di progetto software all'interno di PastBook è sempre quello di mettere a
+				disposizione del resto del'azienda un prototipo funzionante nel minor tempo possibile: in questo modo il prodotto può
+				essere testato dall'intero team. Infine, quando il prototipo raggiunge una maturità sufficiente, esso è distribuito
+				anche ad utenti esterni a PastBook, in modo tale che ne possano testare le funzionalità.\\
+				Dopo il rilascio del prodotto, il gruppo di progetto si scioglie. Quando insorgono problemi e si rende necessaria
+				attività di manutenzione, il dirigente delega la responsabilità a un dipendente adatto alla mansione.
 			\subsubsection{Analisi dei requisiti}
-				Descrivo come si svolge l'analisi dei requisiti. Essa è molto informale ed è aperta non solo agli sviluppatori, ma
-				anche ad altri ruoli aziendali. Descrivo inoltre come l'informale "documentazione" (immagini, diagrammi, appunti)
-				viene prodotta e poi memorizzata.
+				I gruppi di lavoro svolgono l'analisi dei requisiti durante le prime fasi di un progetto. In generale, il compito di
+				tale attività è quello di chiarire e dettagliare le caratteristiche e le funzioni che deve possedere il prodotto
+				finale.\\
+				Le direttive aziendali non prevedono che i dipendenti che svolgono questi compiti dedichino parte del loro tempo alla
+				produzione di una documentazione formale. Dunque, i dati raccolti durante attività quali la definizione del
+				problema, l'analisi di fattibilità e l'analisi del dominio non sono in alcun modo memorizzati in modo persistente.
+				Non esiste nemmeno una vero e proprio documento che contenga la specifica dei requisiti. Infatti, i membri del
+				gruppo di lavoro si limitano a utilizzare appunti, diagrammi e disegni fatti a mano: un incaricato, in seguito, si
+				occupa della loro digitalizzazione e memorizzazione, senza però seguire alcun tipo di norma esplicita.\\
+				Questo modo di procedere informale e talvolta impreciso ha diverse conseguenze. Innanzitutto, i requisiti sono 
+				talvolta soggetti a intepretazione. In secondo luogo, essi possono mutare spesso durante le fasi successive dello
+				sviluppo del prodotto.
 			\subsubsection{Progettazione e codifica}
-				Descrivo la progettazione e la codifica, che in azienda arrivano quasi a coincidere (non esiste un momento in cui
-				si pensi solo alla progettazione e di conseguenza non esiste nemmeno una documentazione di qualsiasi tipo che la
-				riguardi, con tutti i problemi del caso). Descrivo come gli sviluppatori collaborino durante tali attività.
+				La progettazione — intesa come attività che entra nel merito della struttura del sistema software, definendo come i
+				requisiti devono essere soddisfatti — è un'esclusiva degli sviluppatori e del CTO.\\
+				Tale attività intermedia tra analisi dei requisiti e codifica trova pochissimo spazio all'interno del ciclo di vita
+				del software: l'obiettivo principale dell'azienda è poter ottenere un prototipo che funzioni quanto prima e la
+				progettazione è ritenuta un formalismo che fa perdere tempo prezioso. Di conseguenza, non esiste alcun tipo di
+				documentazione formale o informale che descrivi l'architettura del sistema e come essa si scomponga in moduli.\\
+				Gli sviluppatori, piuttosto, devono essere esperti al punto tale da avere fin dall'inizio un'idea abbastanza precisa
+				della struttura finale del sistema. La codifica, dunque, rappresenta l'attività predominante durante l'intero
+				processo di sviluppo, poiché include in modo implicito molti dei compiti che dovrebbero essere assegnati a dei
+				progettisti.\\
+				PastBook è a conoscenza del fatto che questo approccio è molto rischioso nel medio e lungo termine: cambiamenti
+				nell'architettura di un sistema software durante uno stato avanzato della produzione possono implicare ingenti
+				perdite di energie, tempo e denaro. Tuttavia, l'azienda non vuole rinunciare al vantaggio di poter ottenere fin dalle
+				fasi iniziali un prototipo funzionante del prodotto. Dunque, per evitare che errori gravi rischino di bloccare la
+				realizzazione del prodotto, il dirigente di PastBook invita spesso gli sviluppatori a svolgere sessioni di
+				\emph{pair programming}: queste permettono un confronto diretto sul campo per poter individuare le maggiori
+				criticità.
 			\subsubsection{Beta testing}
 				Alcuni prodotti e/o strumenti realizzati vengono distribuiti dall'azienda a delle persone incaricate di testarli
 				e di rilasciare dei feedback, in modo tale che si possano apportare dei miglioramenti. Questa è l'unica forma di
