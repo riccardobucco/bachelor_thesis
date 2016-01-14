@@ -1,0 +1,187 @@
+\chapter{Sintesi delle attività svolte durante lo stage}
+	\section{Metodologia agile}
+		\subsection{Pianificazione di iterazioni in modo adattivo}
+			Descrivo come mi sia adattato al modo di lavorare dell'azienda. Infatti essa raramente ha presente fin dall'inizio
+			tutti i requisiti che dovevano essere soddisfatti. Preferiscono piuttosto un metodo di lavoro che preveda una
+			pianificazione molto generica iniziale (che fissa i momenti nei quali si deve consegnare qualcosa o la durata delle
+			varie iterazioni piuttosto che lo scopo da raggiungere in ogni periodo) e si adatti poi agli sviluppi che avvengono
+			a lavoro in corso.
+		\subsection{Coinvolgimento diretto e continuo del cliente}
+			Descrivo come la pianificazione dei task che ho dovuto svolgere avvenisse di volta in volta in seguito a un
+			coinvolgimento diretto dei clienti (che nel mio  caso erano il tutor e il product manager). Descrivo le modalità con
+			le quali si discuteva assieme per poter fissare dei nuovi obiettivi a partire dai risultati ottenuti.
+		\subsection{Consegne frequenti}
+			Racconto come consegnassi frequentemente dei prototipi che fossero in grado di mostrare il lavoro svolto e allo
+			stesso tempo dessero la possibilità ai clienti di "distrarsi" e testare le nuove funzionalità aggiunte. Racconto i
+			benefici di questo modo di procedere
+		\subsection{Pair programming}
+			Descrivo come un metodo molto utilizzato in azienda fosse il pair programming. Descrivo come questa pratica mi sia servita
+			sia come strumento formativo che come mezzo per lo scambio di idee. Aggiungo come fosse molto utile per la progettazione
+			del software che si doveva sviluppare (in quanto un'attività di progettazione vera e propria non era prevista).
+	\section{Attività preparatorie e di accompagnamento}
+		\subsection{Configurazione dell'ambiente di lavoro}
+			\subsubsection{Configurazione delle macchine virtuali}
+				Racconto come ho proceduto nella configurazione delle macchine virtuali messe a disposizione dall'azienda. Descrivo
+				come il lavoro sia stato facilitato dalla documentazione precedentemente prodotta. Descrivo a cosa servisse ognuna
+				delle macchine installate in relazione a ciò che avrei dovuto fare in seguito. Descrivo come io stesso abbia
+				modificato e migliorato la documentazione precedente in base alla mia esperienza.
+			\subsubsection{Installazione di Titanium e delle relative dipendenze}
+				Descrivo come ho proceduto all'installazione di tutti gli strumenti messi a disposizione da Appcelerator. Racconto
+				perchè alcuni strumenti siano stati scartati in partenza mentre altri siano stati ritenuti utili. Racconto come a
+				circa metà stage abbia dovuto aggiornare il framework a causa di esigenze aziendali, dovendo ritoccare parte della
+				configurazione iniziale (oltre che pate del codice)
+			\subsubsection{Scelta e configurazione degli emulatori di dispositivi mobile}
+				Descrivo i criteri sui quali mi sono basato per scegliere gli emulatori che avrei dovuto usare per testare
+				l'applicazione. Descrivo i pro e i contro di ognuno di essi, basati su test effettuati da me stesso. Descrivo come
+				li abbia configurati in modo tale che funzionino con le macchine virtuali precedentemente installate.
+		\subsection{Studio e preparazione personale}
+			Descrivo come inizialmente abbia imparato ad utilizzare gli strumenti messi a disposizione dall'azienda e come abbia studiato
+			il framework titanium e tutti i suoi vari elementi. Descrivo come la parte principale di tutto ciò sia stata dedicata alla
+			comprensione del modulo Alloy (MVC con Titanium). Racconto come la formazione comprendesse anche l'uso di tali
+			strumenti per la produzione di piccoli esempi.
+	\section{Sviluppo di PastBook Mobile SDK}
+		\subsection{Autenticazione a Facebook e Instagram}
+			\subsubsection{Studio del dominio e analisi dei requisiti}
+				Descrivo come abbia cominciato preoccupandomi innanzitutto di ottenere l'autenticazione a facebook e instagram prima
+				di svolgere qualsiasi altro compito. Descrivo quali sono stati i requisiti che ho individuato (riguardanti tutti i
+				possibili scenari dell'autenticazione e i modi in cui gestirli). Racconto poi del seguente studio dell API messe a
+				disposizione daai due social network.
+			\subsubsection{Implementazione dell'autenticazione a Facebook tramite un modulo Titanium}
+				Racconto di come ho deciso di utilizzare il modulo per Facebook messo a disposizione da Appcelerator. Descrivo i
+				problemi riscontrati nel suo utilizzo (presenza di bug che mi impedivano lo sviluppo cross-platform e il
+				raggiungimento di tutti i requisiti individuati in precedenza). Descrivo i modi in cui ho testato tale autenticazione
+				e i compromessi ai quali sono giunto in accordo con l'azienda.
+			\subsubsection{Implementazione dell'autenticazione a Instagram tramite API native}
+				Racconto di come non esistano moduli degni per l'autenticazione tramite Instagram e di come abbia dunque deciso di
+				implementare tale cosa facendo uso direttamente delle API messe a disposizione dal social network. Descrivo come la
+				mancanza di un'autenticazione SSO mi abbia indotto a scegliere un approccio diverso rispetto a quanto fatto in
+				precedenza (uso di una pagina webview invece che di una schermata nativa).
+		\subsection{Interfaccia per API e services aziendali}
+			\subsubsection{Studio del dominio e analisi dei requisiti}
+				Descrivo come in prima istanza mi sia dedicato allo studio delle API (ben documentate) e dei services (documentazione
+				non presente) messi a disposizione dall'azienda. Descrivo come abbia poi cominciato l'analisi dei requisiti,
+				concentrandomi in particolare su quali di questi servizi sarebbero potuti servire durante lo sviluppo di applicazioni
+				(e se eventualmente fosse il caso di aggregare le loro funzionalità). Descrivo i risultati ai quali sono pervenuto.
+			\subsubsection{Progettazione, implementazione e relativi problemi}
+				Descrivo come inizialmente la progettazione sia stata quasi nulla a causa della fretta da parte dell'azienda di avere
+				un prototipo funzionante e di come abbia cominciato subito con l'implementazione. Descrivo come, facendo ciò, si sia
+				arrivati ad avere un modulo funzionante ma con un sacco di codice ripetuto e difficilmente verificabile. Descrivo
+				come abbia in seguito speso varie energie per ripensare all'architettura dell'SDK. Descrivo i risultati ai quali sono
+				pervenuto e porto un esempio di come abbia eliminato molto del codice doppio o superfluo.
+			\subsubsection{Gestione degli errori}
+				Descrivo in che modo vengono gestiti tutti i possibili errori che possono avvenire durante l'uso dei servizi e delle
+				API messe a disposizione dall'azienda. Racconto di come alcuni di essi siano gestiti direttamente dall'SDK e di come
+				la gestione di alcuni sia invece assegnata a chi utilizza le API. Descrivo infine i test ai quali ho sottoposto
+				l'SDK per controllare che le chiamate fossero corrette.
+		\subsection{Launcher configurabile}
+			\subsubsection{Analisi del launcher preesistente}
+				Descrivo cos'è un launcher per l'azienda (serie di chiamate ai services aziendali con il fine comune di creare un
+				photo book, con ogni chiamata che restituisce un risultato a partire dai dati provenienti dalle chiamate precedenti).
+				Descrivo i limiti di quello già posseduto e implementato dall'azienda (principalmente esso non funziona se vengono
+				cambiati i servizi chimati, ovvero non è configurabile ed è troppo specifico).
+			\subsubsection{Progettazione e implementazione di un nuovo launcher}
+				Descrivo l'algoritmo di maggior rilevanza sviluppato durante lo stage. Esso rappresenta un launcher per qualsiasi
+				futura applicazione sviluppata dall'azienda. Il grande pregio è di essere completamente configurabile: entro certi
+				vincoli, l'azienda può decidere in qualsiasi momento di cambiare il modo in cui un photo book viene creato senza
+				dover per forza modificare l'applicazione. Descrivo cosa esso può fare ed entro quali vincoli opera. Mi concentro
+				in particolare sulla nuova funzionalità aggiunta rispetto al suo predecessore: il fatto di poter essere messo in
+				pausa in qualsiasi momento
+			\subsubsection{Verifica e correzione degli errori}
+				Descrivo i principi secondo i quali sono stati preparati i test. Descrivo la tipologia di test effettuati e i loro
+				limiti. Descrivo come si sia rivelata molto più utile l'anaisi statica, in quanto i malfunzionamenti erano tutti
+				casi troppo particolari per essere testati in modo dinamico (principalmente dovuti a usi errati della concorrenza).
+	\section{Sviluppo di My Year Photo Book}
+		\subsection{Analisi dei requisiti}
+			\subsubsection{Produzione di alcuni wireframe}
+				Descrivo le modalità con le quali è stata condotta l'analisi dei requisiti dell'applicazione che è stata fatta
+				inizialmente. Descrivo i risultati raggiunti e gli strumenti che sono stati utilizzati per produrre la
+				documentazione, che consiste perlopiù in wireframe e diagrammi di attività.
+			\subsubsection{Design e marketing}
+				Descrivo come una parte fondamentale dell'analisi dei requisiti (svolta verso la fine dello stage) abbia riguardato
+				il design che l'applicazione avrebbe dovuto avere. Descrivo come ho collaborato con un esperto per poter capire
+				cosa fosse possibile e sensato aggiungere. Descrivo inoltre come durante l'analisi molti dei particolari aggiunti
+				riguardassero puro marketing, e come abbia dovuto scendere a compromessi con principi di usabilità e accessibilità.
+				Descrivo come si desiderasse che l'utente non si accorgesse dei tempi di attesa (quindi lo si voleva distrarre) e
+				allo stesso tempo arrivasse con un singolo click alla creazione e visualizzazione del photo book, in linea con
+				gli obiettivi aziendali. Descrivo tutte le opzioni che sono state considerate a tal proposito.
+		\subsection{Progettazione}
+			\subsubsection{Modularizzazione della struttura dell'applicazione}
+				Descrivo come si è svolta l'attività di progettazione e in particolare riporto alcuni dei risultati. Descrivo come
+				l'applicazione sia stata suddivisa in moduli riutilizzabili in più schermate e anche in applicazioni simili. 
+				Descrivo come siano stati sfruttati alcuni pattern per semplificare la struttura, la comprensibilità e l'utilizzo
+				delle varie classi.
+			\subsubsection{Utilizzo delle funzioni di PastBook Mobile SDK}
+				Descrivo come l'applicazione sia pensata per far pesante uso delle funzioni messe a disposizione dall'SDK creato in
+				precedenza. Descrivo come l'SDK eviti molto lavoro a chi deve sviluppare una nuova applicazione per l'azienda.
+		\subsection{Implementazione delle schermate e dei relativi controller}
+			\subsubsection{L'uso del framework MVC Alloy}
+				Descrivo come ho utilizzato il framework ALloy (messo a disposizione da Appcelerator) per implementare in modo
+				facile il pattern MVC. Descrivo i vantaggi derivanti dall'utilizzo di tale framework rispetto all'uso della versione
+				base di Titanium. Descrivo le motivazioni della mia scelta.
+			\subsubsection{Creazione di un Photo Book}
+				Descrivo la schermata iniziale dell'applicazione. Descrivo come essa è stata implementata e quali sono i principali
+				elementi presenti in essa. Descrivo come molti di essi siano riutilizzabili altrove (in altre schermate o anche
+				altre applicazioni). Descrivo le principali animazioni che sono state implementate in seguito all'analisi dei
+				requisiti dedicata.
+			\subsubsection{Intrattenimento dell'utente}
+				Descrivo la schermata dedicata all'intrattenimento dell'utente durante la creazione di un photo book. Descrivo come
+				le finalità di tale schermata avessero scopi di puro marketing (si vuole distrarre l'utente durante l'attesa).
+				Descrivo come l'impossibilità di implementare alcuni particolari (a causa di bug del framework) abbiano comportato
+				dei cambiamenti nell'analisi dei requisiti. Descrivo il risultato al quale si è arrivati alla fine. Descrivo i
+				problemi che esso ha causato sia in termini di prestazioni su dispositivi lenti che in termini di memoria utilizzata.
+				Descrivo come tale schermata sia stata ottimizzata.
+			\subsubsection{Visualizzazione del Photo Book}
+				Descrivo la schermata dedicata alla visualizzazione del photo book. Descrivo come sia stato implementato il libro
+				3d sfogliabile dall'utente. Descrivo i problemi che l'implementazione di tale schermata ha comportato (dovuti
+				soprattutto all'orientamento del telefono). Descrivo come tali problemi sono stati affrontati e risolti. Descrivo
+				infine la possibilità per l'utente di condividere il photo book creato e di votare l'applicazione sullo store
+				(solo in determinate situazioni, ovvero quando si presume che all'utente l'applicazione sia piaciuta).
+			\subsubsection{Modifica del Photo Book}
+				Descrivo le schermate grazie alle quali un utente può modificare i propri photo book. Descrivo come la sua
+				implementazione sia stata semplice grazie all'uso dell'SDK. Descrivo come gestisce e corregge eventuali errori senza
+				che l'utente se ne accorga. Descrivo come sia stato possibile riutilizzare molti degli elementi presenti nella
+				schermata di intrattenimento.
+			\subsubsection{Checkout}
+				Descrivo la schermata nella quale l'utente può comprare il photo book creato. Descrivo perchè ho deciso assieme
+				all'azienda di implementarla facendo largo uso di una webview invece che di elementi nativi.
+		\subsection{Verifica dei risultati ottenuti}
+			Descrivo come sia stata effettuata l'attività di verifica sull'applicazione. Spiego che la parte principale è stata
+			svolta mediante l'utilizzo di emulatori e grazie a una serie di test decisi a priori e documentati (seppur non
+			automatizzati). Spiego inoltre come consegnassi quasi giornalmente un prototipo a 5-6 persone che si preoccupavano
+			di provare l'applicazione e di segnalare malfunzionamenti o rallentamenti. Spiego come ho implementato un sistema
+			che permetteva ai tester di essere più precisi possibile riguardo gli errori che erano riportati.
+	\section{Mantenimento di My Year Photo Book}
+		\subsection{Rilascio dell'applicazione}
+			Descrivo in che modo l'applicazione è stata resa disponibile al pubblico per il beta testing. Descrivo gli strumenti
+			utilizzati e gli utenti ai quali è stato dato l'accesso alla preview.
+		\subsection{Raccolta dei dati}
+			Descrivo in che modo e con quali tecnologie si sono raccolti i dati di utilizzo da parte degli utenti e i dati riguardanti
+			eventuali crash dell'applicazione. Descrivo in base a quali principi si è scelto di raccogliere certi dati piuttsto che altri
+		\subsection{Analisi dei dati}
+			Descrivo in che modo ho proceduto all'analisi dei dati provenienti dagli utenti che stavano utilizzando l'applicazione in
+			anteprima. Descrivo come grazie ai dati e ai feedback ho potuto trovare e correggere alcuni errori. Descrivo a quali
+			conclusioni sono arrivato studiando i dati di utilizzo a disposizione e come ho proposto all'azienda quali sarebbero stati
+			gli aspetti migliorabili da un punto di vista della soddisfazione degli utenti
+	\section{Analisi dei principali problemi}
+		\subsection{Criticità riscontrate usando Titanium}
+			\subsubsection{Documentazione scadente e community limitata}
+				Racconto come un forte limite di tale prodotto sia la presenza di una documentazione scritta male, molto variabile
+				e talvolta anche errata. A questo si aggiunge il fatto che la community online sia di dimensioni molto ridotte.
+				Tutto ciò comporta che spesso lo sviluppatore si trovi a dover risolvere i problemi che sorgono senza poter contare
+				sull'aiuto di questi due importanti strumenti.
+			\subsubsection{Sviluppo cross-platform impossibile}
+				Descrivo come quello che dovrebbe essere un punto di forza di tale tecnologia (poter sviluppare in modo
+				cross-platform) non sia in realtà del tutto verificato. Porto la mia esperienza dicendo come dopo le difficoltà
+				iniziali l'azienda abbia deciso di dividere in due parti lo sviluppo dell'applicazione Android e di quella iOS.
+			\subsubsection{Presenza di bug}
+				Descrivo come durante la mia esperienza mi sia capitato di trovare bug abbastanza seri e che rendevano quasi del
+				tutto inutilizzabili alcune API messe a disposizione dall'SDK.
+		\subsection{Difficoltà dovute al metodo di lavoro utilizzato}
+			\subsubsection{Rallentamenti causati dalla necessità di numerosi prototipi}
+				Descrivo come il fatto che mi fossero richiesti prototipi funzionanti rallentasse talvolta il mio lavoro. Se da una
+				parte infatti avevo la possibilità di far testare il prodotto dall'altra dovevo occupare parte del tempo a renderlo
+				funzionante fin da subito per poter essere testato. Porto degli esempi.
+			\subsubsection{Modifiche all'architettura software}
+				Racconto come abbia speso abbastanza energie nel cambiare l'architettura stessa del software che stavo producendo
+				a causa del fatto che non è stato dedicato abbastanza tempo alla progettazione architetturale. Descrivo quali sono
+				stati gli svantaggi sia dal mio punto di vista che da quello aziendale.

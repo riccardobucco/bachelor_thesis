@@ -299,6 +299,7 @@
 				anche ad utenti esterni a PastBook, in modo tale che ne possano testare le funzionalità.\\
 				Dopo il rilascio del prodotto, il gruppo di progetto si scioglie. Quando insorgono problemi e si rende necessaria
 				attività di manutenzione, il dirigente delega la responsabilità a un dipendente adatto alla mansione.
+				\input{capitolo_1/diagrammi/ciclo_vita_software.tex}
 			\subsubsection{Analisi dei requisiti}
 				I gruppi di lavoro svolgono l'analisi dei requisiti durante le prime fasi di un progetto. In generale, il compito di
 				tale attività è quello di chiarire e dettagliare le caratteristiche e le funzioni che deve possedere il prodotto
@@ -329,24 +330,126 @@
 				fasi iniziali un prototipo funzionante del prodotto. Dunque, per evitare che errori gravi rischino di bloccare la
 				realizzazione del prodotto, il dirigente di PastBook invita spesso gli sviluppatori a svolgere sessioni di
 				\emph{pair programming}: queste permettono un confronto diretto sul campo per poter individuare le maggiori
-				criticità.
-			\subsubsection{Beta testing}
-				Alcuni prodotti e/o strumenti realizzati vengono distribuiti dall'azienda a delle persone incaricate di testarli
-				e di rilasciare dei feedback, in modo tale che si possano apportare dei miglioramenti. Questa è l'unica forma di
-				test che viene fatta in modo sistematico. Descrivo in questa sezione chi ha accesso ai prodotti in anteprima, quali
-				sono gli strumenti che lo permettono e come si analizzano i dati provenienti dai feedback.
+				criticità.\\
+				Per concludere, i programmatori si preoccupano costantemente di mantenere il codice sorgente ben strutturato e
+				commentato, essendo esso l'unica forma di documentazione dalla quale trarre informazioni riguardanti il sistema
+				software in questione. Anche il controllo di versione e la descrizione delle modifiche apportate di volta in volta
+				sono eseguiti con particolare cura.
+			\subsubsection{Collaudo}
+				Tale attività serve per individuare le carenze di correttezza, completezza e affidabilità delle componenti software
+				in corso di sviluppo.\\
+				L'azienda prevede che per ogni prodotto siano eseguiti degli \emph{alpha test}: in pratica, il personale di PastBook
+				sottopone il software a collaudo prima di procedere alla distribuzione al pubblico. Questi test — anche se non sono
+				solitamente formalizzati e preparati a priori — sono molto specifici e coprono una parte significativa dei possibili
+				casi d'uso. I programmatori, inoltre, prima di sottoporre il software a questo tipo di collaudo, arricchiscono il
+				codice con istruzioni di controllo a runtime che facilitino il rilevamento degli errori.\\
+				Il gruppo di lavoro, infine, distribuisce a individui esterni all'azienda alcuni prototipi che risultino abbastanza
+				stabili e che abbiano superato con successo i test interni. Tali utenti eseguono i cosiddetti \emph{beta test}. In
+				questo modo PastBook raggiunge due obiettivi:
+				\begin{itemize}
+					\item Utenti selezionati possono provare in anteprima i prodotti aziendali. Queste persone sono normalmente
+					giornalisti o blogger che desiderano svelare in anteprima le funzionalità di un nuovo prodotto. L'azienda ha
+					così la possibilità di pubblicizzare il proprio marchio. Talvolta i prodotti sono consegnati anche a
+					possibili investitori che possono valutare le potenzialità di PastBook.
+					\item Gli utenti usano il software in casi realistici e inviano al produttore resoconti dei malfunzionamenti
+					riscontrati. Il gruppo di lavoro raccoglie in modo minuzioso i dati provenienti dai beta test per poi
+					utilizzarli nell'individuazione e correzione di eventuali errori.
+				\end{itemize}
+				Ovviamente, gli sviluppatori sfruttano gli utenti esterni solo per testare i prodotti che sono pensati per il
+				pubblico. Il software necessario al funzionamento interno di PastBook non viene reso noto al di fuori dei confini
+				dell'azienda.
 		\subsection{Tecnologie, tecniche e strumenti utilizzati}
 			\subsubsection{Generazione di un Photo Book}
-				Descrivo in modo molto generale come l'azienda produce il pdf che rappresenta il libro fotografico che poi viene
-				successivamente stampato. Descrivo inoltre le tecnologie che sono utilizzate durante questo processo.
-			\subsubsection{API e services}
-				Comincio con il descrivere brevemente il server dell'azienda (tecnologie utilizzate e architettura generale). In
-				seguito mi concentro su due componenti fondamentali di tale architettura che sono a disposizione degli sviluppatori:
-				API REST (richieste basilari per creare/modificare un album fotografico) e services (richieste complesse e
-				strutturate per l'esecuzione automatica di alcuni compiti).
+				L'azienda ha trovato un modo semplice ed efficace di generare i Photo Book, utilizzando in gran parte una tecnologia
+				stabile ed affermata: \emph{WebKit}\input{capitolo_1/note/webkit.tex}. In particolare, l'algoritmo sviluppato da
+				PastBook non fa altro che utilizzare la funzione che converte una pagina composta da codice HTML e CSS in un
+				documento PDF: la stessa che browser come Google Chrome utilizzano per dare all'utente la possibilità di esportare i
+				contenuti web nel formato sviluppato da Adobe Systems.\\
+				L'utilizzo automatizzato di tale tecnologia è possibile grazie ai cosiddetti
+				\emph{headless browser}\input{capitolo_1/note/headless_browser.tex}. PastBook, per esempio, fa uso di Google Chrome
+				e delle API del suo motore di rendering che sono messe a disposizione degli sviluppatori.\\
+				Il problema risulta dunque semplificato: ciò che il software aziendale deve fare è creare dinamicamente una
+				rappresentazione formale del documento, senza preoccuparsi del suo successivo rendering. In particolare, l'algoritmo
+				definisce innanzitutto la struttura dell'album tramite l'uso del linguaggio HTML e utilizzando le foto messe a
+				disposizione dall'utente. In secondo luogo, aggiunge un foglio di stile CSS per formattare il contenuto
+				precedentemente creato. WebKit porta a termine il resto del lavoro, generando il documento PDF a partire dai dati
+				prodotti dal software PastBook.\\
+				L'algoritmo dell'azienda è complesso non tanto nel rendering dell'album quanto nella creazione di una struttura e di
+				una formattazione appropriata. Infatti, esso si occupa di disporre le immagini fornite in un modo che risulti
+				gradevole all'utente. Inoltre, esso tenta di capire quali sono le foto migliori — qualsiasi cosa questo voglia dire —
+				e quale di queste può essere scelta come copertina del Photo Book. L'algoritmo, allo stesso tempo, deve essere molto
+				veloce, poichè gli utenti pretendono risultati istantanei.
+			\subsubsection{API e Service}
+				L'infrastruttura dei server di PastBook si base su due concetti fondamentali: \emph{API} e \emph{Service}.\\
+				Il primo di questi concetti risponde esattamente alla definizione di web API che fornisce la letteratura:
+				un'interfaccia di programmazione per un server web che è accessibile attraverso un endpoint e che permette a chi la
+				usa di espletare un determinato compito. In particolare, le API aziendali mettono a disposizione degli sviluppatori
+				le funzionalità basilari di cui essi hanno bisogno. Alcuni esempi sono:
+				\begin{itemize}
+					\item autenticazione al server PastBook
+					\item creazione di un Photo Book vuoto
+					\item aggiunta di una foto ad un Photo Book
+					\item sostituzione della cover di un Photo Book
+				\end{itemize}
+				Le API hanno accesso diretto al database MySQL dell'azienda. Esse, inoltre, sono soggette a
+				\emph{load balancing}\input{capitolo_1/note/load_balancing.tex}, che permette maggiori livelli di scalabilità e
+				affidabilità dell'intera architettura. Infatti, per gestire una grande quantità di utenti PastBook ha previsto più
+				server identici tra di loro che possano prendersi carico delle richieste in arrivo.\\
+				Invece, il concetto di Service si discosta in parte da quello web service comunemente proposto: esso rappresenta
+				una procedura complessa basata su un algoritmo e sull'uso automatico delle API. Il modo tramite il quale si accede ai
+				Service e alle API aziendali è identico (tramite il protocollo HTTP e i relativi metodi). L'unica differenza
+				percebibile, dunque, sta nella complessità delle funzionalità messe a disposizione degli sviluppatori.\\
+				I Service sono suddivisi in tre categorie distinte:
+				\begin{itemize}
+					\item \emph{providers}, che si occupano di ottenere in modo automatico collezioni di foto dell'utente (per
+					esempio: tutte le foto di un determinato periodo presenti su Facebook, tutte le foto caratterizzate da uno
+					specifico hashtag presenti su Instagram etc.);
+					\item \emph{filters}, il cui compito è quello di modificare un insieme di foto (per esempio: rimozione delle
+					immagini duplicate, limitazione di 30 foto al giorno etc.);
+					\item \emph{makers}, che svolgono azioni complesse utilizzando un insieme di foto (per esempio: creazione
+					automatica di un Photo Book).
+				\end{itemize}
+				\input{capitolo_1/diagrammi/infrastruttura_server.tex}
 			\subsubsection{Ambiente di lavoro virtuale}
-				Descrivo come gli sviluppatori utilizzino un ambiente di lavoro virtuale che simuli in tutto e per tutto quello
-				reale, in modo tale da non dover lavorare direttamente sui prodotti accessibili al pubblico. Descrivo le tecnologie
-				utilizzate per la creazione di tale ambiente.
+				Gli sviluppatori di PastBook hanno a disposizione una \emph{sandbox}, ovvero un ambiente di lavoro virtuale nel
+				quale poter produrre e sperimentare il nuovo sofware. Questo permette loro di non modificare direttamente i prodotti
+				accessibili al pubblico. La sandbox replica tutte le funzionalità minime necessarie per poter verificare la
+				correttezza dei programmi realizzati: è presente un database MySQL (contenente dati fittizi), il motore per il
+				rendering dei Photo Book e un simulatore delle API e dei Service.\\
+				Il CTO di PastBook ha sfruttato principalmente due tecnologie per la realizzazione di questo ambiente virtuale.
+				Innanzitutto ha scelto VirtualBox per l'esecuzione della macchina virtuale che simula le varie funzionalità dei
+				server aziendali. In secondo luogo ha adottato l'uso di \emph{Vagrant} per permettere ai programmatori di lavorare
+				direttamente sulle proprie copie del codice e per diminuire il tempo per la configurazione dell'ambiente di
+				sviluppo.
 	\section{Propensione all'innovazione}
-		Descrivo il rapporto che l'azienda ha con l'innovazione, in relazione anche alla tipologia di utenti alla quale si rivolge.
+		\subsection{Innovazione dei prodotti}	
+			PastBook tenta costantemente di migliorare il prodotto esistente in un modo che soddisfi sempre più le esigenze dei clienti.
+			Le innovazioni in questo campo sono sempre caratterizzate da un basso \emph{grado di novità}: esse sono incrementali, quasi
+			mai radicali. In particolare, l'obiettivo principale del team aziendale è quello di rendere indistiguibili i Photo Book
+			creati in automatico da quelli realizzati manualmente da un essere umano: questo comporta una continua ricerca in vari
+			ambiti dell'intelligenza artificiale, primo fra tutti il \emph{machine learning} (per “imparare” automaticamente dai gusti
+			degli utenti). Inoltre, PastBook può vantare una costante innovazione grafica dei propri prodotti, ottenuta grazie allo
+			studio continuo e all'attenzione nei confronti dei trend del momento.
+		\subsection{Innovazione del processo di produzione}
+			Se da una parte l'azienda è fortemete impegnata nel combattere la concorrenza offrendo un prodotto che sia costantemente
+			migliorato, dall'altra essa non investe energie e denaro per migliorare il processo di produzione. Infatti, essa non ha
+			interesse nell'implementare un nuovo metodo per la creazione e il rendering del Photo Book: quello attuale funziona alla
+			perfezione senza alcun errore e si basa su tecnologie consolidate da molti anni. Inoltre, sebbene l' efficienza del
+			procedimento che realizza il Photo Book sia molto migliorabile, l'azienda non ritiene che l'eventuale investimento possa
+			fruttare abbastanza.
+		\subsection{Innovazione dell'organizzazione}
+			PastBook utilizza una metodologia di lavoro che unisce un metodo simile allo Scrum (ormai ampiamente utilizzato da molte
+			imprese) a una politica di comunicazione fortemente basata sulle relazioni interpersonali. Da questo punto di vista, dunque,
+			l'azienda è sicuramente innovativa: la dirigenza punta fortemente sul'incremento del livello disoddisfazione passando
+			attraverso una grossa semplificazione dei processi interni e la promozione di numerose attività extra-lavorative.\\
+			PastBook, inoltre, possiede una configurazione organizzativa molto dinamica e che si adatta alle necessità: le mansioni di
+			ciascun dipendente variano spesso nel tempo, contribuendo a mantenere attivo l'interesse dell'intero team nei confronti del
+			progetto aziendale.
+		\subsection{Innovazione delle strategie di marketing}
+			L'azienda è alla costante ricerca di nuove e più efficaci strategie commerciali finalizzate all'acquisizione di un vantaggio
+			competitivo. Innanzitutto, i membri dell'area commerciale di PastBook si informano continuamente utilizzando la letteratura
+			disponibile online. Inoltre, essi partecipano frequentemente a meeting, conferenze o laboratori dove possono imparare
+			dall'esperienza altrui concetti e metodi applicabili in azienda.\\
+			PastBook, infine, è inserita all'interno di un ambiente in forte crescita formato da numerose startup, finanziatori ed
+			esperti di ogni genere provenienti da tutto il mondo: gli inevitabili contatti con questo mondo fanno in modo che non
+			manchino mai nuovi spunti o scambi di idee che portino valore aggiunto all'azienda.

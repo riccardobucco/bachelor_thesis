@@ -1,0 +1,30 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=azzurro] (0,0.06\textwidth) rectangle ++(0.19\textwidth,0.10\textwidth);
+		\draw (0,0.06\textwidth) rectangle ++(0.19\textwidth,0.10\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Database MySQL};
+		\draw[<->] (0.20\textwidth,0.11\textwidth) -- (0.26\textwidth,0.11\textwidth);
+		\draw[<->] (0.20\textwidth,0.13\textwidth) -- (0.26\textwidth,0.19\textwidth);
+		\draw[<->] (0.20\textwidth,0.09\textwidth) -- (0.26\textwidth,0.03\textwidth);
+		\draw[fill=azzurro] (0.27\textwidth,0) rectangle ++(0.19\textwidth,0.06\textwidth);
+		\draw (0.27\textwidth,0) rectangle ++(0.19\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {...};
+		\draw[fill=azzurro] (0.27\textwidth,0.08\textwidth) rectangle ++(0.19\textwidth,0.06\textwidth);
+		\draw (0.27\textwidth,0.08\textwidth) rectangle ++(0.19\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {API (server 2)};
+		\draw[fill=azzurro] (0.27\textwidth,0.16\textwidth) rectangle ++(0.19\textwidth,0.06\textwidth);
+		\draw (0.27\textwidth,0.16\textwidth) rectangle ++(0.19\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {API (server 1)};
+		\draw[<->] (0.47\textwidth,0.11\textwidth) -- (0.53\textwidth,0.11\textwidth);
+		\draw[<->] (0.47\textwidth,0.19\textwidth) -- (0.53\textwidth,0.13\textwidth);
+		\draw[<->] (0.47\textwidth,0.03\textwidth) -- (0.53\textwidth,0.09\textwidth);
+		\draw[fill=azzurro] (0.54\textwidth,0.06\textwidth) rectangle ++(0.19\textwidth,0.10\textwidth);
+		\draw (0.54\textwidth,0.06\textwidth) rectangle ++(0.19\textwidth,0.10\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Load Balancer\\API};
+		\draw[<->] (0.74\textwidth,0.11\textwidth) -- (0.80\textwidth,0.11\textwidth);
+		\draw[fill=azzurro] (0.81\textwidth,0.06\textwidth) rectangle ++(0.19\textwidth,0.10\textwidth);
+		\draw (0.81\textwidth,0.06\textwidth) rectangle ++(0.19\textwidth,0.10\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Service};
+	\end{tikzpicture}
+\end{figure}
