@@ -1,0 +1,26 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=azzurro] (0,0.1\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth);
+		\draw (0,0.1\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Avvio applicazione};
+		\draw[fill=azzurro] (0.25\textwidth,0) rectangle ++(0.22\textwidth,0.06\textwidth);
+		\draw (0.25\textwidth,0) rectangle ++(0.22\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Installazione su emulatore};
+		\draw[fill=azzurro] (0.5\textwidth,0.1\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth);
+		\draw (0.5\textwidth,0.1\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Compilazione};
+		\draw[fill=azzurro] (0.09\textwidth,0.25\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth);
+		\draw (0.09\textwidth,0.25\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Verifica modifiche};
+		\draw[fill=azzurro] (0.41\textwidth,0.25\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth);
+		\draw (0.41\textwidth,0.25\textwidth) rectangle ++(0.22\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Codifica};
+		\draw[->] (0.32\textwidth,0.28\textwidth) -- (0.40\textwidth,0.28\textwidth);
+		\draw[->] (0.24\textwidth,0.03\textwidth) -- (0.11\textwidth,0.09\textwidth);
+		\draw[->] (0.11\textwidth,0.17\textwidth) -- (0.20\textwidth,0.24\textwidth);
+		\draw[->] (0.52\textwidth,0.24\textwidth) -- (0.61\textwidth,0.17\textwidth);
+		\draw[->] (0.61\textwidth,0.09\textwidth) -- (0.48\textwidth,0.03\textwidth);
+	\end{tikzpicture}
+	\caption{Ciclo necessario per la verifica delle modifiche}
+\end{figure}

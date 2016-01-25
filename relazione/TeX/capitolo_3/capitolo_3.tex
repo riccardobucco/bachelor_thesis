@@ -77,10 +77,82 @@
 				abbastanza agevole in quanto in azienda era disponibile una guida realizzata dal CTO che illustrava tutti i passi
 				necessari. Ho contribuito al miglioramento della guida nei passaggi non sufficientemente chiari.
 			\subsubsection{Installazione di Titanium e delle relative dipendenze}
-				Descrivo come ho proceduto all'installazione di tutti gli strumenti messi a disposizione da Appcelerator. Racconto
-				perchè alcuni strumenti siano stati scartati in partenza mentre altri siano stati ritenuti utili. Racconto come a
-				circa metà stage abbia dovuto aggiornare il framework a causa di esigenze aziendali, dovendo ritoccare parte della
-				configurazione iniziale (oltre che pate del codice)
+				L'installazione dei vari componenti dell'ambiente di sviluppo Titanium e delle relative dipendenze è risultato
+				essere molto semplice: Appcelerator, infatti, mette a disposizione eseguibili che si occupano in modo automatico
+				della configurazione dei vari prodotti. Anche quando ho dovuto aggiornare la piattaforma durante la quinta settimana
+				di stage (per poter supportare l'ultima versione di iOS) non ho riscontrato particolari problemi.\\
+				Ciò che ha richiesto tempo, invece, è stata un'accurata analisi dei vari strumenti a disposizione degli sviluppatori,
+				per capire quali di essi avrebbero potuto risultare utili ai miei scopi.\\
+				Il primo strumento che ho studiato e analizzato è stato Appcelerator Studio, l'IDE gratuito messo a disposizione dai
+				creatori di Titanium.
+				\begin{center}
+					\begin{tabular}[H]{| p{0.43\textwidth} | p{0.43\textwidth} |}
+						\hline
+						\emph{Pregi} di Appcelerator Studio &
+						\emph{Difetti} di Appcelerator Studio\\
+						\hline\hline
+						È uno strumento sufficientemente semplice da essere utilizzato anche da sviluppatori alle prime armi.
+						Allo stesso tempo esso mette a disposizione numerose funzionalità avanzate, dedicate a coloro che
+						esigono strumenti complessi di analisi, debugging e test. &
+						È estremamente lento nell'eseguire qualsiasi tipo di operazione, dalla più semplice alla più
+						complessa. Questo accade anche su macchine recenti.\\
+						\hline
+						Fornisce metodi semplici ed efficaci per installare moduli aggiuntivi, evitando in questo modo allo
+						sviluppatore di dover mettere mano ai file di configurazione stessi. Inoltre, permette la gestione
+						automatica delle varie versioni delle API messe a disposizione dagli SDK di Android e iOS. &
+						Un bug mai risolto fa in modo che l'utilizzo della RAM a disposizione sia inaccettabile. In
+						particolare, ogni volta che un programmatore compila il codice viene creato un processo Node.js che
+						non viene più chiuso: questo fa in modo che le risorse a disposizione dell'utente diventino sempre
+						meno e che l'intero sistema rallenti nettamente con l'uso continuato.\\
+						\hline
+					\end{tabular}
+				\end{center}
+				Non ho tardato a realizzare come tale software fosse inadatto ad un utilizzo intensivo e giornaliero: esso rallentava
+				troppo qualsiasi operazione che dovevo svolgere. Aveva tuttavia il pregio di aiutarmi a gestire lo scaricamento,
+				l'installazione e la configurazione degli SDK mobile (con relativi emulatori) e dei vari moduli a me necessari. Ho
+				dunque optato per utilizzarlo solo in modo occasionale come strumento di supporto. Per utilizzare tutte le altre
+				funzionalità ho deciso di far uso di Titanium CLI (l'interfaccia a linea di comando della piattaforma Appcelerator):
+				questo prodotto, sebbene meno intuitivo, non appesantiva in modo considerevole il sistema e soprattutto utilizzava la
+				RAM in modo efficace.\\
+				Il secondo strumento della piattaforma Appcelerator che ho valutato è stato il framework MVC Alloy. La scelta, in
+				questo caso, riguardava se utilizzare Titanium in modalità classica o sfruttando Alloy.
+				\begin{center}
+					\begin{tabular}[H]{| p{0.20\textwidth} | p{0.35\textwidth} | p{0.35\textwidth} |}
+						\hline
+						&
+						Titanium \emph{Classic}&
+						Titanium \emph{Alloy}\\
+						\hline\hline
+						Linguaggi utilizzati &
+						Uso di Javascript per la realizzazione di qualsiasi funzionalità. &
+						Uso di Javascript per lo sviluppo del controller e del modello ; uso di XML per la realizzazione
+						della struttura della view; uso di TSS (linguaggio simile a CSS) per definire lo stile della view.\\
+						\hline
+						Compilazione &
+						Il codice Javascript viene tradotto nel linguaggio richiesto dalla piattaforma mobile. Segue la
+						produzione di un eseguibile. &
+						Il codice viene interamente tradotto in Javascript (causando un piccolo overhead). In seguito la
+						compilazione procede come nel caso di Titanium Classic.\\
+						\hline
+					\end{tabular}
+				\end{center}
+				Qui la scelta è	stata molto più semplice: il leggero aumento dei tempi di compilazione causato dall'uso di Alloy
+				è in larga parte compensato dal fatto che lo sviluppo di applicazioni sia molto più intuitivo. Questa semplicità è
+				dovuta soprattutto alla grande somiglianza con la programmazione web che fa uso di HTML, CSS e Javascript. Ho quindi
+				deciso di sfruttare il framework Alloy per la realizzazione dei prodotti che mi sono stati assegnati.\\
+				Un ultimo strumento che ho valutato è stato \emph{Appcelerator LiveView}. Si tratta di un componente aggiuntivo per
+				Titanium che serve per verificare e testare i cambiamenti apportati al codice in tempo reale. Esso permette ai
+				programmatori di perdere meno tempo per i test. Il classico metodo utilizzato per verificare la correttezza
+				di una certa modifica apportata consiste nel compilare il codice, trasferire l'eseguibile su un emulatore mobile e
+				infine lanciare l'applicazione manualmente.\\
+				\input{capitolo_3/diagrammi/ciclo_verifica_modifiche.tex}
+				LiveView, tuttavia, permette di aumentare enormemente la velocità dell'intero processo (passando da alcuni minuti a
+				pochi secondi di attesa). L'unico problema di tale strumento è il fatto che sia tutt'ora molto instabile e non del
+				tutto affidabile: spesso restituiva errori incomprensibili o causava il crash dell'applicazione in seguito a qualche
+				test ripetuto. Nonostante l'enorme comodità che avrebbe potuto rappresentare, ho preferito non utilizzarlo in modo
+				costante a causa dell'insicurezza dei suoi risultati. LiveView, tuttavia, è risultato particolarmente utile e stabile
+				durante il design dell'applicazione: durante questa attività era inaccettabile compilare il codice ogniqualvolta
+				si cambiava in modo minimo un colore o si spostava di qualche millimetro un elemento di una schermata.
 			\subsubsection{Scelta e configurazione degli emulatori di dispositivi mobile}
 				Descrivo i criteri sui quali mi sono basato per scegliere gli emulatori che avrei dovuto usare per testare
 				l'applicazione. Descrivo i pro e i contro di ognuno di essi, basati su test effettuati da me stesso. Descrivo come
