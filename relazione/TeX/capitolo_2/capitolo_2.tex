@@ -54,10 +54,34 @@
 	\section{Descrizione del progetto di stage}
 		\subsection{Prodotti}
 			\subsubsection{PastBook Mobile SDK}
-				Il primo prodotto che l'azienda intende realizzare tramite l'esperienza di stage è un SDK per
-				Descrivo l'SDK che devo realizzare utilizzando le API e i services messi a disposizione da pastbook. Descrivo le
-				funzionalità minime (e massime) che tale prodotto deve avere. Inquadro tale prodotto all'interno degli obiettivi
-				aziendali futuri.
+				Il primo prodotto che l'azienda intende realizzare tramite l'esperienza di stage è un SDK che permetta agli
+				sviluppatori un uso semplificato delle API e dei Service messi a disposizione da PastBook. In particolare, tale
+				prodotto intende fornire un'interfaccia tramite la quale si possano richiamare funzionalità utilizzate spesso
+				all'interno delle applicazioni mobile del'azienda.\\
+				L'SDK deve disporre di alcune caratteristiche minime:
+				\begin{itemize}
+					\item Esso permette la gestione automatica dell'autenticazione a Facebook e Instagram. Deve saper gestire sia
+					il normale processo tramite il quale un utente autorizza l'applicazione che tutti i casi particolari che
+					possono introdurre errori. Possibili situazioni anomale riguardano la mancata conferma di un sottoinsieme
+					delle autorizzazioni necessarie, il rifiuto da parte di un utente di inserire i propri dati, errori dovuti
+					alla connessione di rete etc. È mio compito individuare e gestire tutte le possibili eccezioni, in modo tale
+					che un futuro sviluppatore di applicazioni mobile non se ne debba preoccupare.
+					\item L'SDK deve unificare il modo tramite il quale uno sviluppatore accede ad API e Service. Deve inoltre
+					uniformare il modo in cui i risultati e gli errori sono restituiti. Infatti, i servizi messi a disposizione
+					da PastBook non sono facilmente utilizzabili dagli sviluppatori mobile in quanto talvolta non sono coerenti
+					nella scelta del formato dei dati richiesto.
+					\item L'SDK deve gestire in modo automatico eventuali errori di API o Service nei quali non è richiesto
+					l'intervento diretto dello sviluppatore. I malfunzionamenti difficilmente risolvibili devono essere
+					presentati senza fornire dettagli irrilevanti ai fini dello sviluppo dell'applicazione.
+					\item Infine, tale strumento deve fornire funzionalità che utilizzino in modo aggregato API e Service. Le
+					funzionalità richieste sono quelle che sono maggiormente utilizzate ai fini dello sviluppo di applicazioni
+					mobile all'interno dell'azienda. Il mio compito è quello di individuarle ed implementarle.
+				\end{itemize}
+				Opzionalmente, Il PastBook mobile SDK dovrebbe fornire un metodo che permetta a uno sviluppatore di applicazioni
+				mobile di portare a termine l'intera creazione di un Photo Book senza mai dover intervenire personalmente e senza
+				doversi preoccupare della gestione di dati ed errori restituiti dai servizi aziendali. Questo processo di creazione
+				dovrebbe essere inoltre completamente configurabile all'interno dei server aziendali, in modo tale da non dover
+				rilasciare nuove applicazioni ogniqualvolta tale configurazione cambi.
 			\subsubsection{My Year Photo Book}
 				Descrivo il prodotto principale che deve essere realizzato durante lo stage, un'applicazione per iphone e android
 				che replichi le funzionalità offerte dall'azienda nel sito web. Descrivo come tale prodotto faccia uso dell'SDK
