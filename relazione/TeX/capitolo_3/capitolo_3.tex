@@ -146,7 +146,7 @@
 				di una certa modifica apportata consiste nel compilare il codice, trasferire l'eseguibile su un emulatore mobile e
 				infine lanciare l'applicazione manualmente.\\
 				\input{capitolo_3/diagrammi/ciclo_verifica_modifiche.tex}
-				LiveView, tuttavia, permette di aumentare enormemente la velocità dell'intero processo (passando da alcuni minuti a
+				\noindent LiveView, tuttavia, permette di aumentare enormemente la velocità dell'intero processo (passando da alcuni minuti a
 				pochi secondi di attesa). L'unico problema di tale strumento è il fatto che sia tutt'ora molto instabile e non del
 				tutto affidabile: spesso restituiva errori incomprensibili o causava il crash dell'applicazione in seguito a qualche
 				test ripetuto. Nonostante l'enorme comodità che avrebbe potuto rappresentare, ho preferito non utilizzarlo in modo
@@ -154,14 +154,50 @@
 				durante il design dell'applicazione: durante questa attività era inaccettabile compilare il codice ogniqualvolta
 				si cambiava in modo minimo un colore o si spostava di qualche millimetro un elemento di una schermata.
 			\subsubsection{Scelta e configurazione degli emulatori di dispositivi mobile}
+				Gli ultimi strumenti che ho dovuto installare e configurare sono stati gli emulatori dei dispositivi mobile, sia per
+				Android che iOS. Essi erano necessari durante lo sviluppo in quanto permettevano di testare l'applicazione senza far
+				uso di telefoni fisici.\\
+				Per quanto riguarda lo sviluppo sul sistema operativo prodotto da Apple, la scelta è stata obbligata: infatti, gli
+				unici emulatori disponibili sul mercato sono quelli che fanno parte dell'SDK stesso. Invece, per Android esistono più
+				emulatori sul mercato, ognuno con caratteristiche e funzionalità più o meno avanzate. I due software tra i quali mi
+				sono ritrovato a scegliere sono:
+				\begin{itemize}
+					\item \emph{Android Emulator}
+					\item \emph{Genymotion}
+				\end{itemize}
+				
 				Descrivo i criteri sui quali mi sono basato per scegliere gli emulatori che avrei dovuto usare per testare
 				l'applicazione. Descrivo i pro e i contro di ognuno di essi, basati su test effettuati da me stesso. Descrivo come
 				li abbia configurati in modo tale che funzionino con le macchine virtuali precedentemente installate.
 		\subsection{Studio e preparazione personale}
-			Descrivo come inizialmente abbia imparato ad utilizzare gli strumenti messi a disposizione dall'azienda e come abbia studiato
-			il framework titanium e tutti i suoi vari elementi. Descrivo come la parte principale di tutto ciò sia stata dedicata alla
-			comprensione del modulo Alloy (MVC con Titanium). Racconto come la formazione comprendesse anche l'uso di tali
-			strumenti per la produzione di piccoli esempi.
+			Durante la prima settimana di stage ho dedicato molto del mio tempo a studiare il dominio applicativo. La mia formazione ha
+			riguardato innanzitutto gli strumenti messi a disposizione dall'azienda:
+			\begin{itemize}
+				\item Ho preso confidenza con le API aziendali, servendomi della documentazione fornita da PastBook. Ho utilizzato
+				Postman\input{TeX/capitolo_3/note/postman.tex} per effettuare alcuni semplici test che mi permettessero di capire in
+				modo più approfondito il funzionamento di questi servizi REST.
+				\item Ho imparato ad utilizzare i Service aziendali. Per fare questo mi sono servito di test ed esempi già
+				esistenti, in quanto PastBook non disponeva della documentazione relativa a tali servizi. Per studiare il modo in cui
+				erano organizzati, per capire il loro scopo e per dedurre la tipologia di input richiesti ho avuto accesso
+				direttamente al codice sorgente. Anche in questo caso il software Postman si è rivelato essere molto utile.
+				\item Ho studiato il modo in cui l'azienda crea un Photo Book in automatico. Per fare ciò ho principalmente
+				osservato il flusso di operazioni eseguite all'interno dell'applicazione web.
+			\end{itemize}
+			Durante quest'attività sono stato in stretto contatto con il tutor: egli mi ha aiutato a risolvere dubbi e mi ha fornito
+			utili indicazioni che mi hanno permesso di apprendere in modo più veloce ed efficace.\\
+			In secondo luogo, mi sono sforzato di assimilare le tecnologie che mi era stato richiesto di utilizzare durante la mia
+			esperienza di stage. In particolare, gli aspetti fondamentali della mia attività di studio sono stati tre:
+			\begin{itemize}
+				\item Ho studiato le Titanium API che sono più comunemente usate. Mi sono soffermato su tutte quelle che sarebbero
+				potute essere interessanti ai fini del mio lavoro. Ho cercato inoltre di approfondire la programmazione event-driven
+				che tali API richiedono.
+				\item Ho familiarizzato con Titanium CLI, l'interfaccia a linea di comando che è alla base dell'IDE messo a
+				disposizione da Appcelerator e che è necessaria per la realizzazione degli eseguibili nativi per le varie piattaforme
+				mobili su cui intendevo sviluppare. Ho individuato quali erano le funzionalità e i comandi che mi sarebbero
+				probabilmente serviti durante la realizzazione del progetto assegnatomi.
+				\item Ho cominciato a produrre alcuni semplici esempi che facessero uso del framework Alloy. Ho presentato questi
+				test al mio tutor in modo tale che potesse fornirmi suggerimenti sui metodi migliori per utilizzare tale strumento.
+			\end{itemize}
 	\section{Sviluppo di PastBook Mobile SDK}
 		\subsection{Autenticazione a Facebook e Instagram}
 			\subsubsection{Studio del dominio e analisi dei requisiti}
