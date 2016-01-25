@@ -158,17 +158,25 @@
 				Android che iOS. Essi erano necessari durante lo sviluppo in quanto permettevano di testare l'applicazione senza far
 				uso di telefoni fisici.\\
 				Per quanto riguarda lo sviluppo sul sistema operativo prodotto da Apple, la scelta è stata obbligata: infatti, gli
-				unici emulatori disponibili sul mercato sono quelli che fanno parte dell'SDK stesso. Invece, per Android esistono più
+				unici emulatori disponibili sono quelli che fanno parte dell'SDK stesso. Invece, per Android esistono più
 				emulatori sul mercato, ognuno con caratteristiche e funzionalità più o meno avanzate. I due software tra i quali mi
 				sono ritrovato a scegliere sono:
 				\begin{itemize}
 					\item \emph{Android Emulator}
 					\item \emph{Genymotion}
 				\end{itemize}
-				
-				Descrivo i criteri sui quali mi sono basato per scegliere gli emulatori che avrei dovuto usare per testare
-				l'applicazione. Descrivo i pro e i contro di ognuno di essi, basati su test effettuati da me stesso. Descrivo come
-				li abbia configurati in modo tale che funzionino con le macchine virtuali precedentemente installate.
+				Il primo è l'emulatore ufficiale ed è contenuto direttamente all'interno dell'SDK fornito da Google. Fornisce un
+				gran numero di opzioni, tuttavia è abbastanza lento nell'esecuzione anche se installato all'interno di macchine
+				recenti: questo fa in modo che sorgano non poche difficoltà riguardanti il collaudo di effetti grafici complicati. Il
+				secondo software, invece, altro non è che una macchina virtuale Android installata all'interno di VirtuaBox (con
+				l'aggiunta di funzionalità quali la simulazione dei vari tipi di sensori): esso si distingue dal rivale
+				principalmente per la sua maggiore reattività ai comandi provenienti dall'utente. Genymotion, inoltre, possiede una
+				seconda caratteristica che lo rende appetibile: è possibile installare le applicazioni semplicemente trasinandole
+				all'interno dell'emulatore, senza dunque dover utilizzare più volte la linea di comando. La mia scelta, dunque, è
+				ricaduta sulla seconda opzione.\\
+				Una volta scelto l'emulatore ho speso un po di tempo a configurarlo affinchè si interfacciasse in modo corretto con
+				la sandbox installata in locale. Questa operazione non era mai stata fatta in azienda e di conseguenza ho deciso di
+				redigere una breve guida a riguardo, per aiutare in questo compito i futuri sviluppatori aziendali.
 		\subsection{Studio e preparazione personale}
 			Durante la prima settimana di stage ho dedicato molto del mio tempo a studiare il dominio applicativo. La mia formazione ha
 			riguardato innanzitutto gli strumenti messi a disposizione dall'azienda:
