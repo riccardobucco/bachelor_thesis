@@ -456,8 +456,14 @@
 				pensato per lo sviluppo cross-platform e dunque dovrebbe giungere ad alcuni compromessi pur di offrire davvero
 				la possibilità di scrivere un codice unico per creare più versioni della stessa applicazione.
 			\subsubsection{Presenza di bug}
-				Descrivo come durante la mia esperienza mi sia capitato di trovare bug abbastanza seri e che rendevano quasi del
-				tutto inutilizzabili alcune API messe a disposizione dall'SDK.
+				Un'ultima criticità incontrata nell'utilizzo di Titanium riguarda la presenza di alcuni bug all'interno di certe API.
+				\begin{itemize}
+					\item Il ridimensionamento delle immagini non viene fatto in modo corretto. Il comando in questione, nel
+					dettaglio, non riesce a riconoscere l'altezza e la larghezza reali dei file: ne deriva un'immagine
+					inutilizzabile nella quale la proporzione delle dimensioni non è stata rispettata.
+					\item Il modulo per l'autenticazione e l'autorizzazione tramite Facebook non funziona in modo corretto su
+					Android. Nel dettaglio, esso non genera tutti gli eventi descritti nella documentazione.
+				\end{itemize}
 		\subsection{Difficoltà dovute al metodo di lavoro utilizzato}
 			\subsubsection{Rallentamenti causati dalla necessità di numerosi prototipi}
 				Descrivo come il fatto che mi fossero richiesti prototipi funzionanti rallentasse talvolta il mio lavoro. Se da una
