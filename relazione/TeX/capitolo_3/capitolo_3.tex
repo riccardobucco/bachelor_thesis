@@ -146,13 +146,13 @@
 				di una certa modifica apportata consiste nel compilare il codice, trasferire l'eseguibile su un emulatore mobile e
 				infine lanciare l'applicazione manualmente.\\
 				\input{capitolo_3/diagrammi/ciclo_verifica_modifiche.tex}
-				\noindent LiveView, tuttavia, permette di aumentare enormemente la velocità dell'intero processo (passando da alcuni minuti a
-				pochi secondi di attesa). L'unico problema di tale strumento è il fatto che sia tutt'ora molto instabile e non del
-				tutto affidabile: spesso restituiva errori incomprensibili o causava il crash dell'applicazione in seguito a qualche
-				test ripetuto. Nonostante l'enorme comodità che avrebbe potuto rappresentare, ho preferito non utilizzarlo in modo
-				costante a causa dell'insicurezza dei suoi risultati. LiveView, tuttavia, è risultato particolarmente utile e stabile
-				durante il design dell'applicazione: durante questa attività era inaccettabile compilare il codice ogniqualvolta
-				si cambiava in modo minimo un colore o si spostava di qualche millimetro un elemento di una schermata.
+				\noindent LiveView, tuttavia, permette di aumentare enormemente la velocità dell'intero processo (passando da alcuni
+				minuti a pochi secondi di attesa). L'unico problema di tale strumento è il fatto che sia tutt'ora molto instabile e
+				non del tutto affidabile: spesso restituiva errori incomprensibili o causava il crash dell'applicazione in seguito a
+				qualche test ripetuto. Nonostante l'enorme comodità che avrebbe potuto rappresentare, ho preferito non utilizzarlo
+				in modo costante a causa dell'insicurezza dei suoi risultati. LiveView, tuttavia, è risultato particolarmente utile
+				e stabile durante il design dell'applicazione: durante questa attività era inaccettabile compilare il codice
+				ogniqualvolta si cambiava in modo minimo un colore o si spostava di qualche millimetro un elemento di una schermata.
 			\subsubsection{Scelta e configurazione degli emulatori di dispositivi mobile}
 				Gli ultimi strumenti che ho dovuto installare e configurare sono stati gli emulatori dei dispositivi mobile, sia per
 				Android che iOS. Essi erano necessari durante lo sviluppo in quanto permettevano di testare l'applicazione senza far
@@ -274,6 +274,18 @@
 					nuovamente. È dunque necessario un meccanismo che eviti questi errori.
 				\end{itemize}
 			\subsubsection{Implementazione dell'autenticazione a Facebook tramite un modulo Titanium}
+				Invece di implementare da zero l'autenticazione a Facebook ho deciso di utilizzare il modulo ufficiale per Titanium
+				che Appcelerator mette a disposizione degli sviluppatori. Non ho preso la decisione opposta in quanto la cosa
+				avrebbe richiesto una gestione coerente delle variabili granted permissions e login status: le complicazioni
+				sarebbero probabilmente state eccessive. Inoltre, il modulo in questione mette a disposizione un'interfaccia
+				molto chiara e semplice da utilizzare.\\
+				Tale scelta, tuttavia, ha causato molti più problemi del previsto. Il modulo è stato utile solo nella gestione dei
+				casi più semplici del processo di autenticazione e autorizzazione: quando ho tentato di utilizzarlo per risolvere
+				situazioni delicate esso si è rivelato essere instabile nelle operazioni e incoerente nelle decisioni effettuate. In
+				particolare, i principali problemi dovuti al suo utilizzo sono stati i seguenti:
+				\begin{itemize}
+					\item Esso non era in grado
+				\end{itemize}
 				Racconto di come ho deciso di utilizzare il modulo per Facebook messo a disposizione da Appcelerator. Descrivo i
 				problemi riscontrati nel suo utilizzo (presenza di bug che mi impedivano lo sviluppo cross-platform e il
 				raggiungimento di tutti i requisiti individuati in precedenza). Descrivo i modi in cui ho testato tale autenticazione
@@ -393,10 +405,26 @@
 	\section{Analisi dei principali problemi}
 		\subsection{Criticità riscontrate usando Titanium}
 			\subsubsection{Documentazione scadente e community limitata}
-				Racconto come un forte limite di tale prodotto sia la presenza di una documentazione scritta male, molto variabile
-				e talvolta anche errata. A questo si aggiunge il fatto che la community online sia di dimensioni molto ridotte.
-				Tutto ciò comporta che spesso lo sviluppatore si trovi a dover risolvere i problemi che sorgono senza poter contare
-				sull'aiuto di questi due importanti strumenti.
+				Ho dovuto scontrarmi con molti limiti di Titanium durante l'intera esperienza di Stage. Il problema più serio
+				riguarda probabilmente gli strumenti a supporto degli sviluppatori: la documentazione ufficiale e la community di
+				utilizzatori dei prodotti Appcelerator.\\
+				In primo luogo, la documentazione ufficiale alla quale facevo riferimento si è rivelata essere spesso inappropriata e
+				di qualità scadente. In particolare, i problemi riscontrati sono stati:
+				\begin{itemize}
+					\item \emph{Organizzazione confusa}, in quanto spesso risultava complicato cercare le descrizioni delle API
+					necessarie ad alcuni scopi. La confusione generale poteva essere anche notata dal fatto che molti link non
+					erano stati aggiornati correttamente e conducevano quindi a sezioni con contenuti obsoleti.
+					\item \emph{Presenza di alcuni errori}, in quanto mi è capitato di trovare delle API che svolgevano le
+					operazioni in modo differente rispetto a quanto descritto nella documentazione. In questi casi ho avuto
+					l'accortezza di segnalare la cosa ad Appcelerator.
+				\end{itemize}
+				Ritengo che la documentazione sia uno strumento fondamentale per gli sviluppatori, oltre che l'immagine della serietà
+				dell'azienda. Dal mio punto di vista, dunque, è impensabile che essa presenti questi problemi.\\
+				Un secondo punto a svantaggio degli utilizzatori di Titanium è la community di Appcelerator. Essa è per forza di cose
+				molto più contenuta rispetto a quelle degli sviluppatori Android o iOS. Ne consegue un dettaglio non trascurabile per
+				coloro che si approcciano per la prima volta a questa piattaforma: spesso non esiste una soluzione ai propri problemi
+				che sia rintracciabile in rete. La maggior parte delle volte ognuno è tenuto ad esplorare personalmente gli strumenti
+				per cercare di individuare delle spiegazioni plausibili.
 			\subsubsection{Sviluppo cross-platform impossibile}
 				Descrivo come quello che dovrebbe essere un punto di forza di tale tecnologia (poter sviluppare in modo
 				cross-platform) non sia in realtà del tutto verificato. Porto la mia esperienza dicendo come dopo le difficoltà
