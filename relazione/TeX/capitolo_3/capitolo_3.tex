@@ -209,10 +209,70 @@
 	\section{Sviluppo di PastBook Mobile SDK}
 		\subsection{Autenticazione a Facebook e Instagram}
 			\subsubsection{Studio del dominio e analisi dei requisiti}
-				Descrivo come abbia cominciato preoccupandomi innanzitutto di ottenere l'autenticazione a facebook e instagram prima
-				di svolgere qualsiasi altro compito. Descrivo quali sono stati i requisiti che ho individuato (riguardanti tutti i
-				possibili scenari dell'autenticazione e i modi in cui gestirli). Racconto poi del seguente studio dell API messe a
-				disposizione daai due social network.
+				PastBook Mobile SDK deve innanzitutto permettere la gestione automatica dell'autenticazione a Facebook e Instagram.
+				In assenza di questo requisito, infatti, molte delle API e dei Service aziendali non possono essere correttamente
+				utilizzati in quanto necessitano di un'autorizzazione da parte dell'utente all'interno dei due social network.
+				Dunque, ho avviato lo sviluppo dell'SDK studiando e analizzando le metodologie che permettono agli utenti di
+				autenticarsi per poi autorizzare PastBook al trattamento dei loro dati.\\
+				I processi di autenticazione e autorizzazione utilizzati da Facebook e Instagram sono molto simili e possono essere
+				riassunti in questo modo:
+				\begin{enumerate}
+					\item Viene eseguito un controllo per capire se l'utente è già autenticato oppure no. Questo lo si può capire
+					utilizzando una variabile \emph{login status}, che può essere memorizzata localmente o ottenuta in altri
+					modi.
+					\begin{itemize}
+						\item Se l'utente è già autenticato si procede con il secondo passaggio.
+						\item Se l'utente non è autenticato allora gli vengono richieste le sue credenziali.
+						\begin{itemize}
+							\item Se l'utente inserisce credenziali valide allora la variabile login status è aggiornata
+							e si procede con il secondo passaggio.
+							\item Se l'utente inserisce credenziali erronee allora esso viene avvertito ed è invitato
+							provare nuovamente.
+							\item L'utente può rifiutarsi di fornire le proprie credenziali. In questo caso il processo
+							di autenticazione termina con un errore.
+						\end{itemize}
+					\end{itemize}
+					\item Viene eseguito un controllo per capire se l'utente ha già fornito tutti i permessi richiesti
+					dall'applicazione. Questo lo si può capire utilizzando una variabile \emph{granted permissions}, che può
+					essere memorizzata localmente o ottenuta in altri modi.
+					\begin{itemize}
+						\item Se l'utente ha fornito tutti i necessari permessi allora si può procedere con il terzo
+						passaggio.
+						\item Se l'utente non ha fornito tutti i necessari permessi allora gli viene richiesto di
+						autorizzarli.
+						\begin{itemize}
+							\item L'utente può confermare la propria autorizzazione a tutti i privilegi richiesti
+							dall'applicazione. La variabile granted permissions viene aggiornata. In questo caso si
+							procede con il terzo passaggio.
+							\item L'utente può confermare la propria autorizzazione a una parte dei privilegi richiesti
+							dall'applicazione. La variabile granted permissions viene aggiornata. Anche in questo caso
+							si procede con il terzo passaggio.
+							\item L'utente può negare l'autorizzazione dell'applicazione. In questo caso il processo di
+							autorizzazione termina con un errore.
+						\end{itemize}
+					\end{itemize}
+					\item Il server Facebook o Instagram restituisce al client un \emph{access token} che garantisce ad esso un
+					accesso temporaneo e sicuro alle API del social network.
+				\end{enumerate}
+				\input{TeX/capitolo_3/diagrammi/autenticazione_e_autorizzazione_social_network.tex}
+				\noindent Ho subito capito che — per poter essere veramente robusto — l'SDK avrebbe dovuto saper gestire numerosi
+				casi particolari. I più critici sono i seguenti:
+				\begin{itemize}
+					\item L'applicazione richiede l'autorizzazione per poter ottenere alcuni permessi da parte dell'utente
+					(immagini e principali dati personali). In assenza di uno di questi elementi, le API e i Service PastBook non
+					sono in grado di funzionare. Tuttavia, il processo di autenticazione e autorizzazione va a buon fine anche
+					nel caso in cui l'utente non fornisca tutti i privilegi richiesti. L'SDK, dunque, deve preoccuparsi della
+					gestione di questo caso, avvisando in modo consono l'applicazione affinchè essa decida cosa debba essere
+					fatto.
+					\item Molto spesso può accadere che un utente provi un'applicazione solo per curiosità. Tipicamente egli
+					garantisce tutti i permessi necessari. In seguito egli può rimuovere uno o più privilegi dell'applicazione
+					(questo può essere fatto all'interno del proprio profilo Facebook o Instagram). Nel peggiore dei casi
+					l'utente può anche decidere di rimuovere completamente l'applicazione dal proprio profilo. 
+					Tuttavia, l'SDK PastBook non ha modo di sapere quanto è successo e, se la variabile granted permissions è
+					memorizzata localmente, esso sarà convinto che l'utente abbia correttamente fornito tutti i permessi
+					necessari. Ciò provoca un errore all'interno dell'applicazione qualora l'utente tenti di utilizzarla
+					nuovamente. È dunque necessario un meccanismo che eviti questi errori.
+				\end{itemize}
 			\subsubsection{Implementazione dell'autenticazione a Facebook tramite un modulo Titanium}
 				Racconto di come ho deciso di utilizzare il modulo per Facebook messo a disposizione da Appcelerator. Descrivo i
 				problemi riscontrati nel suo utilizzo (presenza di bug che mi impedivano lo sviluppo cross-platform e il
@@ -224,6 +284,7 @@
 				mancanza di un'autenticazione SSO mi abbia indotto a scegliere un approccio diverso rispetto a quanto fatto in
 				precedenza (uso di una pagina webview invece che di una schermata nativa).
 		\subsection{Interfaccia per API e services aziendali}
+			pastbook auth with facebook
 			\subsubsection{Studio del dominio e analisi dei requisiti}
 				Descrivo come in prima istanza mi sia dedicato allo studio delle API (ben documentate) e dei services (documentazione
 				non presente) messi a disposizione dall'azienda. Descrivo come abbia poi cominciato l'analisi dei requisiti,
