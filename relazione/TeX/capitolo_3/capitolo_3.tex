@@ -426,9 +426,35 @@
 				che sia rintracciabile in rete. La maggior parte delle volte ognuno è tenuto ad esplorare personalmente gli strumenti
 				per cercare di individuare delle spiegazioni plausibili.
 			\subsubsection{Sviluppo cross-platform impossibile}
-				Descrivo come quello che dovrebbe essere un punto di forza di tale tecnologia (poter sviluppare in modo
-				cross-platform) non sia in realtà del tutto verificato. Porto la mia esperienza dicendo come dopo le difficoltà
-				iniziali l'azienda abbia deciso di dividere in due parti lo sviluppo dell'applicazione Android e di quella iOS.
+				Titanium è un prodotto pensato per realizzare applicazioni cross-platform native. Tuttavia, esso non riesce
+				completamente nel suo scopo. Infatti, vi sono ovviamente delle funzionalità che sono disponibili su iOS ma non su
+				Android, e viceversa. Appcelerator non tenta di uniformare le differenze ma permette semplicemente l'esecuzione di
+				alcune API solo su determinate piattaforme mobile. Ne consegue che il programmatore deve:
+				\begin{itemize}
+					\item controllare continuamente la compatibilità delle API utilizzate;
+					\item utilizzare le API non compatibili con altre piattaforme all'interno di istruzioni condizionali;
+					\item prevedere alternative per le varie piattaforme.
+				\end{itemize}
+				L'ultimo punto, in particolare, risulta particolarmente critico. Infatti, talvolta può accadere che iOS e Android
+				gestiscano situazioni simili in modo completamente diverso, se non opposto. Questo comporta che lo sviluppatore deve
+				prevedere modalità di funzionamento completamente diverse all'interno dello stesso codice, complicando non poco il
+				software prodotto.\\
+				Da questo punto di vista, i maggiori problemi pratici con cui mi sono scontrato sono:
+				\begin{itemize}
+					\item Gestione degli elementi — e in particolare delle finestre — trasparenti. In un caso essi permettono
+					agli elementi sottostanti di essere cliccabili, nell'altro si comportano in modo opposto.
+					\item Gestione della disabilitazione dello zoom nelle webview. In un caso si nascondono solo i tasti virtuali
+					presenti sullo schermo, nell'altro si disabilita anche il \emph{pinch to zoom} e il \emph{double tap}.
+				\end{itemize}
+				Infine, come se non bastasse, Titanium non si occupa nemmeno del fatto che versioni differenti della stessa
+				piattaforma richiedano API diverse. Ne consegue che lo sviluppatore deve controllare continuamente anche 
+				la compatibilità delle varie API con versioni diverse di una stessa piattaforma.\\
+				Quando ci si è concentrati sull'aspetto grafico	dell'applicazione le difficoltà sono risultate essere eccessive: a
+				testimonianza di questo fatto ho preso la decisione di suddividere lo sviluppo dell'applicazione Android da quello
+				della versione per iOS in comune accordo con il tutor e il dirigente aziendale.\\
+				È mio parere personale che l'uso di Titanium a queste condizioni non abbia molto senso: infatti, esso è un prodotto
+				pensato per lo sviluppo cross-platform e dunque dovrebbe giungere ad alcuni compromessi pur di offrire davvero
+				la possibilità di scrivere un codice unico per creare più versioni della stessa applicazione.
 			\subsubsection{Presenza di bug}
 				Descrivo come durante la mia esperienza mi sia capitato di trovare bug abbastanza seri e che rendevano quasi del
 				tutto inutilizzabili alcune API messe a disposizione dall'SDK.
