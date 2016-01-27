@@ -279,17 +279,60 @@
 				avrebbe richiesto una gestione coerente delle variabili granted permissions e login status: le complicazioni
 				sarebbero probabilmente state eccessive. Inoltre, il modulo in questione mette a disposizione un'interfaccia
 				molto chiara e semplice da utilizzare.\\
-				Tale scelta, tuttavia, ha causato molti più problemi del previsto. Il modulo è stato utile solo nella gestione dei
-				casi più semplici del processo di autenticazione e autorizzazione: quando ho tentato di utilizzarlo per risolvere
-				situazioni delicate esso si è rivelato essere instabile nelle operazioni e incoerente nelle decisioni effettuate. In
-				particolare, i principali problemi dovuti al suo utilizzo sono stati i seguenti:
+				Grazie all'utilizzo di questo modulo sono stato in grado di gestire con poche righe di codice tutte le situazioni più
+				comuni. In particolare, lo sviluppatore di applicazioni che utilizzi il PastBook Mobile SDK ha a disposizione
+				l'interfaccia di una singola classe tramite la quale deve solo indicare che all'utente deve essere richiesta
+				l'autenticazione a Facebook con conseguente autorizzazione dell'applicazione in questione. Il resto viene fatto
+				dall'SDK. Tale componente lascia che il modulo Titanium si occupi della gestione delle credenziali dell'utente e
+				della richiesta dei permessi necessari: il suo compito, piuttosto, è quello di nascondere allo sviluppatore di
+				applicazioni la complessità riguardante la gestione dei casi particolari individuati durante l'attività di analisi
+				dei requisiti. In particolare, l'SDK fa in modo che anche nei seguenti casi il comportamento del software prodotto
+				sia corretto:
 				\begin{itemize}
-					\item Esso non era in grado
+					\item Dopo aver utilizzato l'applicazione, l'utente rimuove uno o più permessi direttamente dalle
+					impostazioni del suo profilo Facebook, per poi tentare di utilizzare nuovamente l'applicazione.
+					\item L'utente tenta di utilizzare l'applicazione senza fornire tutti i permessi necessari.
 				\end{itemize}
-				Racconto di come ho deciso di utilizzare il modulo per Facebook messo a disposizione da Appcelerator. Descrivo i
-				problemi riscontrati nel suo utilizzo (presenza di bug che mi impedivano lo sviluppo cross-platform e il
-				raggiungimento di tutti i requisiti individuati in precedenza). Descrivo i modi in cui ho testato tale autenticazione
-				e i compromessi ai quali sono giunto in accordo con l'azienda.
+				Ho risolto il primo caso semplicemente aggiornando l'elenco dei permessi garantiti all'applicazione ogni volta che
+				questa inizia ad utilizzare il PastBook Mobile SDK. In seguito ho controllato che tutti i privilegi di cui
+				l'applicazione dovrebbe disporre siano contenuti all'interno dell'elenco ottenuto dai server di Facebook. Per quanto
+				riguarda il secondo caso, invece, ho applicato un procedimento simile a quello descritto in precedenza. In
+				particolare, in seguito a qualsiasi autorizzazione cerco di ottenere dai server Facebook i privilegi di cui
+				l'applicazione dispone. Se questi sono corretti allora significa che l'autorizzazione è andata a buon fine,
+				altrimenti deve essere gestita un'anomalia.\\
+				Non sono invece riuscito a gestire in modo consono il caso in cui l'utente, dopo aver utilizzato l'applicazione, la
+				rimuovesse completamente dal proprio profilo Facebook per poi tentare di utilizzarla nuovamente. Infatti, il modulo
+				di Titanium non fornisce questa possibilità. Poichè per l'azienda questa cosa non era accettabile, in comune accordo
+				con il mio tutor sono giunto a un compromesso che non era formalmente corretto ma che funzionava nella pratica. Nello
+				specifico, ho sfruttato il fatto che in questo caso il modulo di Titanium restituiva un generico errore: tale
+				malfunzionamento poteva essere generato da molti aspetti, tuttavia durante i numerosi test risultava accadere proprio
+				il contrario (ovvero non è mai successo che venissero segnalati errori per altre ragioni). In presenza di un errore
+				del modulo Facebook, dunque, davo per scontato che l'utente avesse rimosso l'autorizzazione all'applicazione dal
+				proprio profilo e gestivo la situazione di conseguenza.\\
+				Infine, ho optato per fornire sempre all'utilizzatore dell'SDK un feedback circa quanto accadesse durante il
+				processo di autenticazione e autorizzazione: in questo modo egli può decidere comportamenti diversi per la propria
+				applicazione, per esempio mostrando appropriati messaggi all'utente. Nel dettaglio, il feedback avverte lo
+				sviluppatore di questi casi:
+				\begin{itemize}
+					\item l'utente non ha voluto inserire le proprie credenziali;
+					\item l'utente non ha voluto autorizzare l'applicazione;
+					\item l'utente ha autorizzato l'applicazione ma non ha fornito tutti i permessi necessari.
+				\end{itemize}
+				In definitiva, durante lo sviluppo di applicazioni si può utilizzare il componente dell'SDK per l'autenticazione e
+				l'autorizzazione a Facebook nel seguente modo:
+				\input{TeX/capitolo_3/codice/autenticazione_facebook.tex}
+				L'utilizzo del modulo dedicato a Facebook realizzato da Appcelerator ha causato molti problemi durante
+				l'implementazione dell'SDK, facendo perdere tempo prezioso. In particolare, il suo comportamento all'interno della
+				piattaforma Android era completamente non coerente con quanto dichiarato nella documentazione ufficiale. I problemi
+				riscontrati sono stati i seguenti:
+				\begin{itemize}
+					\item il \emph{login event} era sollevato quando il modulo era inizializzato oltre che in seguito
+					all'effettiva autenticazione da parte dell'utente;
+					\item la funzione per effettuare la disconnessione dal proprio account non aggiornava in modo corretto le
+					variabili di stato, lasciando il sistema in una situazione inconsistente.
+				\end{itemize}
+				A causa di questi problemi ho dovuto implementare una versione apposita per Android del componente dedicato a
+				Facebook che aggirasse questi difetti di base.
 			\subsubsection{Implementazione dell'autenticazione a Instagram tramite API native}
 				Racconto di come non esistano moduli degni per l'autenticazione tramite Instagram e di come abbia dunque deciso di
 				implementare tale cosa facendo uso direttamente delle API messe a disposizione dal social network. Descrivo come la

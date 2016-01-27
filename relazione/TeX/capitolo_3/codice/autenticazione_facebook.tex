@@ -1,0 +1,17 @@
+\begin{lstlisting}
+	...
+	fbAuth = new facebookAuthentication();
+	...
+	fbAuth.authorize(function(e) {
+		if (e.success) {
+			var fbToken = fbAuth.getToken();
+			// operazioni con il token restituito da Facebook
+		}
+		else if (e.cancelled) {
+			// l'utente non ha voluto inserire le proprie credenziali
+		}
+		else {
+			// gestione degli errori sulla base del contenuto di e.error
+		}
+	});
+\end{lstlisting}
