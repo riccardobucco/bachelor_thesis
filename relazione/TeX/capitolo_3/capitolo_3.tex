@@ -685,13 +685,79 @@
 				che mostrasse in modo animato le foto con le quali si stava costruendo il Photo Book.
 		\subsection{Progettazione}
 			\subsubsection{Modularizzazione della struttura dell'applicazione}
-				Descrivo come si è svolta l'attività di progettazione e in particolare riporto alcuni dei risultati. Descrivo come
-				l'applicazione sia stata suddivisa in moduli riutilizzabili in più schermate e anche in applicazioni simili. 
-				Descrivo come siano stati sfruttati alcuni pattern per semplificare la struttura, la comprensibilità e l'utilizzo
-				delle varie classi.
+				Inizialmente, quando ho cominciato lo sviluppo di My Year Photo Book, non mi è stato concesso il tempo necessario per
+				definire una buona architettura per il prodotto che stavo realizzando. In particolare, non ho svolto questa attività
+				perché l'azienda mi incitava a consegnare nel giro di pochi giorni un prototipo funzionante. Di conseguenza, la
+				struttura interna iniziale dell'applicazione è stata realizzata in modo troppo sommario. Essa prevedeva un semplice
+				pattern MVC nel quale ad ogni schermata corrispondeva un \emph{model}, un \emph{controller} e una \emph{view}. A
+				questi elementi si aggiungevano poi le componenti messe a disposizione dal PastBook Mobile SDK.\\
+				È risultato presto ovvio che questa architettura non fosse utilizzabile e tantomeno manutenibile, in quanto le
+				dimensioni dei controller tendevano a crescere troppo. L'intero sistema, inoltre, utilizzava più volte codice simile
+				per eseguire operazioni sostanzialmente identiche. Ho quindi concordato con l'azienda che avrei speso parte del mio
+				tempo per riorganizzare l'intera struttura dell'applicazione.\\
+				Ciò che ho fatto, in sostanza, è stato suddividere My Year Photo Book in moduli riutilizzabili sia in altre schermate
+				che in future applicazioni realizzate da PastBook. Tali moduli corrispondevano perlopiù a elementi grafici presenti
+				all'interno del software che stavo producendo. Nel fare questa operazione ho ottenuto componenti più astratti e
+				generalmente più complicati rispetto ai precedenti. Tuttavia, questo è un prezzo che ho pagato volentieri pur di
+				poter riutilizzare cose già fatte in precedenza.\\
+				I principali moduli che ho individuato sono i seguenti:
+				\begin{center}
+					\rowcolors{1}{azzurro}{azzurro_chiaro}
+					\begin{tabular}[H]{p{0.25\textwidth} p{0.60\textwidth}}
+						\emph{backButton}		& Rappresenta un pulsante tramite il quale si può tornare a quanto si
+										  stava facendo in precedenza (qualunque cosa questo voglia dire).
+										  Permette di configurare titolo e testo di un eventuale messaggio di
+										  avvertimento che viene mostrato dopo aver cliccato sul pulsante.
+										  Permette inoltre di configurare l'azione eseguita una volta che
+										  l'utente ha deciso di tornare effettivamente indietro.\\
+						\hline
+						\emph{providerSelector}		& Rappresenta il componente tramite il quale l'utente può scegliere
+										  tra Facebook e Instagram. Esso permette di configurare l'azione
+										  eseguita una volta che l'utente clicca su una delle icone. Esso è
+										  disabilitabile dallo sviluppatore in qualsiasi momento.\\
+						\hline
+						\emph{yearSelector}		& Rappresenta il \emph{picker} tramite il quale l'utente può
+										  selezionare un anno. Esso permette di configurare l'azione eseguita
+										  una volta che l'utente ne cambia il contenuto. Esso è inoltre
+										  disabilitabile dallo sviluppatore in qualsiasi momento.\\
+						\hline
+						\emph{gallery}			& Rappresenta una collezione di immagini rappresentata su una
+										  griglia. Tale componente permette di configurare le impostazioni di
+										  visualizzazione (esempio: numero di colonne della griglia). Esso
+										  permette di rendere selezionabili le immagini oppure no e, nel
+										  caso, fornisce un metodo per ottenere le immagini selezionate.
+										  Infine, esso permette di visualizzare sia immagini provenienti dal
+										  Web che quelle salvate localmente.\\
+						\hline
+						\emph{textRotator}		& Rappresenta il componente tramite il quale lo sviluppatore può
+										  mostrare una lista di testi in sequenza. Permette di configurare
+										  l'intervallo di tempo tra un testo e l'altro. Lo sviluppatore ha
+										  inoltre la possibilità di fermare in qualsiasi momento la sequenza
+										  per poi farla ripartire in un secondo momento.\\
+					\end{tabular}
+				\end{center}
+				STRUTTURA FINALE APP
 			\subsubsection{Utilizzo delle funzioni di PastBook Mobile SDK}
-				Descrivo come l'applicazione sia pensata per far pesante uso delle funzioni messe a disposizione dall'SDK creato in
-				precedenza. Descrivo come l'SDK eviti molto lavoro a chi deve sviluppare una nuova applicazione per l'azienda.
+				L'applicazione My Year Photo Book è pensata per utilizzare in modo pesante l'SDK creato in precedenza. In
+				particolare:
+				\begin{itemize}
+					\item Il compito di gestire l'autenticazione e l'autorizzazione tramite Facebook e Instagram è delegato alla
+					componente appropriata dell'SDK. L'applicazione, dal suo punto di vista, si deve limitare a mostrare
+					eventuali schermate d'errore nelle quali invita l'utente a operare in modo differente.
+					\item Le funzioni di rimozione delle immagini indesiderate e di aggiornamento della copertina sono svolte
+					completamente dall'SDK. Dunque, quando l'utente richiede queste operazioni all'interno della schermata di
+					modifica dell'album, l'applicazione non deve far altro che utilizzare l'interfaccia messa a disposizione
+					dall'SDK, senza preoccuparsi di come questa sia implementata.
+					\item Il processo di creazione del Photo Book è completamente sconosciuto all'applicazione. Essa si limita a
+					configurare il Launcher nel modo richiesto, per poi aspettare che esso restituisca il risultato ottenuto,
+					ovvero l'album realizzato. Inoltre, risulta particolarmente utile la possibilità di fermare l'esecuzione del
+					processo di creazione del Photo Book. L'utente dell'applicazione, infatti, può in qualsiasi momento decidere
+					di tornare alla schermata iniziale. Infine, la possibilità offerta dal Launcher di configurare le varie
+					callback permette all'applicazione di svolgere azioni con i risultati intermedi del'elaborazione (per esempio
+					può utilizzare le immagini ottenute dai provider per implementare una schermata di attesa).
+				\end{itemize}
+				In definitiva, posso affermare che il PastBook Mobile SDK svolga egregiamente il proprio ruolo e che lo sviluppo
+				del'applicazione risulti notevolmente semplificato a causa di ciò.
 		\subsection{Implementazione delle schermate e dei relativi controller}
 			\subsubsection{L'uso del framework MVC Alloy}
 				Descrivo come ho utilizzato il framework ALloy (messo a disposizione da Appcelerator) per implementare in modo
