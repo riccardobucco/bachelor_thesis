@@ -601,9 +601,61 @@
 	\section{Sviluppo di My Year Photo Book}
 		\subsection{Analisi dei requisiti}
 			\subsubsection{Produzione di alcuni wireframe}
-				Descrivo le modalità con le quali è stata condotta l'analisi dei requisiti dell'applicazione che è stata fatta
-				inizialmente. Descrivo i risultati raggiunti e gli strumenti che sono stati utilizzati per produrre la
-				documentazione, che consiste perlopiù in wireframe e diagrammi di attività.
+				Ho cominciato lo sviluppo My Year Photo Book cercando di capire quale avrebbe dovuto essere la struttura generale
+				dell'applicazione. Il tutor e il dirigente aziendale mi hanno concesso piena libertà in quest'attività: erano molto
+				interessati al mio punto di vista sebbene avessero già un'idea generale del risultato che volevano ottenere.\\
+				Il primo passo che ho intrapreso è stato quello di definire le funzionalità minime che intendevo realizzare durante
+				l'esperienza di stage. A partire da queste ho realizzato dei \emph{wireframe} che rappresentassero la struttura
+				dell'intera applicazione e delle sue singole schermate. Ho infine realizzato una presentazione per mostrare ai miei
+				colleghi cosa intendevo fare. Il contenuto di essa è riassunto in seguito.\\
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{capitolo_3/immagini/wireframe_1.png}
+					\caption{Rappresentazione del processo di creazione di un Photo Book nell'applicazione.}
+				\end{figure}
+				\noindent L'utente ha la possibilità di scegliere il social network dal quale ottenere le immagini (nello specifico
+				Facebook o Instagram). Egli, inoltre, può scegliere l'anno durante il quale sono state scattate le foto che desidera
+				inserire all'interno del Photo Book. Può infine cliccare sul pulsante \emph{Relive it}. A questo punto all'utente
+				sono richieste le credenziali per accedere al social network scelto e procedere con l'autorizzazione. Dopo che
+				l'autenticazione è andata a buon fine e i permessi sono stati concessi viene creato il Photo Book. L'utente entra
+				in una scehrmata di riepilogo, dove ha tre opzioni: visualizzare l'album, modificarlo o procedere con il pagamento.
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{capitolo_3/immagini/wireframe_2.png}
+					\caption{Rappresentazione delle opzioni che l'utente ha dopo la creazione del Photo Book.}
+				\end{figure}
+				\noindent La schermata dedicata alle modifiche permette di selezionare le immagini presenti nel Photo Book per poter
+				scegliere la nuova copertina o per cancellare foto indesiderate. La schermata dedicata alla visualizzazione
+				dell'album permette di sfogliare virtualmente il Photo Book.
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{capitolo_3/immagini/wireframe_3.png}
+					\caption{Rappresentazione delle opzioni che l'utente ha per modificare il Photo Book.}
+				\end{figure}
+				\noindent La schermata delle modifiche, in particolare, permette all'utente di selezionare una o più immagini. Se le
+				immagini selezionate sono più di una allora è utilizzabile solo il pulsante adibito alla cancellazione delle foto.
+				Se la selezione comprende una singola immagine allora l'utente può scegliere se eliminarla o utilizzarla per
+				sostituire la vecchia copertina del Photo Book.
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.9\textwidth]{capitolo_3/immagini/wireframe_4.png}
+					\caption{Rappresentazione dei passaggi necessari per effettuare il pagamento.}
+				\end{figure}
+				\noindent Il pagamento del Photo Book è realizzato utilizzando più schermate. Nella prima l'utente indica il numero
+				di copie desiderate e se è in possesso di speciali codici per sconti aggiuntivi. Nella seconda schermata l'utente può
+				scegliere se aggiungere alcuni pacchetti opzionali (per esempio copertine rigide o album più grandi). Procedendo egli
+				fornisce a PastBook i dettagli personali e i metodi tramite il quale preferisce essere contattato. Infine, compila
+				i dati riguardanti l'indirizzo al quale intende ricevere il prodotto una volta che è stato stampato con successo.\\
+				In seguto alla presentazione ho discusso con il mio tutor su quali fossero effettivamente le funzionalità che avrei
+				dovuto implementare e come sarebbe dovuta essere strutturata l'applicazione: i cambiamenti più significativi
+				rispetto a ciò che avevo pensato e sui quali abbiamo concordato riguardano i seguenti aspetti:
+				\begin{itemize}
+					\item Deve essere implementato una schermata di attesa e/o intrattenimento subito dopo l'autenticazione da
+					parte dell'utente. Questo è necessario a causa della lunghezza del processo di realizzazione del Photo Book.
+					\item Non appena il processo di realizzazione del Photo Book è stato concluso l'utente deve poter
+					visualizzare immediatamente l'album prodotto, senza dover cliccare su un ulteriore pulsante. I pulsanti di
+					modifica e pagamento devono essere all'interno della stessa schermata.
+				\end{itemize}
 			\subsubsection{Design e marketing}
 				Descrivo come una parte fondamentale dell'analisi dei requisiti (svolta verso la fine dello stage) abbia riguardato
 				il design che l'applicazione avrebbe dovuto avere. Descrivo come ho collaborato con un esperto per poter capire
