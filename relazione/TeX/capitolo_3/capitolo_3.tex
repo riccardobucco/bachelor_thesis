@@ -447,12 +447,52 @@
 				potrebbe restituire all'applicazione: è compito dello sviluppatore utilizzatore di questo componente decidere cosa
 				fare per porre rimedio a queste situazioni.
 		\subsection{Launcher configurabile}
-			\subsubsection{Analisi del launcher preesistente}
-				Descrivo cos'è un launcher per l'azienda (serie di chiamate ai services aziendali con il fine comune di creare un
-				photo book, con ogni chiamata che restituisce un risultato a partire dai dati provenienti dalle chiamate precedenti).
-				Descrivo i limiti di quello già posseduto e implementato dall'azienda (principalmente esso non funziona se vengono
-				cambiati i servizi chimati, ovvero non è configurabile ed è troppo specifico).
-			\subsubsection{Progettazione e implementazione di un nuovo launcher}
+			\subsubsection{Analisi del metodo per la creazione di un Photo Book}
+				Dopo aver effettuato correttamente l'autenticazione ai server PastBook, per poter creare un Photo Book a partire da
+				certe foto dell'utente un'applicazione deve invocare uno o più Service. L'azienda mette a disposizione degli
+				sviluppatori vari Service, suddivisi in tre categorie: \emph{providers}, \emph{filters} e \emph{makers}. Questi
+				possono evolversi nel tempo in base alle esigenze future di PastBook. In particolare, la creazione dell'album
+				all'interno dell'applicazione potrebbe richiedere di dover eseguire le operazioni in un ordine non sempre uguale o
+				potrebbe addirittura implicare l'aggiunta di un nuovo Service sviluppato dall'azienda: insomma, l'algoritmo di
+				creazione di un Photo Book non è statico nel tempo ma si evolve a seconda della strategia adottata.\\
+				Tuttavia, nonostante questa possibile mutabilità del metodo utilizzato, gli sviluppatori aziendali non desiderano
+				riscrivere il codice delle applicazioni ogni volta che la strategia dirigenziale cambia, anche perché questo implica
+				dover effettuare il rilascio di una nuova versione (con tutti i problemi e le attese che questo comporta). Essi
+				preferirebbero disporre di una sorta di “algoritmo configurabile” in modo automatico, o \emph{Launcher}, come verrà
+				d'ora in poi chiamato.\\
+				A partire da queste considerazioni ho deciso di non implementare un'interfaccia tramite la quale lo sviluppatore
+				potesse accedere ai singoli Service. Ho piuttosto preferito realizzare un componente più complesso che permettesse
+				allo sviluppatore di non preoccuparsi minimamente di come avvenga il processo di realizzazione di un Photo Book. I
+				requisiti che tale Launcher deve soddisfare sono i seguenti:
+				\begin{itemize}
+					\item l'azienda deve poter cambiare la sequenza di Service necessaria per la creazione di un Photo Book
+					senza dover modificare il codice dell'applicazione;
+					\item l'azienda deve poter sviluppare nuove tipologie di Service e deve poterli utilizzare senza dover
+					modificare il codice dell'applicazione;
+					\item lo sviluppatore deve poter fermare l'esecuzione dell'algoritmo in qualsiasi momento; inoltre, il
+					Launcher deve poter ricominciare la sua esecuzione dal punto in cui era stato fermato;
+					\item lo sviluppatore deve poter abortire l'esecuzione dell'algoritmo in qualsiasi momento.
+				\end{itemize}
+				Ho discusso con il dirigente aziendale e con il CTO su quali fossero le condizioni che in futuro non sarebbero mai
+				cambiate e che dunque potevo supporre vere durante lo sviluppo del Launcher. Esse sono le seguenti:
+				\begin{itemize}
+					\item l'esecuzione dei \emph{filters} segue quella dei \emph{providers} e l'esecuzione dei \emph{makers}
+					segue quella dei \emph{filters};
+					\item l'algoritmo prevede sempre l'esecuzione di uno e uno solo \emph{maker};
+					\item la tipologia dei dati di input e di output delle varie categorie di Service è fissata, in particolare
+					\begin{itemize}
+						\item i \emph{providers} non richiedono input e restituiscono un insieme di immagini;
+						\item i \emph{filters} richiedono in input un insieme di immagini e restituiscono in output un
+						insieme di immagini;
+						\item i \emph{makers} richiedono in input un insieme di immagini e restituiscono in output un Photo
+						Book;
+					\end{itemize}
+					\item le tiologia delle impostazioni di configurazione dei vari Service può variare; anche Service
+					appartenenti alla stessa categoria possono richiedere parametri completamente diversi.
+				\end{itemize}
+				Chiaramente il launcher deve disporre di tutte le necessarie autorizzazioni per poter svolgere le proprie funzioni.
+				Questo implica disporre dei token necessari per accedere ai vari social network e ai server PastBook.
+			\subsubsection{Progettazione e implementazione del Launcher}
 				Descrivo l'algoritmo di maggior rilevanza sviluppato durante lo stage. Esso rappresenta un launcher per qualsiasi
 				futura applicazione sviluppata dall'azienda. Il grande pregio è di essere completamente configurabile: entro certi
 				vincoli, l'azienda può decidere in qualsiasi momento di cambiare il modo in cui un photo book viene creato senza
