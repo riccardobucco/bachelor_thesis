@@ -394,11 +394,42 @@
 					della gestione dei vari codici, di un eventuale loro aggiornamento nel caso scadano etc.
 				\end{itemize}
 			\subsubsection{Progettazione, implementazione e relativi problemi}
-				Descrivo come inizialmente la progettazione sia stata quasi nulla a causa della fretta da parte dell'azienda di avere
-				un prototipo funzionante e di come abbia cominciato subito con l'implementazione. Descrivo come, facendo ciò, si sia
-				arrivati ad avere un modulo funzionante ma con un sacco di codice ripetuto e difficilmente verificabile. Descrivo
-				come abbia in seguito speso varie energie per ripensare all'architettura dell'SDK. Descrivo i risultati ai quali sono
-				pervenuto e porto un esempio di come abbia eliminato molto del codice doppio o superfluo.
+				Per l'implementazione di un componente dell'SDK che permettesse allo sviluppatore di applicazioni aziendali di
+				utilizzare le API messe a disposizione da PastBook mi sono servito di un modulo messo a disposizione da Titanium:
+				esso mi ha messo a disposizione una semplice interfaccia per poter eseguire chiamate HTTP e gestire i relativi
+				risultati.\\
+				I principali risultati ai quali sono pervenuto possono essere riassunti nel seguente modo:
+				\begin{itemize}
+					\item Ho implementato ciascuna API individuata durante l'attività di analisi dei requisiti. Ho messo a
+					disposizione dello sviluppatore un'interfaccia del tipo
+					\input{TeX/capitolo_3/codice/interfaccia_API.tex}
+					\item Ho implementato la rimozione di un insieme di immagini tramite una serie di chiamate consecutive
+					all'API \emph{removeAlbumEntry}.
+					\item Ho implementato l'autenticazione ai server PastBook in modo del tutto trasparente allo sviluppatore.
+					Esso può dare la possibilità all'utente dell'applicazione di accedere alle API e ai Service in due modi.
+					Utilizzando email e password
+					\input{TeX/capitolo_3/codice/interfaccia_autorizzazione_con_email.tex}
+					oppure collegando il proprio account Facebook
+					\input{TeX/capitolo_3/codice/interfaccia_autorizzazione_con_facebook.tex}
+					Nel dettaglio, l'SDK si occupa di gestire in automatico l'autenticazione a due fattori. Inoltre, esso si
+					occupa di memorizzare il token e la relativa scadenza in modo sicuro. Si occupa infine di capire quando i
+					codici di accesso non sono più validi e prova di conseguenza ad aggiornarli.
+				\end{itemize}
+				L'implementazione di questa parte dell'SDK è stata fatta abbastanza in fretta perchè l'azienda desiderava risultati
+				soddisfacenti fin da subito. Di conseguenza, non ho avuto tempo di progettare in modo adeguato il componente. I
+				problemi causati da questo approccio si sono rivelati dopo qualche settimana di lavoro. Riporto in seguito i
+				principali, allegando nel contempo la soluzione trovata.
+				\begin{itemize}
+					\item Molte parti del codice erano ripetuto e utilizzate in più punti. Questo era dovuto al fatto che le
+					chiamate HTTP risultavano essere tutte simili. Ho risolto questa cosa cambiando l'implementazione della parte
+					privata del componente (in modo tale da non dover cambiare l'utilizzo che facevo dell'SDK all'interno
+					dell'applicazione, il cui sviluppo era già cominciato). In particolare, ho creato un metodo che fosse in
+					grado di effettuare qualsiasi tipo di chiamata HTTP, con relativa gestione dei risultati.
+					\item Il metodo che effettua la rimozione di un insieme di immagini risultava essere troppo lento. Infatti,
+					esso eseguiva le chiamate all'API \emph{removeAlbumEntry} in modo sequenziale, aspettando i risultati di
+					ciascuna di esse. Ho migliorato la cosa permettendo il parallelismo delle chiamate e cambiando di conseguenza
+					la gestione dei risultati restituiti.
+				\end{itemize}
 			\subsubsection{Gestione degli errori}
 				Descrivo in che modo vengono gestiti tutti i possibili errori che possono avvenire durante l'uso dei servizi e delle
 				API messe a disposizione dall'azienda. Racconto di come alcuni di essi siano gestiti direttamente dall'SDK e di come

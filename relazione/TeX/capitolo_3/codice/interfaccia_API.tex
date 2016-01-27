@@ -1,0 +1,12 @@
+\begin{lstlisting}
+	var pbAPI = new pastbookAPI();
+	...
+	pbAPI.apiName(data, function(e) {
+		if (e.success) {
+			var result = e.result; //opzionale, a seconda del'API
+		}
+		else {
+			// e.error include informazioni riguardanti l'errore
+		}
+	});
+\end{lstlisting}

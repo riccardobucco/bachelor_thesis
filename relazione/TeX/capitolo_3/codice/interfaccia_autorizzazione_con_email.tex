@@ -1,0 +1,12 @@
+\begin{lstlisting}
+	var pbAPI = new pastbookAPI();
+	...
+	pbAPI.authorizeWithEmail(email, password, function(e) {
+		if (e.success) {
+			var pbToken = pbAPI.getToken();
+		}
+		else {
+			// e.error include informazioni riguardanti l'errore
+		}
+	});
+\end{lstlisting}
