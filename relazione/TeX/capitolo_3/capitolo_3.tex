@@ -736,7 +736,6 @@
 										  per poi farla ripartire in un secondo momento.\\
 					\end{tabular}
 				\end{center}
-				STRUTTURA FINALE APP
 			\subsubsection{Utilizzo delle funzioni di PastBook Mobile SDK}
 				L'applicazione My Year Photo Book è pensata per utilizzare in modo pesante l'SDK creato in precedenza. In
 				particolare:
@@ -760,9 +759,62 @@
 				del'applicazione risulti notevolmente semplificato a causa di ciò.
 		\subsection{Implementazione delle schermate e dei relativi controller}
 			\subsubsection{L'uso del framework MVC Alloy}
-				Descrivo come ho utilizzato il framework ALloy (messo a disposizione da Appcelerator) per implementare in modo
-				facile il pattern MVC. Descrivo i vantaggi derivanti dall'utilizzo di tale framework rispetto all'uso della versione
-				base di Titanium. Descrivo le motivazioni della mia scelta.
+				Per l'implementazione di My Year Photo Book ho scelto di utilizzare ilframework Alloy, messo a disposizione
+				direttamente da Appcelerator. Tale prodotto è stato creato per rendere lo sviluppo delle applicazioni Titanium più
+				rapido. Alloy adotta un’architettura \emph{Model-View-Controller} e utilizzando file XML e TSS (simile a CSS)
+				permette a chi scrive codice di separare la l'interfaccia dalla logica e dal modello dei dati.\\
+				In un progetto Titanium Alloy la relazione tra una view, il suo stile e il suo controller è data dal nome del file
+				che, ad esclusione dell'estensione, deve essere lo stesso per tutti. Quindi, per esempio, se abbiamo definito una
+				view \texttt{dashboard.xml}, lo stile ad essa associato è \texttt{dashboard.tss} e il suo controller si chiamerà
+				necessariamente \texttt{dashboard.js}. I tre files, tuttavia, non verranno salvati nella stessa cartella, perché
+				Alloy prevede che view, stili e controller abbiano una directory a loro dedicata.\\
+				Dunque, all'interno di un progetto Titanium Alloy i file sono organizzati in cartelle. Quelli interessanti ai fini
+				dell'implementazione sono contenuti nella cartella \emph{app}, a sua volta suddivisa in sottocartelle:
+				\begin{itemize}
+					\item Nella cartella \emph{views} sono salvate le view, cioè i file XML che descrivono l'interfaccia utente
+					dell'applicazione. Alloy crea in automatico un file chiamato \texttt{index.xml}, che rappresenta la view
+					principale, ovvero quella che viene eseguita all'avvio dell'applicazione.
+					\item La cartella \emph{controllers} contiene i file che si occupano della logica e della gestione degli
+					eventi. Un controller è associato alla vista di con cui condivide lo stesso nome. Esiste un controller
+					creato in automatico — chiamato \texttt{index.js} — che viene eseguito all'avvio dell'applicazione.
+					\item Le proprietà grafiche di ciascun elemento definito nelle view sono contenute all'interno di un foglio
+					di stile. Tali file sono contenuti nella cartella \emph{styles} ed hanno una sintassi che ricorda quella di
+					CSS. Il foglio di stile creato in automatico e assegnato alla view principale è \texttt{index.tss}.
+					\item Alloy utilizza backbone.js come framework per la gestione di modelli e collezioni. I modelli
+					Alloy, infatti, ereditano dalla classe Backbone.Model e ne sfruttano quindi la logica e i metodi d'accesso.
+					I modelli devono essere definiti nella cartella \emph{models} e sono accessibili dai controller, che possono
+					richiamarli facendo riferimento al loro nome di file.
+					\item La cartella \emph{assets} è suddivisa in sottocartelle, una per piattaforma, e contiene gli
+					tutti i file componenti la grafica dell'applicazione nelle varie risoluzioni che si intende supportare.
+				\end{itemize}
+				All'interno del progetto, poi, sono presenti alcuni file particolarmente importanti. Essi sono \texttt{tiapp.xml} e
+				\texttt{config.json}. Il primo è il file di configurazione generale. Oltre a contenere le informazioni che ho
+				inserito in fase di inizializzazione, questo file consente anche di definire eventuali moduli esterni che voglio
+				utilizzare. Inoltre posso aggiungere ulteriori voci di configurazione relative alle singole piattaforme di
+				distribuzione (cioè voci specifiche solo per iOS o Android). Il secondo, invece, permette di definire degli oggetti
+				il cui valore può dipendere sia dall'ambiente di esecuzione (sviluppo, test o produzione) che dalla piattaforma di
+				destinazione.\\
+				Riassumendo, la struttura del progetto My Year Photo Book può essere rappresentata nel modo seguente:
+				\DTsetlength{0.2em}{3em}{0.2em}{0.4pt}{1.6pt}
+				\dirtree{%
+					.1 My Year Photo Book.
+						.2 app.
+							.3 assets.
+								.4 android.
+								.4 iphone.
+							.3 controllers.
+								.4 {\color{red}index.js}.
+							.3 models.
+							.3 styles.
+								.4 {\color{red}index.tss}.
+							.3 views.
+								.4 {\color{red}index.xml}.
+							.3 {\color{red}config.json}.
+						.2 build.
+						.2 plugins.
+						.2 resources.
+						.2 {\color{red}tiapp.xml}.
+				}
 			\subsubsection{Creazione di un Photo Book}
 				Descrivo la schermata iniziale dell'applicazione. Descrivo come essa è stata implementata e quali sono i principali
 				elementi presenti in essa. Descrivo come molti di essi siano riutilizzabili altrove (in altre schermate o anche
