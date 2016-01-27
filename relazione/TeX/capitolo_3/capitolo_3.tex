@@ -1,4 +1,4 @@
-\chapter{Sintesi delle attività svolte durante lo stage}
+\chapter{Attività svolte durante lo stage}
 	\section{Metodologia agile}
 		\subsection{Pianificazione di iterazioni in modo adattivo}
 			Durante lo svolgimento dello stage mi sono fortemente adattato al modo di lavorare tipicamente utilizzato in azienda.
@@ -795,7 +795,6 @@
 				il cui valore può dipendere sia dall'ambiente di esecuzione (sviluppo, test o produzione) che dalla piattaforma di
 				destinazione.\\
 				Riassumendo, la struttura del progetto My Year Photo Book può essere rappresentata nel modo seguente:
-				\DTsetlength{0.2em}{3em}{0.2em}{0.4pt}{1.6pt}
 				\dirtree{%
 					.1 My Year Photo Book.
 						.2 app.
@@ -816,10 +815,36 @@
 						.2 {\color{red}tiapp.xml}.
 				}
 			\subsubsection{Creazione di un Photo Book}
-				Descrivo la schermata iniziale dell'applicazione. Descrivo come essa è stata implementata e quali sono i principali
-				elementi presenti in essa. Descrivo come molti di essi siano riutilizzabili altrove (in altre schermate o anche
-				altre applicazioni). Descrivo le principali animazioni che sono state implementate in seguito all'analisi dei
-				requisiti dedicata.
+				La prima schermata alla quale l'utente può accedere è chiamata \emph{dashboard}. Essa permette all'utente di:
+				\begin{itemize}
+					\item selezionare il social network desiderato (Facebook o Instagram);
+					\item selezionare l'anno al quale appartengono le immagini desiderate;
+					\item iniziare il processo di creazione del Photo Book.
+				\end{itemize}
+				Dopo il click sul pulsante di creazione l'utente è eventualmente invitato ad autenticarsi al social network
+				desiderato per poi fornire i necessari permessi (se questa cosa non è già stata fatta in precedenza).
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.3\textwidth]{capitolo_3/immagini/schermata_principale.png}
+					\caption{Schermata principale dell'applicazione My Year Photo Book.}
+				\end{figure}
+				All'interno di questa schermata ho utilizzato i seguenti moduli:
+				\begin{itemize}
+					\item \emph{yearSelector} per implementare il componente che permette la scelta dell'anno al quale
+					appartengono le immagini desiderate;
+					\item \emph{providerSelector} per implementare il componente che permette la scelta fra uno dei due social
+					network.
+				\end{itemize}
+				Inoltre, ho fatto uso dell'SDK realizzato durante la prima parte dello stage per implementare l'autenticazione ai
+				social Network e ai server PastBook in seguito alla pressione del pulsante di creazione.\\
+				Non vi sono stati problemi difficilmente risolvibili nell'implementazione di questa schermata. L'unica cosa degna di
+				nota riguarda il fatto che l'autenticazione non è immediata e l'utente percepisce dunque un ritardo nelle operazioni
+				che seguono il click sul pulsante di creazione: il rischio è che egli pensi che My Year Photo Book non stia
+				funzionando o si sia bloccata. Per evitare questo caso ho pensato di inserire una semplice animazione che
+				simulasse il caricamento dell'operazione seguente. Inoltre, per evitare che l'utente interagisca con la schermata
+				dopo che ha avviato le operazioni, ho provveduto a disabilitare sia lo yearSelector che il providerSelector tramite
+				le relative interfacce (infatti, non voglio che l'utente possa cambiare i parametri di configurazione del Launcher
+				dopo che questo è stato avviato).
 			\subsubsection{Intrattenimento dell'utente}
 				Descrivo la schermata dedicata all'intrattenimento dell'utente durante la creazione di un photo book. Descrivo come
 				le finalità di tale schermata avessero scopi di puro marketing (si vuole distrarre l'utente durante l'attesa).
