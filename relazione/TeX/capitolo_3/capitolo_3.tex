@@ -381,7 +381,9 @@
 					\end{tabular}
 				\end{center}
 				Oltre a queste vi sono ovviamente quelle dedicate all'autenticazione a due fattori ai server PastBook: esse
-				permettono di ottenere o aggiornare i token e i codici necessari per poter accedere a tutte le API e i Service.\\
+				permettono di ottenere o aggiornare i token e i codici necessari per poter accedere a tutte le API e i Service. In
+				particolare, esse permettono all'utente di scegliere se preferisce ottenere un account PastBook tramite email e
+				password o se invece preferisce collegarsi utilizzando direttamente il proprio profilo Facebook.\\
 				Dopo aver individuato le singole API utili agli sviluppatori, ho cercato di capire se mi fosse possibile semplificare
 				il loro uso ulteriormente. Ho pensato che due ulteriori funzionalità o caratteristiche sarebbero potute essere
 				comode:
@@ -390,7 +392,7 @@
 					vista, infatti, sarebbe molto più comodo poter rimuovere in modo automatico tutte le immagini appartenenti a
 					un certo insieme piuttosto che dover ripetere l'operazione per ognuna di esse.
 					\item il completo occultamento agli occhi dello sviluppatore della metodologia utilizzata per
-					l'autenticazione ai server PastBook. Infatt, non penso sia gradevole per lo sviluppatore doversi occupare
+					l'autenticazione ai server PastBook. Infatti, non penso sia gradevole per lo sviluppatore doversi occupare
 					della gestione dei vari codici, di un eventuale loro aggiornamento nel caso scadano etc.
 				\end{itemize}
 			\subsubsection{Progettazione, implementazione e relativi problemi}
@@ -431,6 +433,7 @@
 					la gestione dei risultati restituiti.
 				\end{itemize}
 			\subsubsection{Gestione degli errori}
+				Tutte le API
 				Descrivo in che modo vengono gestiti tutti i possibili errori che possono avvenire durante l'uso dei servizi e delle
 				API messe a disposizione dall'azienda. Racconto di come alcuni di essi siano gestiti direttamente dall'SDK e di come
 				la gestione di alcuni sia invece assegnata a chi utilizza le API. Descrivo infine i test ai quali ho sottoposto
