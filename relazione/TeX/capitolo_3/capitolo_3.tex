@@ -493,12 +493,101 @@
 				Chiaramente il launcher deve disporre di tutte le necessarie autorizzazioni per poter svolgere le proprie funzioni.
 				Questo implica disporre dei token necessari per accedere ai vari social network e ai server PastBook.
 			\subsubsection{Progettazione e implementazione del Launcher}
-				Descrivo l'algoritmo di maggior rilevanza sviluppato durante lo stage. Esso rappresenta un launcher per qualsiasi
-				futura applicazione sviluppata dall'azienda. Il grande pregio è di essere completamente configurabile: entro certi
-				vincoli, l'azienda può decidere in qualsiasi momento di cambiare il modo in cui un photo book viene creato senza
-				dover per forza modificare l'applicazione. Descrivo cosa esso può fare ed entro quali vincoli opera. Mi concentro
-				in particolare sulla nuova funzionalità aggiunta rispetto al suo predecessore: il fatto di poter essere messo in
-				pausa in qualsiasi momento
+				Per una corretta progettazione e implementazione del Launcher è stato speso molto tempo. Questo è senza dubbio il
+				componente più importante sviluppato durante lo stage:
+				\begin{itemize}
+					\item L'azienda può sia utilizzarlo all'interno delle future applicazioni evitando molto lavoro agli
+					sviluppatori. L'azienda, inoltre, può pensare di adattarlo ai propri servizi erogati tramite Web (cosa
+					relativamente facile visto che il linguaggio utilizzato da Titanium è proprio Javascript).
+					\item Dal punto di vista personale questo prodotto ha rappresentato una vera e propria sfida. Infatti, mi ha
+					dato la possibilità di pensare a un prodotto che fosse completamente generico e adattabile a una moltitudine
+					di casi diversi.
+				\end{itemize}
+				Dal punto di vista dello sviluppatore di applicazioni l'interfaccia del Launcher è molto semplice. Innanzitutto, essa
+				mette a disposizione dei comandi (da usare obbligatoriamente) per configurare il componente prima del suo utilizzo:
+				\begin{center}
+					\rowcolors{1}{azzurro}{azzurro_chiaro}
+					\begin{tabular}[H]{p{0.25\textwidth} p{0.60\textwidth}}
+						\emph{setLauncherPath}		& Indica al Launcher il percorso interno ai server PastBook dove
+										  esso può trovare la procedura (sequenza di Service) da utilizzare
+										  per la creazione di un Photo Book.\\
+						\hline
+						\emph{setLauncherParameters}	& Indica al Launcher i dati necessari per poter svolgere
+										  correttamente le operazioni. Tra questi parametri sono compresi
+										  i token ottenuti dai vari social network e le credenziali per
+										  poter accedere ai servizi offerti dai server PastBook.\\
+						\hline
+						\emph{setServicesUrl}		& Indica al Launcher qual è l'url a partire da quale esso può
+										  accedere ai vari Service offerti da PastBook.\\
+					\end{tabular}
+				\end{center}
+				Lo sviluppatore, inoltre, ha accesso a dei comandi opzionali per le configurazioni avanzate. In particolare, ho
+				notato che lo sviluppatore potrebbe voler eseguire delle azioni da lui scelte durante il processo di creazione.
+				Quindi, ho deciso di implementare delle \emph{callback} (vuote di default) che vengano eseguite in momenti specifici:
+				lo sviluppatore può decidere di ridefinirle per poter ottenere gli effetti da lui desiderati.
+				\begin{center}
+					\rowcolors{1}{azzurro}{azzurro_chiaro}
+					\begin{tabular}[H]{p{0.25\textwidth} p{0.60\textwidth}}
+						\emph{setProviderCallback}	& Indica al Launcher quale funzione eseguire ogni volta che
+										  l'esecuzione di un provider termina.\\
+						\hline
+						\emph{setFilterCallback}	& Indica al Launcher quale funzione eseguire ogni volta che
+										  l'esecuzione di un filter termina.\\
+						\hline
+						\emph{setMakerCallback}		& Indica al Launcher quale funzione eseguire ogni volta che
+										  l'esecuzione di un maker termina.\\
+						\hline
+						\emph{setSuccessCallback}	& Indica al Launcher quale funzione eseguire quando l'intera
+										  procedura di creazione del Photo Book termina.\\
+						\hline
+						\emph{setErrorCallback}		& Indica al Launcher quale funzione eseguire quando la procedura di
+										  creazione del Photo Book termina in modo anomalo.\\
+					\end{tabular}
+				\end{center}
+				Infine, dopo aver configurato il Launcher in modo corretto, lo sviluppatore lo può utilizzare grazie a quattro
+				semplici comandi:
+				\begin{center}
+					\rowcolors{1}{azzurro}{azzurro_chiaro}
+					\begin{tabular}[H]{p{0.25\textwidth} p{0.60\textwidth}}
+						\emph{launch}			& Causa l'inizio dell'esecuzione delle operazioni previste.\\
+						\hline
+						\emph{stop}			& Indica al Launcher che l'esecuzione delle operazioni deve fermarsi
+										  (salvando lo stato corrente nel caso in cui la procedura debba
+										  essere ripresa in futuro).\\
+						\hline
+						\emph{start}			& Indica al Launcher di riprendere l'esecuzione delle operazioni a
+										  partire dal punto in cui era stato precedentemente fermato.\\
+						\hline
+						\emph{abort}			& Indica al Launcher di abortire l'esecuzione delle operazioni. Tutti
+										  i dati ottenuti o calcolati vengono cancellati.\\
+					\end{tabular}
+				\end{center}
+				L'interfaccia semplice che l'SDK mette a disposizione dello sviluppatore nasconde una grande complessità. I punti
+				salienti della realizzazione dei meccanismi interni sono sostanzialmente tre:
+				\begin{itemize}
+					\item Dopo essere stato correttamente configurato e fatto partire, il Launcher ottiene dai server PastBook i
+					dati relativi ai Service da eseguire e all'ordine da rispettare. Questi sono restituiti sotto forma di
+					oggetto in formato JSON. In tale oggetto viene descritta l'intera procedura di creazione del Photo Book.
+					In particolare sono indicati
+					\begin{itemize}
+						\item quali Service eseguire;
+						\item in che ordine eseguire i Service specificati;
+						\item quali risultati restituiscono i Service specificati;
+						\item qual è la tipologia di impostazioni necessaria per ogni Service;
+						\item quali sono le impostazioni di ciascun service.
+					\end{itemize}
+					Questi dati possono essere molto variabili e i vincoli su di essi sono pochi. È dunque necessario un parsing
+					intelligente che sappia ricavare i valori utili per trasformarli in un formato utilizzabile dal Launcher.
+					\item A partire dai dati ricavati dal processo di parsing precedente, il Launcher si preoccupa di creare in
+					modo dinamico e appropriato le chiamate ai Service. Esso, oltre a fare questo, gestisce i risultati di
+					ciascuno dei Service, che in generale possono essere diversi (sempre sulla base della configurazione
+					ottenuta inizialmente).
+					\item Infine, il Launcher deve supportare le chiamate asincrone ai vari Service e allo stesso tempo essere
+					interrompibile in qualsiasi istante da parte dello sviluppatore. Questa cosa implica il dover mantenere la
+					coerenza di alcune variabili di stato interne al fine di ignorare certi risultati ottenuti. Il rischio più
+					grosso, infatti, è che le callback definite dallo sviluppatore vengano eseguite in seguito ad uno
+					\emph{stop} o, peggio, un \emph{abort}.
+				\end{itemize}
 			\subsubsection{Verifica e correzione degli errori}
 				Descrivo i principi secondo i quali sono stati preparati i test. Descrivo la tipologia di test effettuati e i loro
 				limiti. Descrivo come si sia rivelata molto più utile l'anaisi statica, in quanto i malfunzionamenti erano tutti
