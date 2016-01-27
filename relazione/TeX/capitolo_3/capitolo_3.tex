@@ -431,11 +431,21 @@
 					la gestione dei risultati restituiti.
 				\end{itemize}
 			\subsubsection{Gestione degli errori}
-				Tutte le API
-				Descrivo in che modo vengono gestiti tutti i possibili errori che possono avvenire durante l'uso dei servizi e delle
-				API messe a disposizione dall'azienda. Racconto di come alcuni di essi siano gestiti direttamente dall'SDK e di come
-				la gestione di alcuni sia invece assegnata a chi utilizza le API. Descrivo infine i test ai quali ho sottoposto
-				l'SDK per controllare che le chiamate fossero corrette.
+				Tutte le interfacce dedicate alle varie API che sono state descritte in precedenza restituiscono allo sviluppatore di
+				applicazioni un semplice feedback. Esso ha il compito di avvertire se ci sono stati eventuali errori che l'SDK ha
+				rinunciato a gestire. Il componente dedicato alle API PastBook, infatti, possiede dei meccanismi interni tramite i
+				quali può:
+				\begin{itemize} 
+					\item capire e interpretare eventuali malfunzionamenti;
+					\item tentare di correggere gli errori rilevati.
+				\end{itemize}
+				Sebbene numerosi errori possano essere corretti all'insaputa dello sviluppatore (per esempio i token scaduti possono
+				essere aggiornati in automatico), ne esistono alcuni per i quali l'applicazione vuole probabilmente ricevere
+				aggiornamenti per poter avvertire in modo corretto l'utente tramite un messaggio. Ne sono un esempio la mancanza di
+				segnale di rete, una password errata, un'email scritta male etc.\\
+				L'SDK, dunque, definisce nella sua interfaccia pubblica tutti i possibili messaggi di errore che ogni singolo comando
+				potrebbe restituire all'applicazione: è compito dello sviluppatore utilizzatore di questo componente decidere cosa
+				fare per porre rimedio a queste situazioni.
 		\subsection{Launcher configurabile}
 			\subsubsection{Analisi del launcher preesistente}
 				Descrivo cos'è un launcher per l'azienda (serie di chiamate ai services aziendali con il fine comune di creare un
