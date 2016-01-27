@@ -1,0 +1,17 @@
+\begin{lstlisting}
+	...
+	instAuth = new instagramAuthentication();
+	...
+	instAuth.authorize(function(e) {
+		if (e.success) {
+			var instToken = instAuth.getToken();
+			// operazioni con il token restituito da Instagram
+		}
+		else if (e.cancelled) {
+			// l'utente non ha voluto inserire le proprie credenziali
+		}
+		else {
+			// gestione degli errori sulla base del contenuto di e.error
+		}
+	});
+\end{lstlisting}

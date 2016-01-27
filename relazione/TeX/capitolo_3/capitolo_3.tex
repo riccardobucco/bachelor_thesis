@@ -278,7 +278,8 @@
 				che Appcelerator mette a disposizione degli sviluppatori. Non ho preso la decisione opposta in quanto la cosa
 				avrebbe richiesto una gestione coerente delle variabili granted permissions e login status: le complicazioni
 				sarebbero probabilmente state eccessive. Inoltre, il modulo in questione mette a disposizione un'interfaccia
-				molto chiara e semplice da utilizzare.\\
+				molto semplice da utilizzare e permette l'autenticazione usando l'eventuale applicazione Facebook installata sul
+				dispositivo mobile\\
 				Grazie all'utilizzo di questo modulo sono stato in grado di gestire con poche righe di codice tutte le situazioni più
 				comuni. In particolare, lo sviluppatore di applicazioni che utilizzi il PastBook Mobile SDK ha a disposizione
 				l'interfaccia di una singola classe tramite la quale deve solo indicare che all'utente deve essere richiesta
@@ -334,10 +335,32 @@
 				A causa di questi problemi ho dovuto implementare una versione apposita per Android del componente dedicato a
 				Facebook che aggirasse questi difetti di base.
 			\subsubsection{Implementazione dell'autenticazione a Instagram tramite API native}
-				Racconto di come non esistano moduli degni per l'autenticazione tramite Instagram e di come abbia dunque deciso di
-				implementare tale cosa facendo uso direttamente delle API messe a disposizione dal social network. Descrivo come la
-				mancanza di un'autenticazione SSO mi abbia indotto a scegliere un approccio diverso rispetto a quanto fatto in
-				precedenza (uso di una pagina webview invece che di una schermata nativa).
+				Ho eseguito un'approfondita ricerca sul web per trovare un modulo Titanium dedicato a Insagram simile a quello
+				fornito per Facebook. Tuttavia, mi sono reso conto che tutti i software esistenti erano di qualità scadente o
+				offrivano un'interfaccia grafica troppo basilare. Ho dunque optato per implementare personalmente l'autenticazione
+				a questo social network, utilizzando le API messe a disposizione degli sviluppatori.\\
+				Durante l'implementazione mi sono reso conto che fosse impossibile delegare all'eventuale applicazione Instagram
+				installata sul dispositivo la responsabilità di gestire le credenziali e i vari permessi. Ho quindi scelto di
+				incapsulare all'interno di una \emph{webview} il sistema di autenticazione e autorizzazione dedicato agli utenti che
+				accedono al social network da browser. Questo modo di operare mi ha consentito di ottenere i seguenti vantaggi:
+				\begin{itemize}
+					\item \emph{velocità} nella realizzazione, in quanto gran parte del lavoro era già stata eseguita;
+					\item \emph{sicurezza} del prodotto finale, perché relegata direttamente agli sviluppatori di Instagram;
+					\item \emph{design} conforme a quello utilizzato dal social network stesso.
+				\end{itemize}
+				Sono anche riuscito a gestire i vari casi che possono avvenire durante il processo di autenticazione e autorizzazione
+				e che avevo individuato durante la precedente attività di analisi. In particolare, mi è bastato effettuare il
+				\emph{parsing} dell'url nelle varie situazioni per ottenere tutti i parametri di cui necessitavo.\\
+				Per evitare allo sviluppatore il compito di integrare la webview all'interno del proprio prodotto e per ottenere allo
+				stesso tempo un comportamento simile all'autenticazione tramite Facebook (che fa uso dell'applicazione esterna del
+				social network), ho optato per fare in modo che l'SDK apra una nuova finestra all'interno della quale è inserita la
+				webview. Al termine dell'autenticazione — o in caso di errori — tale finestra viene chiusa e il controllo del flusso
+				torna nuovamente allo sviluppatore.\\
+				In definitiva, durante lo sviluppo di applicazioni si può utilizzare il componente dell'SDK per l'autenticazione e
+				l'autorizzazione a Instagram nel seguente modo:
+				\input{TeX/capitolo_3/codice/autenticazione_instagram.tex}
+				La sua interfaccia, dunque, è del tutto coerente con quella del componente dedicato a Facebook, anche se il
+				funzionamento interno differisce completamente.
 		\subsection{Interfaccia per API e services aziendali}
 			pastbook auth with facebook
 			\subsubsection{Studio del dominio e analisi dei requisiti}
