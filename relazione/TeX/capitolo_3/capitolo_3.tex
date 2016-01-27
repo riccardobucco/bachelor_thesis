@@ -589,9 +589,15 @@
 					\emph{stop} o, peggio, un \emph{abort}.
 				\end{itemize}
 			\subsubsection{Verifica e correzione degli errori}
-				Descrivo i principi secondo i quali sono stati preparati i test. Descrivo la tipologia di test effettuati e i loro
-				limiti. Descrivo come si sia rivelata molto più utile l'anaisi statica, in quanto i malfunzionamenti erano tutti
-				casi troppo particolari per essere testati in modo dinamico (principalmente dovuti a usi errati della concorrenza).
+				L'attività di verifica e correzione degli errori del Launcher si è rivelata particolarmente ardua. Il problema
+				principale era dato dai numerosi casi che il Launcher avrebbe dovuto gestire: ognuno di essi differiva per molti
+				aspetti dagli altri ed era difficile individuare delle situazioni significative che, se superate, dimostrassero
+				l'effettiva correttezza dell'algoritmo. Un secondo problema riguardava l'ampio uso di chiamate asincrone e
+				concorrenti: queste fanno in modo che vi siano malfunzionamenti che possono avvenire durante l'uso reale ma che allo
+				stesso tempo risultano troppo particolari per essere individuati direttamente grazie a dei test.
+				Per trovare eventuali errori in tale componente, dunque, ho optato per tecniche di \emph{ispection} e verifica
+				formale del codice: tali attività hanno richiesto un discreto quantitativo di tempo ma hanno permesso di individuare
+				e correggere probabilmente tutte le criticità più evidenti.
 	\section{Sviluppo di My Year Photo Book}
 		\subsection{Analisi dei requisiti}
 			\subsubsection{Produzione di alcuni wireframe}
