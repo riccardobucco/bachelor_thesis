@@ -361,13 +361,38 @@
 				\input{TeX/capitolo_3/codice/autenticazione_instagram.tex}
 				La sua interfaccia, dunque, è del tutto coerente con quella del componente dedicato a Facebook, anche se il
 				funzionamento interno differisce completamente.
-		\subsection{Interfaccia per API e services aziendali}
-			pastbook auth with facebook
+		\subsection{Interfaccia per API aziendali}
 			\subsubsection{Studio del dominio e analisi dei requisiti}
-				Descrivo come in prima istanza mi sia dedicato allo studio delle API (ben documentate) e dei services (documentazione
-				non presente) messi a disposizione dall'azienda. Descrivo come abbia poi cominciato l'analisi dei requisiti,
-				concentrandomi in particolare su quali di questi servizi sarebbero potuti servire durante lo sviluppo di applicazioni
-				(e se eventualmente fosse il caso di aggregare le loro funzionalità). Descrivo i risultati ai quali sono pervenuto.
+				Dopo aver studiato quali API PastBook metteva a disposizione, ho cercato di capire quali di queste avrebbero potuto
+				essere utili in futuro a uno sviluppatore di applicazioni per l'azienda.\\
+				Le API che ho individuato sono le seguenti:
+				\begin{center}
+					\rowcolors{1}{azzurro}{azzurro_chiaro}
+					\begin{tabular}[H]{p{0.25\textwidth} p{0.60\textwidth}}
+						\emph{getAlbumEntries}		& Ottiene tutte le immagini contenute all'interno di uno specifico
+										  Photo Book.\\
+						\hline
+						\emph{updateAlbumTitles}	& Mostra o nasconde le descrizioni di ogni singola immagine
+										  all'interni di uno specifico Photo Book.\\
+						\hline
+						\emph{updateAlbumCover}		& Cambia l'immagine di copertina di uno specifico Photo Book.\\
+						\hline
+						\emph{removeAlbumEntry}		& Rimuove una certa immagine da uno specifico Photo Book.\\
+					\end{tabular}
+				\end{center}
+				Oltre a queste vi sono ovviamente quelle dedicate all'autenticazione a due fattori ai server PastBook: esse
+				permettono di ottenere o aggiornare i token e i codici necessari per poter accedere a tutte le API e i Service.\\
+				Dopo aver individuato le singole API utili agli sviluppatori, ho cercato di capire se mi fosse possibile semplificare
+				il loro uso ulteriormente. Ho pensato che due ulteriori funzionalità o caratteristiche sarebbero potute essere
+				comode:
+				\begin{itemize}
+					\item La possibilità per lo sviluppatore di rimuovere più di una singola immagine per volta. Dal mio punto di
+					vista, infatti, sarebbe molto più comodo poter rimuovere in modo automatico tutte le immagini appartenenti a
+					un certo insieme piuttosto che dover ripetere l'operazione per ognuna di esse.
+					\item il completo occultamento agli occhi dello sviluppatore della metodologia utilizzata per
+					l'autenticazione ai server PastBook. Infatt, non penso sia gradevole per lo sviluppatore doversi occupare
+					della gestione dei vari codici, di un eventuale loro aggiornamento nel caso scadano etc.
+				\end{itemize}
 			\subsubsection{Progettazione, implementazione e relativi problemi}
 				Descrivo come inizialmente la progettazione sia stata quasi nulla a causa della fretta da parte dell'azienda di avere
 				un prototipo funzionante e di come abbia cominciato subito con l'implementazione. Descrivo come, facendo ciò, si sia
