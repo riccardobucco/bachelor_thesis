@@ -965,6 +965,13 @@
 				richiesta ai server PastBook non è istantanea e l'utente era tenuto ad aspettare un certo periodo di tempo senza però
 				avere la possibilità di rendere inconsistente la situazione.\\
 				\input{TeX/capitolo_3/codice/aggiornamento_copertina.tex}
+				\noindent Al termine dell'implementazione delle due nuove schermate ho deciso di migliorarle ulteriormente. In
+				particolare, esse soffrivano dello stesso problema presente nella schermata di intrattenimento dell'utente: le
+				immagini della gallery dovevano essere scaricate dal Web, dunque il tempo di attesa era abbastanza lungo. Ho quindi
+				deciso di utilizzare anche qui la cache creata e sfruttata in precedenza: tutte le nuove immagini scaricate vengono
+				memorizzate per poter essere eventualmente riutilizzate. Tuttavia, si noti un particolare importante: per come è
+				stata implementata la schermata di attesa, essa memorizza tutte le foto dell'album nella cache. Dunque, le schermate
+				di modifica dispongono ogni volta di tutti i dati che necessitano.
 			\subsubsection{Checkout}
 				La schermata di \emph{checkout} non ha comportato particolari problemi. È tuttavia doveroso sottolineare quali siano
 				state le scelte implementative e le relative motivazioni.\\
@@ -990,19 +997,40 @@
 				utilizzatori un comodo componente (altamente ottimizzato per dispositivi mobile) tramite il quale gestire i pagamenti
 				in modo automatico: per poterlo utilizzare non c'è praticamente nessun bisogno di utilizzare direttamente le API.
 		\subsection{Verifica dei risultati ottenuti}
-			L'attività di verifica dell'applicazione si è basata sostanzialmente sull'utilizzo di due metodi:
+			L'attività di verifica dell'applicazione si è basata sostanzialmente sull'utilizzo di tre metodi:
 			\begin{itemize}
 				\item test eseguiti personalmente all'interno dell'ambiente di sviluppo tramite l'uso di emulatori o, talvolta, di
 				dispositivi fisici;
 				\item test eseguiti da altre persone direttamente su prototipi funzionanti;
 				\item controllo e analisi della quantità di risorse utilizzata dall'applicazione.
 			\end{itemize}
-			
-			Descrivo come sia stata effettuata l'attività di verifica sull'applicazione. Spiego che la parte principale è stata
-			svolta mediante l'utilizzo di emulatori e grazie a una serie di test decisi a priori e documentati (seppur non
-			automatizzati). Spiego inoltre come consegnassi quasi giornalmente un prototipo a 5-6 persone che si preoccupavano
-			di provare l'applicazione e di segnalare malfunzionamenti o rallentamenti. Spiego come ho implementato un sistema
-			che permetteva ai tester di essere più precisi possibile riguardo gli errori che erano riportati.
+			Per quanto riguarda la prima metodologia, mi sono impegnato personalmente a preparare a priori dei test che l'applicazione
+			avrebbe dovuto superare per essere considerata funzionante. I test sono stati documentati correttamente sebbene non fossero
+			automatizzabili: essi, piuttosto, dovevano essere svolti da una persona utilizzando direttamente l'applicazione all'interno
+			di un emulatore mobile o di un dispositivo fisico. Anche i risultati ottenuti sono stati documentati e messi a disposizione
+			dell'azienda.\\
+			Oltre alla verifica svolta personalmente, ho cercato di sfruttare al massimo l'aiuto derivante da altre persone. L'azienda,
+			infatti, mi obbligava a consegnare numerosi prototipi di My Year Photo Book durante il suo sviluppo (durante certi periodi
+			consegnavo anche un prototipo al giorno). Sebbene questo vincolo fosse motivo di rallentamento nello sviluppo, mi sono reso
+			conto molto presto che potevo utilizzarla a mio favore: ho cercato di utilizzare al meglio tutti i feedback che derivavano
+			dall'uso di questi prototipi. Inoltre, ho cercato di creare io stesso degli strumenti da aggiungere all'applicazione e,
+			in particolare, al PastBook Mobile SDK che permettessero agli utenti di fornire feedback più dettagliati e utili alla
+			rilevazione di eventuali anomalie o malfunzionamenti. Nello specifico, ho permesso ai due prodotti di essere configurati
+			in modo tale che la loro esecuzione avvenisse in \emph{modalità prototipo}. Tale modalità aggiunge loro alcune
+			caratteristiche molto utili ai fini dell'attività del verificatore:
+			\begin{itemize}
+				\item tutti le azioni compiute dall'utente sono registrate e memorizzate;
+				\item tutti gli errori (compresi quelli rilevati e gestiti in automatico dall'SDK) e le relative informazioni sono
+				registrati e memorizzati.
+			\end{itemize}
+			In questo modo, quando un utilizzatore del prototipo incorreva in una situazione imprevista poteva inviare i dati raccolti
+			dall'applicazione durante l'uso assieme al feedback personale: in questo modo riuscivo più facilmente a ricreare le
+			condizioni durante le quali si era verificato l'errore per poterlo trovare e risolvere.	Tale modalità è stata disattivata
+			quando l'applicazione è diventata abbastanza stabile.
+			L'ultima tecnica utilizzata ha riguardato l'analisi delle risorse utilizzate da My Year Photo Book durante il suo utilizzo.
+			Per fare questo ho utilizzato gli strumeti messi a disposizione dagli SDK di Android e iOS. Grazie ad essi mi sono accorto di
+			alcune situazioni durante le quali erano necessarie delle ottimizzazioni (in particolare durante la schermata di
+			intrattenimento dell'utente).
 	\section{Mantenimento di My Year Photo Book}
 		\subsection{Rilascio dell'applicazione}
 			Descrivo in che modo l'applicazione è stata resa disponibile al pubblico per il beta testing. Descrivo gli strumenti
