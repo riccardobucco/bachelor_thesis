@@ -1,0 +1,13 @@
+\begin{lstlisting}
+	var pbAPI = new pastbookAPI();
+	var gallery = new gallery();
+	...
+	gallery.setNumberOfSelectableEntries(1);
+	...
+	saveButton.addEventListener('click', function() {
+		// funzione eseguita quando l'utente clicca il pulsante "save"
+		var selectedImage = gallery.getSelectedEntries()[0];
+		gallery.disableInteraction();
+		pbAPI.updateAlbumCover(bookCode, selectedImage, callback);
+	});
+\end{lstlisting}

@@ -939,15 +939,34 @@
 					\includegraphics[width=0.3\textwidth]{capitolo_3/immagini/schermata_di_visualizzazione.png}
 					\caption{Schermata di \emph{preview} dell'applicazione My Year Photo Book.}
 				\end{figure}
+				\noindent All'interno di questa schermata l'utente ha anche la possibilità di condividere il Photo Book creato
+				all'interno del social network preferito. Inoltre, da qui egli può accedere a tutte le rimanenti funzionalità
+				dell'applicazione: modifiche al Photo Book e checkout.
 			\subsubsection{Modifica del Photo Book}
-				A partire dalla schermata di \emph{preview}, l'utente può scegliere una delle tre opzioni a sua disposizione per
-				poter modificare il Photo Book:
-				
-				Descrivo le schermate grazie alle quali un utente può modificare i propri photo book. Descrivo come la sua
-				implementazione sia stata semplice grazie all'uso dell'SDK. Descrivo come gestisce e corregge eventuali errori senza
-				che l'utente se ne accorga. Descrivo come sia stato possibile riutilizzare molti degli elementi presenti nella
-				schermata di intrattenimento.
+				A partire dalla schermata di \emph{preview}, l'utente può scegliere una delle seguenti tre opzioni a sua
+				disposizione per poter modificare il Photo Book:
+				\begin{itemize}
+					\item \emph{modifica dell'immagine di copertina}, gestita da una schermata apposita;
+					\item \emph{eliminazione di immagini indesiderate}, gestita da una schermata apposita;
+					\item \emph{visualizzazione delle didascalie delle immagini}, gestita da un semplice tasto.
+				\end{itemize}
+				Tutte e tre queste funzionalità sono state semplicissime da implementare e non hanno presentato problemi particolari.
+				Infatti, mi è bastato utilizzare l'interfaccia dedicata alle API messa a disposizione dall'SDK per attuare in modo
+				facile le modifiche richieste dall'utente. Per le schermate di modifica della copertina ed eliminazione delle
+				immagini ho utilizzato il modulo gallery già sfruttato all'interno della schermata di intrattenimento:
+				\begin{itemize}
+					\item ho creato una griglia di immagini della quale l'utente può effettuare lo scroll verticale;
+					\item ho reso le immagini selezionabili (nel caso della modifica della copertina l'immagine selezionabile è
+					unica);
+					\item ho applicato le API corrette fornite dall'SDK alle sole immagini selezionate.
+				\end{itemize}
+				L'unica accortezza che ho dovuto avere all'interno delle due nuove schermate è stata quella di dover rendere le
+				immagini non più selezionabili dopo che le API erano state chiamate. Ricordo, infatti, che l'esecuzione di una
+				richiesta ai server PastBook non è istantanea e l'utente era tenuto ad aspettare un certo periodo di tempo senza però
+				avere la possibilità di rendere inconsistente la situazione.\\
+				\input{TeX/capitolo_3/codice/aggiornamento_copertina.tex}
 			\subsubsection{Checkout}
+				La schermata di \emph{checkout}
 				Descrivo la schermata nella quale l'utente può comprare il photo book creato. Descrivo perchè ho deciso assieme
 				all'azienda di implementarla facendo largo uso di una webview invece che di elementi nativi.
 		\subsection{Verifica dei risultati ottenuti}
