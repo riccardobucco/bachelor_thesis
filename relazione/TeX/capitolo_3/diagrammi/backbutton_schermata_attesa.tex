@@ -1,0 +1,29 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=azzurro] (0,0) rectangle ++(0.22\textwidth,0.08\textwidth);
+		\draw (0,0) rectangle ++(0.22\textwidth,0.08\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {launcher.pause()};
+		\draw[fill=azzurro] (0.26\textwidth,0) rectangle ++(0.22\textwidth,0.08\textwidth);
+		\draw (0.26\textwidth,0) rectangle ++(0.22\textwidth,0.08\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Alert: tornare indietro?};
+		\draw[fill=azzurro] (0.52\textwidth,-0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth);
+		\draw (0.52\textwidth,-0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Risposta: si};
+		\draw[fill=azzurro] (0.52\textwidth,0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth);
+		\draw (0.52\textwidth,0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {Risposta: no};
+		\draw[fill=azzurro] (0.78\textwidth,0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth);
+		\draw (0.78\textwidth,0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {launcher.abort()};
+		\draw[fill=azzurro] (0.78\textwidth,-0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth);
+		\draw (0.78\textwidth,-0.05\textwidth) rectangle ++(0.22\textwidth,0.08\textwidth)
+		node[pos=.5, text width=0.17\textwidth, align=center] {launcher.start()};
+		\draw[->] (0.23\textwidth,0.04\textwidth) -- (0.25\textwidth,0.04\textwidth);
+		\draw[->] (0.49\textwidth,0.04\textwidth) -- (0.51\textwidth,0.09\textwidth);
+		\draw[->] (0.75\textwidth,0.09\textwidth) -- (0.77\textwidth,0.09\textwidth);
+		\draw[->] (0.49\textwidth,0.04\textwidth) -- (0.51\textwidth,-0.01\textwidth);
+		\draw[->] (0.75\textwidth,-0.01\textwidth) -- (0.77\textwidth,-0.01\textwidth);
+	\end{tikzpicture}
+	\caption{Vantaggi derivanti dalla fedeltà di un cliente}
+\end{figure}

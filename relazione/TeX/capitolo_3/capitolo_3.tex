@@ -759,14 +759,14 @@
 				del'applicazione risulti notevolmente semplificato a causa di ciò.
 		\subsection{Implementazione delle schermate e dei relativi controller}
 			\subsubsection{L'uso del framework MVC Alloy}
-				Per l'implementazione di My Year Photo Book ho scelto di utilizzare ilframework Alloy, messo a disposizione
+				Per l'implementazione di My Year Photo Book ho scelto di utilizzare il framework Alloy, messo a disposizione
 				direttamente da Appcelerator. Tale prodotto è stato creato per rendere lo sviluppo delle applicazioni Titanium più
 				rapido. Alloy adotta un’architettura \emph{Model-View-Controller} e utilizzando file XML e TSS (simile a CSS)
-				permette a chi scrive codice di separare la l'interfaccia dalla logica e dal modello dei dati.\\
+				permette a chi scrive codice di separare l'interfaccia dalla logica e dal modello dei dati.\\
 				In un progetto Titanium Alloy la relazione tra una view, il suo stile e il suo controller è data dal nome del file
 				che, ad esclusione dell'estensione, deve essere lo stesso per tutti. Quindi, per esempio, se abbiamo definito una
 				view \texttt{dashboard.xml}, lo stile ad essa associato è \texttt{dashboard.tss} e il suo controller si chiamerà
-				necessariamente \texttt{dashboard.js}. I tre files, tuttavia, non verranno salvati nella stessa cartella, perché
+				necessariamente \texttt{dashboard.js}. I tre file, tuttavia, non verranno salvati nella stessa cartella, perché
 				Alloy prevede che view, stili e controller abbiano una directory a loro dedicata.\\
 				Dunque, all'interno di un progetto Titanium Alloy i file sono organizzati in cartelle. Quelli interessanti ai fini
 				dell'implementazione sono contenuti nella cartella \emph{app}, a sua volta suddivisa in sottocartelle:
@@ -775,7 +775,7 @@
 					dell'applicazione. Alloy crea in automatico un file chiamato \texttt{index.xml}, che rappresenta la view
 					principale, ovvero quella che viene eseguita all'avvio dell'applicazione.
 					\item La cartella \emph{controllers} contiene i file che si occupano della logica e della gestione degli
-					eventi. Un controller è associato alla vista di con cui condivide lo stesso nome. Esiste un controller
+					eventi. Un controller è associato alla vista con cui condivide lo stesso nome. Esiste un controller
 					creato in automatico — chiamato \texttt{index.js} — che viene eseguito all'avvio dell'applicazione.
 					\item Le proprietà grafiche di ciascun elemento definito nelle view sono contenute all'interno di un foglio
 					di stile. Tali file sono contenuti nella cartella \emph{styles} ed hanno una sintassi che ricorda quella di
@@ -784,16 +784,16 @@
 					Alloy, infatti, ereditano dalla classe Backbone.Model e ne sfruttano quindi la logica e i metodi d'accesso.
 					I modelli devono essere definiti nella cartella \emph{models} e sono accessibili dai controller, che possono
 					richiamarli facendo riferimento al loro nome di file.
-					\item La cartella \emph{assets} è suddivisa in sottocartelle, una per piattaforma, e contiene gli
+					\item La cartella \emph{assets} è suddivisa in sottocartelle, una per piattaforma, e contiene
 					tutti i file componenti la grafica dell'applicazione nelle varie risoluzioni che si intende supportare.
 				\end{itemize}
 				All'interno del progetto, poi, sono presenti alcuni file particolarmente importanti. Essi sono \texttt{tiapp.xml} e
-				\texttt{config.json}. Il primo è il file di configurazione generale. Oltre a contenere le informazioni che ho
-				inserito in fase di inizializzazione, questo file consente anche di definire eventuali moduli esterni che voglio
-				utilizzare. Inoltre posso aggiungere ulteriori voci di configurazione relative alle singole piattaforme di
-				distribuzione (cioè voci specifiche solo per iOS o Android). Il secondo, invece, permette di definire degli oggetti
-				il cui valore può dipendere sia dall'ambiente di esecuzione (sviluppo, test o produzione) che dalla piattaforma di
-				destinazione.\\
+				\texttt{config.json}. Il primo è il file di configurazione generale. Oltre a contenere le informazioni che inserite
+				in fase di inizializzazione, questo file consente anche di definire eventuali moduli esterni che si vogliono
+				utilizzare. Inoltre si possomo aggiungere ulteriori voci di configurazione relative alle singole piattaforme di
+				distribuzione (cioè voci specifiche solo per iOS o Android). Il secondo file, invece, permette di definire degli
+				oggetti il cui valore può dipendere sia dall'ambiente di esecuzione (sviluppo, test o produzione) che dalla
+				piattaforma di destinazione.\\
 				Riassumendo, la struttura del progetto My Year Photo Book può essere rappresentata nel modo seguente:
 				\dirtree{%
 					.1 My Year Photo Book.
@@ -836,22 +836,73 @@
 					network.
 				\end{itemize}
 				Inoltre, ho fatto uso dell'SDK realizzato durante la prima parte dello stage per implementare l'autenticazione ai
-				social Network e ai server PastBook in seguito alla pressione del pulsante di creazione.\\
+				social network e ai server PastBook in seguito alla pressione del pulsante di creazione.\\
 				Non vi sono stati problemi difficilmente risolvibili nell'implementazione di questa schermata. L'unica cosa degna di
 				nota riguarda il fatto che l'autenticazione non è immediata e l'utente percepisce dunque un ritardo nelle operazioni
-				che seguono il click sul pulsante di creazione: il rischio è che egli pensi che My Year Photo Book non stia
+				che seguono il click del pulsante di creazione: il rischio è che egli pensi che My Year Photo Book non stia
 				funzionando o si sia bloccata. Per evitare questo caso ho pensato di inserire una semplice animazione che
 				simulasse il caricamento dell'operazione seguente. Inoltre, per evitare che l'utente interagisca con la schermata
 				dopo che ha avviato le operazioni, ho provveduto a disabilitare sia lo yearSelector che il providerSelector tramite
 				le relative interfacce (infatti, non voglio che l'utente possa cambiare i parametri di configurazione del Launcher
 				dopo che questo è stato avviato).
 			\subsubsection{Intrattenimento dell'utente}
-				Descrivo la schermata dedicata all'intrattenimento dell'utente durante la creazione di un photo book. Descrivo come
-				le finalità di tale schermata avessero scopi di puro marketing (si vuole distrarre l'utente durante l'attesa).
-				Descrivo come l'impossibilità di implementare alcuni particolari (a causa di bug del framework) abbiano comportato
-				dei cambiamenti nell'analisi dei requisiti. Descrivo il risultato al quale si è arrivati alla fine. Descrivo i
-				problemi che esso ha causato sia in termini di prestazioni su dispositivi lenti che in termini di memoria utilizzata.
-				Descrivo come tale schermata sia stata ottimizzata.
+				Dopo che l'utente ha scelto le opzioni per la creazione del Photo Book e dopo che esso si è autenticato in modo
+				corretto, l'applicazione esegue il Launcher offerto dall'SDK. L'intero algoritmo può durare anche qualche decina di
+				secondi: è dunque necessario distrarre l'utente durante l'attesa. Nell'analisi dei requisiti avevo concordato
+				con il tutor che avrei realizzato una schermata che mostrasse in modo animato le varie foto tramite le quali
+				l'utente stava realizzando il suo album.\\
+				Ho dovuto innanzitutto preoccuparmi di come ottenere le foto dell'utente. A questo scopo mi è stata molto utile
+				l'interfaccia del Launcher dell'SDK realizzata in precedenza. Essa, infatti, metteva a disposizione delle callback
+				cha sarebbero state eseguite in seguito ad ogni Service (in base alla categoria alla quale apparteneva). In
+				particolare, ho fatto uso delle callback dedicate ai provider per accedere alle foto che ognuno di essi otteneva. I
+				provider sono di solito molto veloci, poiché si basano su semplici API messe a disposizione dai vari social network:
+				di conseguenza il tempo che l'utente doveva attendere per veder comparire le prime foto era minimo.
+				\input{TeX/capitolo_3/codice/launcher_schermata_attesa.tex}
+				Il secondo problema affrontato riguardava cosa fare con le immagini ottenute dai vari provider chiamati dal Launcher.
+				Ho pensato di realizzare una griglia che scorresse lentamente verso un libro aperto, per dare l'idea che
+				l'applicazione stesse costruendo il Photo Book sulla base delle foto mano a mano ottenute. Per realizzare questa
+				griglia ho pensato di utilizzare in modo intelligente il modulo \emph{gallery} di cui già disponevo. In particolare:
+				\begin{itemize}
+					\item Ho reso le immagini non selezionabili, in modo tale che l'utente non potesse interagire in modo attivo
+					con la griglia. L'esecuzione di quest'operazione è stata semplice, in quanto un utilizzatore di tale modulo
+					poteva configurare il numero massimo di immagini selezionabili (in questo caso zero).
+					\item Ho fatto in modo che l'utente non potesse eseguire lo scroll della griglia. Questo è stato fatto
+					semplicemente inserendo la griglia in un elemento di Titanium nel quale non fosse possibile tale operazione.
+					\item Ho aggiunto una semplice animazione all'intera griglia in modo che si muovesse con velocità costante
+					verso il basso.
+				\end{itemize}
+				Quando ho completato la realizzazione di questa schermata mi sono reso conto che avrei potuto ottimizzarla. Infatti,
+				sebbene essa funzionasse, si riempiva a scatti troppo evidenti, soprattutto in presenza di un segnale di rete
+				debole o se eseguita in dispositivi con una bassa capacità di elaborazione dei dati. Dopo un'analisi più
+				approfondita ho capito che questo problema era dovuto alla pesantezza delle immagini che erano scaricate in modo
+				troppo lento dal social network scelto dall'utente. Ho quindi implementato due miglioramenti:
+				\begin{itemize}
+					\item Ho configurato il modulo gallery in modo tale che richiedesse immagini in bassa definizione. Infatti,
+					le immagini di tale schermata erano abbastanza piccole e la differenza di qualità si sarebbe notata con
+					difficoltà anche nei dispositivi di ultima generazione.
+					\item Ho implementato una sorta di cache delle immagini. Nel dettaglio, ogni volta che la gallery scaricava
+					una nuova immagine la salvava in memoria. Nel caso in cui la stessa immagine veniva richiesta una seconda
+					volta, la gallery utilizzava direttamente il file memorizzato, velocizzando il caricamento. Per impedire alla
+					cache di crescere troppo mi sono preoccupato di impostare dei limiti di tempo (i file vecchi vengono rimossi)
+					e di spazio (i file in eccesso non vengono memorizzati).
+				\end{itemize}
+				Nonostante tutti i miglioramenti apportati, i test effettuati sull'applicazione da parte di altre persone hanno
+				rivelato il fatto che spesso l'utente si stanca di aspettare e cerca dunque di tornare indietro. In questo caso
+				è importante annullare l'algoritmo in esecuzione, ignorando completamente ogni suo risultato e, soprattutto, evitando
+				che eventuali callback vengano eseguite. Per soddisfare questo requisito ho utilizzato la possibilità offerta dal
+				Launcher di essero messo in pausa ed eventualmente fermato completamente.
+				\input{TeX/capitolo_3/diagrammi/backbutton_schermata_attesa.tex}
+				\noindent La figura mostra un esempio di come può apparire la schermata di intrattenimento all'utente.
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.3\textwidth]{capitolo_3/immagini/schermata_di_intrattenimento.png}
+					\caption{Schermata di intrattenimento dell'applicazione My Year Photo Book.}
+				\end{figure}
+				\noindent Riporto infine di essermi scontrato con un fastidioso bug di Titanium durante l'implementazione di tale schermata.
+				In particolare, la funzione dedicata al ridimensionamento e al ritaglio delle immagini restituiva spesso risultati
+				completamente errati: le proporzioni delle foto non erano rispettate e si otteneva un prodotto completamente
+				inutilizzabile. Appcelerator è a consocenza di questo bug ma non l'ha risolto durante la mia esperienza di stage. Ho
+				dovuto dunque procedere attraverso vie alternative.
 			\subsubsection{Visualizzazione del Photo Book}
 				Descrivo la schermata dedicata alla visualizzazione del photo book. Descrivo come sia stato implementato il libro
 				3d sfogliabile dall'utente. Descrivo i problemi che l'implementazione di tale schermata ha comportato (dovuti
