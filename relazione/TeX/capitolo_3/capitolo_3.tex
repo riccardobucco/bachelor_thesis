@@ -898,18 +898,51 @@
 					\includegraphics[width=0.3\textwidth]{capitolo_3/immagini/schermata_di_intrattenimento.png}
 					\caption{Schermata di intrattenimento dell'applicazione My Year Photo Book.}
 				\end{figure}
-				\noindent Riporto infine di essermi scontrato con un fastidioso bug di Titanium durante l'implementazione di tale schermata.
-				In particolare, la funzione dedicata al ridimensionamento e al ritaglio delle immagini restituiva spesso risultati
-				completamente errati: le proporzioni delle foto non erano rispettate e si otteneva un prodotto completamente
-				inutilizzabile. Appcelerator è a consocenza di questo bug ma non l'ha risolto durante la mia esperienza di stage. Ho
-				dovuto dunque procedere attraverso vie alternative.
+				\noindent Riporto infine di essermi scontrato con un fastidioso bug di Titanium durante l'implementazione di tale
+				schermata. In particolare, la funzione dedicata al ridimensionamento e al ritaglio delle immagini restituiva spesso
+				risultati completamente errati: le proporzioni delle foto non erano rispettate e si otteneva un prodotto
+				completamente inutilizzabile. Appcelerator è a consocenza di questo bug ma non l'ha risolto durante la mia
+				esperienza di stage. Ho dovuto dunque procedere attraverso vie alternative.
 			\subsubsection{Visualizzazione del Photo Book}
-				Descrivo la schermata dedicata alla visualizzazione del photo book. Descrivo come sia stato implementato il libro
-				3d sfogliabile dall'utente. Descrivo i problemi che l'implementazione di tale schermata ha comportato (dovuti
-				soprattutto all'orientamento del telefono). Descrivo come tali problemi sono stati affrontati e risolti. Descrivo
-				infine la possibilità per l'utente di condividere il photo book creato e di votare l'applicazione sullo store
-				(solo in determinate situazioni, ovvero quando si presume che all'utente l'applicazione sia piaciuta).
+				Quando il Launcher termina la sua esecuzione, esso restituisce all'applicazione un codice che rappresenta il Photo
+				Book creato dall'utente. A questo punto viene aperta la schermata di \emph{preview}: tramite essa l'utente è 
+				principalmente in grado di visualizzare e “sfogliare” virtualmente l'album realizzato.\\
+				Nell'implementazione di questa schermata ho dovuti affrontare numerosi problemi, soprattutto nell'ambito dell'aspetto
+				grafico finale desiderato. Infatti, il collega con il quale ho collaborato durante l'attività di analisi dei
+				requisiti mi ha fornito delle immagini dettagliate che rappresentavano l'esatto aspetto che l'applicazione avrebbe
+				dovuto avere: il mio compito era tentare di giungere all'obiettivo.\\
+				La principale decisione che ho dovuto effettuare ha riguardato il metodo tramite il quale avrei rappresentato il
+				Photo Book realizzato grazie al Launcher. I server di PastBook, dopo che hanno elaborato la richiesta, generano in
+				automatico un PDF che rappresenta l'album: tuttavia, tale file è privato in quanto l'azienda non vuole che gli utenti
+				la sfruttino per generare Photo Book che poi possono stampare altrove. Di conseguenza, l'applicazione
+				non può pensare di ottenere il PDF per poi tentare di integrare un lettore apposito al suo interno. Questa opzione
+				è stata scartata anche per un altro motivo: il file PDF è troppo grande e non si può pensare di scaricarlo in un
+				tempo ragionevole all'interno di un'applicazione. Neanche cercare di ottenere le singole immagini tramite le API
+				aziendali portava a un risultato soddisfacente: le pagine del Photo Book, ovviamente, non coincidono con le singole
+				immagini in esso contenute, e dunque una rappresentazione di questo genere sarebbe stata di scarsa utilità per
+				l'utente. A partire da questa breve analisi ho capito che la realizzazione di questo componente sarebbe stata
+				troppo ardua con così poco tempo a disposizione. Inoltre, la difficoltà era enormemente aumentata dal fatto che il
+				design doveva obblgatoriamente essere accattivamente (si sarebbero dovute “sfogliare” le pagine come nella realtà).\\
+				Ho quindi optato per il riutilizzo di uno script che l'azienda usava all'interno dei servizi web per svolgere
+				esattamente la stessa funzione di cui avevo bisogno. In particolare, ho deciso di utilizzare una \emph{webview}
+				integrata all'interno dell'applicazione al punto tale che fosse indistinguibile da un componente realizzato in modo
+				nativo. A tal proposito, riporto il fatto che ho riscontrato alcuni problemi nella disabilitazione del
+				\emph{pinch to zoom}: ho dovuto andare a modificare direttamente il codice nativo (in seguito alla compilazione)
+				in quanto Titanium non gestiva questa opzione in modo corretto.
+				Le criticità che ho dovuto affrontare nell'implementazione di tale schermata hanno riguardato in pratica solo
+				l'aspetto grafico e, in particolare, la rotazione dello schermo. Infatti, a causa dei requisiti che il design doveva
+				soddisfarre, mi è stato impossibile realizzare un layout responsive. Ho dovuto quindi procedere alla modifica
+				dinamica degli stili di tutti i vari componenti presenti all'interno della schermata di preview. Tale cosa ha fatto
+				in modo che l'applicazione subisse un rallentamento generale quando eseguita su dispositivi datati.
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.3\textwidth]{capitolo_3/immagini/schermata_di_visualizzazione.png}
+					\caption{Schermata di \emph{preview} dell'applicazione My Year Photo Book.}
+				\end{figure}
 			\subsubsection{Modifica del Photo Book}
+				A partire dalla schermata di \emph{preview}, l'utente può scegliere una delle tre opzioni a sua disposizione per
+				poter modificare il Photo Book:
+				
 				Descrivo le schermate grazie alle quali un utente può modificare i propri photo book. Descrivo come la sua
 				implementazione sia stata semplice grazie all'uso dell'SDK. Descrivo come gestisce e corregge eventuali errori senza
 				che l'utente se ne accorga. Descrivo come sia stato possibile riutilizzare molti degli elementi presenti nella
