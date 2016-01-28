@@ -966,10 +966,38 @@
 				avere la possibilità di rendere inconsistente la situazione.\\
 				\input{TeX/capitolo_3/codice/aggiornamento_copertina.tex}
 			\subsubsection{Checkout}
-				La schermata di \emph{checkout}
-				Descrivo la schermata nella quale l'utente può comprare il photo book creato. Descrivo perchè ho deciso assieme
-				all'azienda di implementarla facendo largo uso di una webview invece che di elementi nativi.
+				La schermata di \emph{checkout} non ha comportato particolari problemi. È tuttavia doveroso sottolineare quali siano
+				state le scelte implementative e le relative motivazioni.\\
+				La tecnologia utilizzata per realizzare le funzionalità di pagamento è stata Stripe, imposta dai vincoli di progetto.
+				Visto che il tempo rimanente per terminare il progetto di stage era ormai poco ho deciso di non implementare
+				da zero un componente che gestisse l'intero processo di checkout. Ho preferito piuttosto cercare di adattare ai miei
+				scopi eventuali prodotti già esistenti.\\
+				Ho cominciato controllando se esistessero moduli per Titanium:
+				\begin{itemize}
+					\item Ho trovato alcuni moduli liberamente utilizzabili. Essi permettevano di utilizzare solo le
+					caratteristiche basilari di Stripe. Per esempio, essi non supportavano Apple Pay e Android Pay, cosa che
+					invece era fortemente desiderata dall'azienda. Essi, inoltre, possedevano un'interfaccia grafica molto
+					scarna che avrei dovuto migliorare (non avevo il tempo necessario per questa operazione).
+					\item Ho trovato anche un modulo a pagamento. PastBook, tuttavia, non era disposta a pagare per poter
+					utilizzare un software di cui non consocevamo la qualità.
+				\end{itemize}
+				Alle considerazioni apena fatte si aggiunge il fatto che — a fine stage — la mia fiducia verso i moduli Titanium
+				stava inesorabilmente venendo a mancare a causa delle complicate esperienze con i componenti dedicati a Facebook e
+				alla modifica delle immagini.\\
+				Dunque, ho preferito utilizzare un'approccio diverso, simile a quello adottato nell'implementazione della schermata
+				di visualizzazione del Photo Book: utilizzare una \emph{webview} integrata all'interno dell'applicazione per poter
+				riutilizzare servizi inizialmente pensati per il Web. Stripe, in particolare, fornisce a tutti i suoi
+				utilizzatori un comodo componente (altamente ottimizzato per dispositivi mobile) tramite il quale gestire i pagamenti
+				in modo automatico: per poterlo utilizzare non c'è praticamente nessun bisogno di utilizzare direttamente le API.
 		\subsection{Verifica dei risultati ottenuti}
+			L'attività di verifica dell'applicazione si è basata sostanzialmente sull'utilizzo di due metodi:
+			\begin{itemize}
+				\item test eseguiti personalmente all'interno dell'ambiente di sviluppo tramite l'uso di emulatori o, talvolta, di
+				dispositivi fisici;
+				\item test eseguiti da altre persone direttamente su prototipi funzionanti;
+				\item controllo e analisi della quantità di risorse utilizzata dall'applicazione.
+			\end{itemize}
+			
 			Descrivo come sia stata effettuata l'attività di verifica sull'applicazione. Spiego che la parte principale è stata
 			svolta mediante l'utilizzo di emulatori e grazie a una serie di test decisi a priori e documentati (seppur non
 			automatizzati). Spiego inoltre come consegnassi quasi giornalmente un prototipo a 5-6 persone che si preoccupavano
