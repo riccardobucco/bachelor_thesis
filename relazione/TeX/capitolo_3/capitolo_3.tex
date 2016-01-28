@@ -1026,14 +1026,21 @@
 			In questo modo, quando un utilizzatore del prototipo incorreva in una situazione imprevista poteva inviare i dati raccolti
 			dall'applicazione durante l'uso assieme al feedback personale: in questo modo riuscivo più facilmente a ricreare le
 			condizioni durante le quali si era verificato l'errore per poterlo trovare e risolvere.	Tale modalità è stata disattivata
-			quando l'applicazione è diventata abbastanza stabile.
+			quando l'applicazione è diventata abbastanza stabile. Oltre a questo semplice strumento da me implementato, ho configurato
+			l'applicazione in modo tale che usasse \emph{HockeyApp} per riportare informazioni su eventuali crash.
 			L'ultima tecnica utilizzata ha riguardato l'analisi delle risorse utilizzate da My Year Photo Book durante il suo utilizzo.
 			Per fare questo ho utilizzato gli strumeti messi a disposizione dagli SDK di Android e iOS. Grazie ad essi mi sono accorto di
 			alcune situazioni durante le quali erano necessarie delle ottimizzazioni (in particolare durante la schermata di
 			intrattenimento dell'utente).
 	\section{Mantenimento di My Year Photo Book}
 		\subsection{Rilascio dell'applicazione}
-			Descrivo in che modo l'applicazione è stata resa disponibile al pubblico per il beta testing. Descrivo gli strumenti
+			Dopo aver terminato l'implementazione di tutte le funzionalità e dopo che l'applicazione è diventata abbastanza stabile in
+			seguito alla correzione dei vari errori trovati, PastBook ha deciso di rilasciare l'applicazione ad alcuni utenti esterni
+			all'azienda. In particolare, è stata adottata la strategia di fornire tale prodotto a \emph{blogger} e \emph{giornalisti} in
+			modo tale che lo provassero, fornissero i loro feedback ed eventualmente facessero pubblicità al pubblico. Per rendere
+			scaricabile My Year Photo Book solo agli utenti selezionati dall'azienda ho utilizzato HockeyApp.\\
+			Nel frattempo mi sono dedicato anche di tutto il processo necessario per la pubblicazione dell'applicazione sull'App Store di
+			Apple. Questo, infatti, può essere molto lungo e l'azienda ha voluto iniziarlo presto per non correre inutili rischi.trumenti
 			utilizzati e gli utenti ai quali è stato dato l'accesso alla preview.
 		\subsection{Raccolta dei dati}
 			Descrivo in che modo e con quali tecnologie si sono raccolti i dati di utilizzo da parte degli utenti e i dati riguardanti
