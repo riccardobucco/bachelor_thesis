@@ -1042,8 +1042,25 @@
 			Nel frattempo mi sono dedicato anche di tutto il processo necessario per la pubblicazione dell'applicazione sull'App Store di
 			Apple. Questo, infatti, può essere molto lungo e l'azienda ha voluto iniziarlo presto per non correre inutili rischi.
 		\subsection{Raccolta dei dati}
-			Descrivo in che modo e con quali tecnologie si sono raccolti i dati di utilizzo da parte degli utenti e i dati riguardanti
-			eventuali crash dell'applicazione. Descrivo in base a quali principi si è scelto di raccogliere certi dati piuttsto che altri
+			Gli strumenti che ho utilizzato per la raccolta di dati di utilizzo da parte degli utenti sono stati due:
+			\begin{itemize}
+				\item \emph{HockeyApp}, per ottenere informazioni riguardanti i crash;
+				\item \emph{Google Tag Manager}, per registrare precisi eventi che avvengono durante l'uso dell'applicazione da parte
+				di un utente.
+			\end{itemize}
+			L'aggiunta di HockeyApp è stata praticamente immediata: il modulo viene installato in pochi minuti e necessita di una
+			configurazione minima.\\
+			Anche l'uso del modulo di Google Tag Manager si è rivelato essere molto semplice. Tuttavia, ho dovuto discutere con il
+			dirigente aziendale e, in particolare, con un collega addetto alle strategie di marketing su quali eventi tale modulo dovesse
+			registrare. Siamo giunti alle seguenti conclusioni:
+			\begin{itemize}
+				\item si devono registrare eventi che permettano di capire se l'utente non è soddisfatto del Photo Book generato
+				automaticamente (per esempio basta controllare se l'utente effettua modifiche oppure no);
+				\item si devono registrare eventi che permettano di capire quanto gli utenti siano interessati a comprare (per
+				esempio si può controllare dopo quanti album creati gli utenti cominciano il checkout);
+				\item si devono registrare eventi che permettano di capire quanto gli utenti apprezzino l'uso dell'applicazione
+				(per esempio registrando il numero di Photo Book creati o contando quante volte viene eseguita l'applicazione).
+			\end{itemize}
 		\subsection{Analisi dei dati}
 			Descrivo in che modo ho proceduto all'analisi dei dati provenienti dagli utenti che stavano utilizzando l'applicazione in
 			anteprima. Descrivo come grazie ai dati e ai feedback ho potuto trovare e correggere alcuni errori. Descrivo a quali
