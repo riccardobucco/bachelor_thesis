@@ -38,7 +38,7 @@
 				solide dalle quali sarei potuto ripartire. L'aggiunta di nuove caratteristiche non stravolgeva l'intero funzionamento
 				dell'applicazione.
 				\item Ero costretto a prestare la massima attenzione a non introdurre errori. La loro eventuale correzione aveva
-				priorità assoluta, poichè senza essa non avrei potuto ottenere un prototipo funzionante. Di conseguenza, l'attività di
+				priorità assoluta, poiché senza essa non avrei potuto ottenere un prototipo funzionante. Di conseguenza, l'attività di
 				mantenimento dell'applicazione non è stata particolarmente impegnativa.
 				\item Ho ricevuto numerosi feedback dai clienti che hanno avuto la possibilità di provare l'applicazione. Questi
 				hanno in larga parte aiutato — e in parte sostituito — le mie attività di verifica e collaudo.
@@ -171,10 +171,10 @@
 				secondo software, invece, altro non è che una macchina virtuale Android, installata all'interno di VirtuaBox (con
 				l'aggiunta di funzionalità quali la simulazione dei vari tipi di sensori): esso si distingue dal rivale
 				principalmente per la sua maggiore reattività ai comandi provenienti dall'utente. Genymotion, inoltre, possiede una
-				seconda caratteristica che lo rende appetibile: è possibile installare le applicazioni semplicemente trasinandole
+				seconda caratteristica che lo rende appetibile: è possibile installare le applicazioni semplicemente trascinandole
 				all'interno dell'emulatore, senza dunque dover utilizzare più volte la linea di comando. La mia scelta, dunque, è
 				ricaduta sulla seconda opzione.\\
-				Una volta scelto l'emulatore, ho speso un po di tempo a configurarlo affinchè si interfacciasse in modo corretto con
+				Una volta scelto l'emulatore, ho speso un po di tempo a configurarlo affinché si interfacciasse in modo corretto con
 				la sandbox installata in locale. Questa operazione non era mai stata fatta in azienda: di conseguenza ho deciso di
 				redigere una breve guida a riguardo, per aiutare in questo compito i futuri sviluppatori aziendali.
 		\subsection{Studio e preparazione personale}
@@ -262,7 +262,7 @@
 					(immagini e principali dati personali). In assenza di uno di questi elementi, le API e i Service PastBook non
 					sono in grado di funzionare. Tuttavia, il processo di autenticazione e autorizzazione va a buon fine anche
 					nel caso in cui l'utente non fornisca tutti i privilegi richiesti. L'SDK, dunque, deve preoccuparsi della
-					gestione di questo caso, avvisando in modo consono l'applicazione affinchè essa decida cosa debba essere
+					gestione di questo caso, avvisando in modo consono l'applicazione affinché essa decida cosa debba essere
 					fatto.
 					\item Molto spesso, può accadere che un utente provi un'applicazione solo per curiosità. Tipicamente, egli
 					garantisce tutti i permessi necessari. In seguito, egli può rimuovere uno o più privilegi dell'applicazione
@@ -303,7 +303,7 @@
 				altrimenti deve essere gestita un'anomalia.\\
 				Non sono invece riuscito a gestire in modo consono il caso in cui l'utente, dopo aver utilizzato l'applicazione, la
 				rimuovesse completamente dal proprio profilo Facebook, per poi tentare di utilizzarla nuovamente. Infatti, il modulo
-				di Titanium non fornisce questa possibilità. Poichè per l'azienda questa cosa non era accettabile, in comune accordo
+				di Titanium non fornisce questa possibilità. Poiché per l'azienda questa cosa non era accettabile, in comune accordo
 				con il mio tutor sono giunto a un compromesso, che non era formalmente corretto ma che funzionava nella pratica. Nello
 				specifico, ho sfruttato il fatto che in questo caso il modulo di Titanium restituiva un generico errore: tale
 				malfunzionamento poteva essere generato da molti aspetti, tuttavia durante i numerosi test risultava accadere proprio
@@ -415,7 +415,7 @@
 					occupa di memorizzare il token e la relativa scadenza in modo sicuro. Si occupa, infine, di capire quando i
 					codici di accesso non sono più validi e prova di conseguenza ad aggiornarli.
 				\end{itemize}
-				L'implementazione di questa parte dell'SDK è stata fatta abbastanza in fretta perchè l'azienda desiderava risultati
+				L'implementazione di questa parte dell'SDK è stata fatta abbastanza in fretta perché l'azienda desiderava risultati
 				soddisfacenti fin da subito. Di conseguenza, non ho avuto tempo di progettare in modo adeguato il componente. I
 				problemi causati da questo approccio si sono rivelati dopo qualche settimana di lavoro. Riporto in seguito i
 				principali, allegando nel contempo la soluzione trovata.
@@ -487,10 +487,10 @@
 						\item i \emph{makers} richiedono in input un insieme di immagini e restituiscono in output un Photo
 						Book;
 					\end{itemize}
-					\item le tiologia delle impostazioni di configurazione dei vari Service può variare; anche Service
+					\item la tipologia delle impostazioni di configurazione dei vari Service può variare; anche Service
 					appartenenti alla stessa categoria possono richiedere parametri completamente diversi.
 				\end{itemize}
-				Chiaramente il launcher deve disporre di tutte le necessarie autorizzazioni per poter svolgere le proprie funzioni.
+				Chiaramente il Launcher deve disporre di tutte le necessarie autorizzazioni per poter svolgere le proprie funzioni.
 				Questo implica disporre dei token necessari per accedere ai vari social network e ai server PastBook.
 			\subsubsection{Progettazione e implementazione del Launcher}
 				Per una corretta progettazione e implementazione del Launcher è stato speso molto tempo. Questo è senza dubbio il
@@ -574,7 +574,7 @@
 						\item in che ordine eseguire i Service specificati;
 						\item quali risultati restituiscono i Service specificati;
 						\item qual è la tipologia di impostazioni necessaria per ogni Service;
-						\item quali sono le impostazioni di ciascun service.
+						\item quali sono le impostazioni di ciascun Service.
 					\end{itemize}
 					Questi dati possono essere molto variabili e i vincoli su di essi sono pochi. È dunque necessario un parsing
 					intelligente che sappia ricavare i valori utili per trasformarli in un formato utilizzabile dal Launcher.
@@ -657,7 +657,7 @@
 				scegliere se aggiungere alcuni pacchetti opzionali (per esempio copertine rigide o album più grandi). Procedendo, egli
 				fornisce a PastBook i dettagli personali e i metodi tramite il quale preferisce essere contattato. Infine, compila
 				i dati riguardanti l'indirizzo al quale intende ricevere il prodotto, una volta che è stato stampato con successo.\\
-				In seguto alla presentazione, ho discusso con il mio tutor su quali fossero effettivamente le funzionalità che avrei
+				In seguito alla presentazione, ho discusso con il mio tutor su quali fossero effettivamente le funzionalità che avrei
 				dovuto implementare e come sarebbe dovuta essere strutturata l'applicazione: i cambiamenti più significativi
 				rispetto a ciò che avevo pensato e sui quali abbiamo concordato riguardano i seguenti aspetti:
 				\begin{itemize}
@@ -702,7 +702,7 @@
 				struttura interna iniziale dell'applicazione è stata realizzata in modo troppo sommario. Essa prevedeva un semplice
 				pattern MVC nel quale ad ogni schermata corrispondeva un \emph{model}, un \emph{controller} e una \emph{view}. A
 				questi elementi, si aggiungevano poi le componenti messe a disposizione dal PastBook Mobile SDK.\\
-				È risultato presto ovvio che questa architettura non fosse utilizzabile e tantomeno manutenibile, in quanto le
+				È risultato presto ovvio che questa architettura non fosse utilizzabile e tanto meno manutenibile, in quanto le
 				dimensioni dei controller tendevano a crescere troppo. L'intero sistema, inoltre, utilizzava più volte codice simile
 				per eseguire operazioni sostanzialmente identiche. Ho quindi concordato con l'azienda che avrei speso parte del mio
 				tempo per riorganizzare l'intera struttura dell'applicazione.\\
@@ -763,11 +763,11 @@
 					ovvero l'album realizzato. Inoltre, risulta particolarmente utile la possibilità di fermare l'esecuzione del
 					processo di creazione del Photo Book. L'utente dell'applicazione, infatti, può in qualsiasi momento decidere
 					di tornare alla schermata iniziale. Infine, la possibilità offerta dal Launcher di configurare le varie
-					callback permette all'applicazione di svolgere azioni con i risultati intermedi del'elaborazione (per esempio
+					callback permette all'applicazione di svolgere azioni con i risultati intermedi dell'elaborazione (per esempio
 					può utilizzare le immagini ottenute dai provider per implementare una schermata di attesa).
 				\end{itemize}
 				In definitiva, posso affermare che il PastBook Mobile SDK svolga egregiamente il proprio ruolo e che lo sviluppo
-				del'applicazione risulti notevolmente semplificato a causa di ciò.
+				dell'applicazione risulti notevolmente semplificato a causa di ciò.
 		\subsection{Implementazione delle schermate e dei relativi controller}
 			\subsubsection{L'uso del framework MVC Alloy}
 				Per l'implementazione di My Year Photo Book ho scelto di utilizzare il framework Alloy, messo a disposizione
@@ -801,7 +801,7 @@
 				All'interno del progetto, poi, sono presenti alcuni file particolarmente importanti. Essi sono \texttt{tiapp.xml} e
 				\texttt{config.json}. Il primo è il file di configurazione generale. Oltre a contenere le informazioni che inserite
 				in fase di inizializzazione, questo file consente anche di definire eventuali moduli esterni che si vogliono
-				utilizzare. Inoltre, si possomo aggiungere ulteriori voci di configurazione relative alle singole piattaforme di
+				utilizzare. Inoltre, si possono aggiungere ulteriori voci di configurazione relative alle singole piattaforme di
 				distribuzione (cioè voci specifiche solo per iOS o Android). Il secondo file, invece, permette di definire degli
 				oggetti il cui valore può dipendere sia dall'ambiente di esecuzione (sviluppo, test o produzione) che dalla
 				piattaforma di destinazione.\\
@@ -864,7 +864,7 @@
 				l'utente stava realizzando il suo album.\\
 				Ho dovuto innanzitutto preoccuparmi di come ottenere le foto dell'utente. A questo scopo mi è stata molto utile
 				l'interfaccia del Launcher dell'SDK realizzata in precedenza. Essa, infatti, metteva a disposizione delle callback
-				cha sarebbero state eseguite in seguito ad ogni Service (in base alla categoria alla quale apparteneva). In
+				che sarebbero state eseguite in seguito ad ogni Service (in base alla categoria alla quale apparteneva). In
 				particolare, ho fatto uso delle callback dedicate ai provider per accedere alle foto che ognuno di essi otteneva. I
 				provider sono di solito molto veloci, poiché si basano su semplici API messe a disposizione dai vari social network:
 				di conseguenza il tempo che l'utente doveva attendere per veder comparire le prime foto era minimo.
@@ -901,7 +901,7 @@
 				rivelato il fatto che spesso l'utente si stanca di aspettare, cercando dunque di tornare indietro. In questo caso
 				è importante annullare l'algoritmo in esecuzione, ignorando completamente ogni suo risultato e, soprattutto, evitando
 				che eventuali callback vengano eseguite. Per soddisfare questo requisito, ho utilizzato la possibilità offerta dal
-				Launcher di essero messo in pausa ed eventualmente fermato completamente.
+				Launcher di essere messo in pausa ed eventualmente fermato completamente.
 				\input{TeX/capitolo_3/diagrammi/backbutton_schermata_attesa.tex}
 				\noindent La figura mostra un esempio di come può apparire la schermata di intrattenimento all'utente.
 				\begin{figure}[H]
@@ -912,7 +912,7 @@
 				\noindent Riporto infine di essermi scontrato con un fastidioso bug di Titanium durante l'implementazione di tale
 				schermata. In particolare, la funzione dedicata al ridimensionamento e al ritaglio delle immagini restituiva spesso
 				risultati completamente errati: le proporzioni delle foto non erano rispettate, ottenendo un prodotto
-				completamente inutilizzabile. Appcelerator è a consocenza di questo bug, ma non l'ha risolto durante la mia
+				completamente inutilizzabile. Appcelerator è a conoscenza di questo bug, ma non l'ha risolto durante la mia
 				esperienza di stage. Ho dovuto dunque procedere attraverso vie alternative.
 			\subsubsection{Visualizzazione del Photo Book}
 				Quando il Launcher termina la sua esecuzione, esso restituisce all'applicazione un codice che rappresenta il Photo
@@ -933,7 +933,7 @@
 				immagini in esso contenute, e dunque una rappresentazione di questo genere sarebbe stata di scarsa utilità per
 				l'utente. A partire da questa breve analisi, ho capito che la realizzazione di questo componente sarebbe stata
 				troppo ardua con così poco tempo a disposizione. Inoltre, la difficoltà era enormemente aumentata dal fatto che il
-				design doveva obblgatoriamente essere accattivamente (si sarebbero dovute “sfogliare” le pagine come nella realtà).\\
+				design doveva obbligatoriamente essere accattivante (si sarebbero dovute “sfogliare” le pagine come nella realtà).\\
 				Ho quindi optato per il riutilizzo di uno script che l'azienda usava all'interno dei servizi web per svolgere
 				esattamente la stessa funzione di cui avevo bisogno. In particolare, ho deciso di utilizzare una \emph{webview}
 				integrata all'interno dell'applicazione al punto tale che fosse indistinguibile da un componente realizzato in modo
@@ -942,7 +942,7 @@
 				in quanto Titanium non gestiva questa opzione in modo corretto.
 				Le criticità che ho dovuto affrontare nell'implementazione di tale schermata hanno riguardato in pratica solo
 				l'aspetto grafico e, in particolare, la rotazione dello schermo. Infatti, a causa dei requisiti che il design doveva
-				soddisfarre, mi è stato impossibile realizzare un layout responsive. Ho dovuto quindi procedere alla modifica
+				soddisfare, mi è stato impossibile realizzare un layout responsive. Ho dovuto quindi procedere alla modifica
 				dinamica degli stili di tutti i vari componenti presenti all'interno della schermata di preview. Tale cosa ha fatto
 				in modo che l'applicazione subisse un rallentamento generale, quando eseguita su dispositivi datati.
 				\begin{figure}[H]
@@ -997,12 +997,12 @@
 					invece era fortemente desiderata dall'azienda. Essi, inoltre, possedevano un'interfaccia grafica molto
 					scarna che avrei dovuto migliorare (non avevo il tempo necessario per questa operazione).
 					\item Ho trovato anche un modulo a pagamento. PastBook, tuttavia, non era disposta a pagare per poter
-					utilizzare un software di cui non consocevamo la qualità.
+					utilizzare un software di cui non conoscevamo la qualità.
 				\end{itemize}
-				Alle considerazioni apena fatte si aggiunge il fatto che — a fine stage — la mia fiducia verso i moduli Titanium
+				Alle considerazioni appena fatte si aggiunge il fatto che — a fine stage — la mia fiducia verso i moduli Titanium
 				stava inesorabilmente venendo a mancare, a causa delle complicate esperienze con i componenti dedicati a Facebook e
 				alla modifica delle immagini.\\
-				Dunque, ho preferito utilizzare un'approccio diverso, simile a quello adottato nell'implementazione della schermata
+				Dunque, ho preferito utilizzare un approccio diverso, simile a quello adottato nell'implementazione della schermata
 				di visualizzazione del Photo Book: utilizzare una \emph{webview} integrata all'interno dell'applicazione per poter
 				riutilizzare servizi inizialmente pensati per il Web. Stripe, in particolare, fornisce a tutti i suoi
 				utilizzatori un comodo componente (altamente ottimizzato per dispositivi mobile) tramite il quale gestire i pagamenti
@@ -1040,7 +1040,7 @@
 			quando l'applicazione è diventata abbastanza stabile. Oltre a questo semplice strumento da me implementato, ho configurato
 			l'applicazione in modo tale che usasse \emph{HockeyApp}, per riportare informazioni su eventuali crash.
 			L'ultima tecnica utilizzata ha riguardato l'analisi delle risorse utilizzate da My Year Photo Book durante il suo utilizzo.
-			Per fare questo, ho utilizzato gli strumeti messi a disposizione dagli SDK di Android e iOS. Grazie ad essi, mi sono accorto di
+			Per fare questo, ho utilizzato gli strumenti messi a disposizione dagli SDK di Android e iOS. Grazie ad essi, mi sono accorto di
 			alcune situazioni durante le quali erano necessarie delle ottimizzazioni (in particolare durante la schermata di
 			intrattenimento dell'utente).
 	\section{Mantenimento di My Year Photo Book}
@@ -1168,7 +1168,7 @@
 				minimali.\\
 				L'enorme difetto di questo modo di procedere consisteva nel fatto che ero completamente alle prime armi
 				nell'utilizzare Titanium; non sapevo dunque quali fossero le migliori strategie e pattern da adottare: il risultato
-				è stato che l'architettura da me adottata inizialmente non era facilmente manutenibile, seppur funzionante. Il
+				è stato che l'architettura da me adottata inizialmente non era facilmente mantenibile, seppur funzionante. Il
 				problema si è rivelato essere più grave del previsto quando le dimensioni dell'applicazione hanno cominciato
 				a crescere: l'intera struttura del software non risultava più utilizzabile. Dopo essersi accorto di questo, il
 				dirigente aziendale mi ha prima concesso del tempo, per pensare a una possibile riorganizzazione del lavoro da me

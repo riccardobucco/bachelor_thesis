@@ -14,6 +14,13 @@
 \usepackage[pdfborder={0 0 0}]{hyperref}
 \usepackage{listings, lstautogobble}
 \usepackage{dirtree}
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
 
 \DTsetlength{0.2em}{3em}{0.2em}{0.4pt}{1.6pt}
 
@@ -25,9 +32,16 @@
 
 \begin{document}
 	\input{copertina/copertina.tex}
+	\newpage\null\thispagestyle{empty}\newpage
+	\input{sommario/sommario.tex}
+	\newpage\null\thispagestyle{empty}\newpage
+	\input{ringraziamenti/ringraziamenti.tex}
+	\newpage\null\thispagestyle{empty}\newpage
+	\pagenumbering{Roman}
 	\tableofcontents
 	\listoffigures
 	\newpage
+	\pagenumbering{arabic}
 	\input{capitolo_1/capitolo_1.tex}
 	\newpage
 	\input{capitolo_2/capitolo_2.tex}
