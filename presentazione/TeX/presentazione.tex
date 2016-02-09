@@ -1,0 +1,42 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, italian]{babel}
+
+\usetheme[compress]{Berlin}
+\beamertemplatenavigationsymbolsempty
+
+\title{Sviluppo di un'applicazione mobile cross-platform tramite l'uso di Appcelerator Titanium}
+\author{Riccardo Bucco}
+\institute[Università degli Studi di Padova]
+{
+	Dipartimento di Matematica\\
+	Corso di Laurea in Informatica
+}
+\date{Padova, 17 febbraio 2016}
+
+
+\begin{document}
+	\begin{frame}[noframenumbering, plain]
+		\titlepage
+	\end{frame}
+
+	\begin{frame}[noframenumbering]{Indice dei contenuti}
+		\tableofcontents
+	\end{frame}
+
+	\addtobeamertemplate{navigation symbols}{}{%
+		\usebeamerfont{footline}%
+		\usebeamercolor[fg]{footline}%
+		\hspace{1em}%
+		\insertframenumber/\inserttotalframenumber
+	}
+
+	\input{capitolo_1/capitolo_1.tex}
+	\input{capitolo_2/capitolo_2.tex}
+	\input{capitolo_3/capitolo_3.tex}
+	\input{capitolo_4/capitolo_4.tex}
+\end{document}
+
+
