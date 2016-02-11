@@ -1,0 +1,78 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\draw[fill=azzurro] (0,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth);
+		\draw (0,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Controllo stato autenticazione};
+		\draw[->] (0.21\textwidth,0.13\textwidth) -- (0.25\textwidth,0.13\textwidth);
+		\draw (0.1\textwidth,0.20\textwidth) -- (0.1\textwidth,0.27\textwidth);
+		\draw (0.1\textwidth,0.27\textwidth) -- (0.61\textwidth,0.27\textwidth);
+		\draw[->] (0.61\textwidth,0.27\textwidth) -- (0.61\textwidth,0.20\textwidth);
+		\draw[fill=azzurro] (0.26\textwidth,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth);
+		\draw (0.26\textwidth,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Autenticazione};
+		\draw[->] (0.47\textwidth,0.13\textwidth) -- (0.51\textwidth,0.13\textwidth);
+		\draw[fill=azzurro] (0.52\textwidth,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth);
+		\draw (0.52\textwidth,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Controllo stato autorizzazione};
+		\draw[->] (0.73\textwidth,0.13\textwidth) -- (0.77\textwidth,0.13\textwidth);
+		\draw[fill=azzurro] (0.78\textwidth,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth);
+		\draw (0.78\textwidth,0.07\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Autorizzazione};
+		
+		\draw[dashed] (0.49\textwidth,0.2\textwidth) -- (0.49\textwidth,0.13\textwidth);
+		\draw (0.41\textwidth,0.2\textwidth) rectangle ++(0.16\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Credenziali corrette};
+		
+		\draw (0.39\textwidth,0.06\textwidth) -- (0.39\textwidth,0);
+		\draw (0.39\textwidth,0) -- (0.43\textwidth,0);
+		\draw[->] (0.43\textwidth,0) -- (0.43\textwidth,0.06\textwidth);
+		\draw[dashed] (0.43\textwidth,0.03\textwidth) -- (0.47\textwidth,0.03\textwidth);
+		\draw (0.47\textwidth,0) rectangle ++(0.16\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Credenziali errate};
+		
+		\draw (0.36\textwidth,0.06\textwidth) -- (0.36\textwidth,-0.07\textwidth);
+		\draw[->] (0.36\textwidth,-0.07\textwidth) -- (0.38\textwidth,-0.07\textwidth);
+		\draw (0.88\textwidth,0.06\textwidth) -- (0.88\textwidth,-0.07\textwidth);
+		\draw[->] (0.88\textwidth,-0.07\textwidth) -- (0.6\textwidth,-0.07\textwidth);
+		\draw[fill=azzurro] (0.39\textwidth,-0.13\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth);
+		\draw (0.39\textwidth,-0.13\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Errore};
+		
+		\draw[->] (0.63\textwidth,0.2\textwidth) -- (0.63\textwidth,0.32\textwidth);
+		\draw (0.88\textwidth,0.2\textwidth) -- (0.88\textwidth,0.34\textwidth);
+		\draw[->] (0.88\textwidth,0.34\textwidth) -- (0.73\textwidth,0.34\textwidth);
+		
+		\draw[dashed] (0.83\textwidth,0.37\textwidth) -- (0.83\textwidth,0.34\textwidth);
+		\draw (0.75\textwidth,0.37\textwidth) rectangle ++(0.16\textwidth,0.1\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Concessi uno o più permessi};
+		
+		\draw[fill=azzurro] (0.52\textwidth,0.33\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth);
+		\draw (0.52\textwidth,0.33\textwidth) rectangle ++(0.20\textwidth,0.12\textwidth)
+		node[pos=.5, text width=0.18\textwidth, align=center] {Ottenimento token};
+		
+		\draw[dashed] (0.36\textwidth,-0.04\textwidth) -- (0.31\textwidth,-0.04\textwidth);
+		\draw (0.15\textwidth,-0.11\textwidth) rectangle ++(0.16\textwidth,0.1\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Mancato inserimento credenziali};
+		
+		\draw[dashed] (0.75\textwidth,0.2\textwidth) -- (0.75\textwidth,0.13\textwidth);
+		\draw (0.67\textwidth,0.2\textwidth) rectangle ++(0.16\textwidth,0.1\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Alcuni permessi mancanti};
+		
+		\draw[dashed] (0.49\textwidth,0.3\textwidth) -- (0.63\textwidth,0.3\textwidth);
+		\draw (0.33\textwidth,0.28\textwidth) rectangle ++(0.16\textwidth,0.1\textwidth)
+		node[pos=.5, text width=0.15\textwidth, align=center] {Applicazione già autorizzata};
+		
+		\draw[dashed] (0.75\textwidth,-0.04\textwidth) -- (0.75\textwidth,-0.07\textwidth);
+		\draw (0.67\textwidth,-0.04\textwidth) rectangle ++(0.16\textwidth,0.1\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Nessun permesso concesso};
+		
+		\draw[dashed] (0.23\textwidth,0.13\textwidth) -- (0.23\textwidth,0.06\textwidth);
+		\draw (0.15\textwidth,0) rectangle ++(0.16\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Utente non autenticato};
+		
+		\draw[dashed] (0.2\textwidth,0.27\textwidth) -- (0.2\textwidth,0.32\textwidth);
+		\draw (0.12\textwidth,0.32\textwidth) rectangle ++(0.16\textwidth,0.06\textwidth)
+		node[pos=.5, text width=0.16\textwidth, align=center] {Utente autenticato};
+	\end{tikzpicture}
+\end{figure}
