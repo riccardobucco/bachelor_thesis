@@ -1,19 +1,22 @@
 \section{Svolgimento dello stage}
 	\subsection{}
 		\begin{frame}{Metodologia di lavoro}
-			\begin{itemize}
-				\item Pianificazione di iterazioni in modo adattivo
-				\begin{itemize}
-					\item Individuazione di obiettivi e requisiti
-					\item Pianificazione settimanale delle attività
-				\end{itemize}
-				\item Coinvolgimento diretto e continuo dei colleghi
-				\begin{itemize}
-					\item Meeting settimanali con gruppo di lavoro
-					\item Consegne frequenti al titolare
-				\end{itemize}
-				\item Pair programming
-			\end{itemize}
+			\begin{minipage}{0.49\textwidth}
+				\centering
+				\includegraphics[width=0.5\textwidth]{capitolo_3/immagini/scrum.png}					
+			\end{minipage}
+			\begin{minipage}{0.49\textwidth}
+				\centering
+				\includegraphics[width=0.7\textwidth]{capitolo_3/immagini/meeting.png}
+			\end{minipage}\par
+			\begin{minipage}{0.49\textwidth}
+				\centering
+				\includegraphics[width=0.5\textwidth]{capitolo_3/immagini/pair_programming.png}					
+			\end{minipage}
+			\begin{minipage}{0.49\textwidth}
+				\centering
+				\includegraphics[width=0.7\textwidth]{capitolo_3/immagini/pianificazione.png}
+			\end{minipage}			
 		\end{frame}
 	\subsection{Sviluppo di PastBook Mobile SDK}
 		\begin{frame}{Autenticazione a Facebook e Instagram}
@@ -21,28 +24,35 @@
 			\input{capitolo_3/diagrammi/autenticazione_e_autorizzazione_social_network.tex}
 		\end{frame}
 	\subsection{Sviluppo di PastBook Mobile SDK}
-		\begin{frame}{Launcher: caratteristiche}
-			\begin{block}{Problema dell'approccio proposto da PastBook}
-				Gli sviluppatori devono modificare il codice dell'applicazione quando l'algoritmo di creazione di un Photo Book
-				cambia
-			\end{block}
-			\begin{block}{Caratteristiche della soluzione proposta}
-				\begin{itemize}
-					\item Algoritmo modificabile da remoto senza dover intervenire sull'applicazione
-					\item Possibilità di utilizzo di qualsiasi Service nell'algoritmo
-					\item Esecuzione dell'algoritmo interrompibile/riprendibile
-					\item Possibilità di utilizzo dei risultati intermedi dell'algoritmo
-				\end{itemize}
-			\end{block}
+		\begin{frame}{\emph{Launcher}}
+			\begin{minipage}{0.97\textwidth}
+				\begin{block}{Problema dell'approccio di PastBook}
+					Il codice deve essere modificato quando l'algoritmo di creazione di un
+					\emph{Photo Book} cambia
+				\end{block}
+			\end{minipage}\par
+			\begin{minipage}{0.29\textwidth}
+				\includegraphics[width=0.9\textwidth]{capitolo_3/immagini/modifica_algoritmo.png}
+			\end{minipage}
+			\begin{minipage}{0.67\textwidth}
+				\begin{block}{Soluzione proposta}
+					\begin{itemize}
+						\item Algoritmo modificabile da remoto
+						\item Utilizzo di qualsiasi \emph{Service}
+						\item Funzioni \emph{play}/\emph{pause}
+						\item Uso dei risultati intermedi
+					\end{itemize}
+				\end{block}
+			\end{minipage}
 		\end{frame}
 	\subsection{Sviluppo di PastBook Mobile SDK}
-		\begin{frame}{Launcher: funzionamento}
+		\begin{frame}{Funzionamento del \emph{Launcher}}
 			\fontsize{8pt}{7}\selectfont
-			\begin{block}{Tipologie di Service aziendali}
+			\begin{block}{Tipologie di \emph{Service} aziendali}
 				\begin{description}
-					\item[Provider] Ottiene un insieme di foto dell'utente
-					\item[Filter] Modifica un insieme di foto
-					\item[Maker] Svolge un'azione complessa usando un insieme di foto	
+					\item[\emph{Provider}] Ottiene un insieme di foto dell'utente
+					\item[\emph{Filter}] Modifica un insieme di foto
+					\item[\emph{Maker}] Svolge un'azione complessa usando un insieme di foto	
 				\end{description}
 			\end{block}
 			\input{capitolo_3/diagrammi/launcher.tex}
@@ -55,7 +65,7 @@
 			\end{figure}
 		\end{frame}
 	\subsection{Sviluppo di My Year Photo Book}
-		\begin{frame}{Progettazione e implementazione delle schermate}
+		\begin{frame}{Implementazione dell'applicazione}
 			\begin{minipage}{0.49\textwidth}
 				\begin{minipage}{0.32\textwidth}
 					\includegraphics[width=1.0\textwidth]{capitolo_3/immagini/schermata_principale.png}
@@ -71,13 +81,13 @@
 				\begin{itemize}
 					\item Pattern architetturale MVC
 					\item Componenti riutilizzabili
-					\item Checkout tramite Stripe
-					\item Photo Book “sfogliabile”
+					\item \emph{Checkout} tramite Stripe
+					\item \emph{Photo Book} “sfogliabile”
 				\end{itemize}
 			\end{minipage}\par
 			\begin{block}{Schermata di intrattenimento}
 				\begin{itemize}
-					\item Uso delle funzioni del Launcher (callback e play/pause)
+					\item Uso delle funzioni del \emph{Launcher} (\emph{callback} e \emph{play/pause})
 					\item Uso del componente \emph{gallery}
 					\item Ottimizzazione delle prestazioni
 				\end{itemize}
